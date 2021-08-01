@@ -1,2 +1,2 @@
-# SBM-Samples
-Sample Scripts for S.Building Modeller App
+# SBM Scripts
+Sample Scripts for Sustainable Building Modeller App
