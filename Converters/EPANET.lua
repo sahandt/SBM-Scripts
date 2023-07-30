@@ -6,28 +6,9 @@ ENinit("Report".. GetDateTimeNow("yy MM dd hh mm ss"),"Output1", EN_C( "EN_CMH")
 --[[Or you can read the project from an input file located in EPANET folder inside working directory]]
 --[[ENopen("eptest1.inp","","")]]
 
---[[Hydraulic simulation time in seconds]]
-local duration = 6*60*60
-
---[[Hydraulic simulation time step in seconds]]
-local hydstep = 1*60
-
---[[Number of iterations]]
-
-local N= duration/hydstep
-local t= 0
-local P={}
-local tstep =0
-local index=-1
-
-
 local now = GetDateTimeNow("yy MM dd hh mm")
 
 ENsettitle("EPANET Model for "..GetProjectProperty("NAME") , "Created on "..now, "Scripted by Sahand Tashak")
-ENwriteline("Duration: ".. duration);
-ENwriteline("Hydraulic Step: ".. hydstep);
-ENsettimeparam(EN_C("EN_DURATION"), duration)
-ENsettimeparam(EN_C("EN_HYDSTEP"), hydstep)
 
 MaterialClearCollection()
 --[[This is the liquid used in calculations.]]
@@ -344,10 +325,8 @@ if(ENVerifyInput()) then
       end 
       table.insert(fittingTable, ftHeader)
       
-      local i = 1
-      
       --[[initializing project's hydraulic solver:]]
-      ENinitH(EN_C("EN_NOSAVE"));
+      ENinitH(EN_C("EN_SAVE_AND_INIT"));
       
       --[[
       initializing options:
@@ -356,28 +335,25 @@ if(ENVerifyInput()) then
       EN_INITFLOW: Don't save hydraulics; re-initialize flows.
       EN_SAVE_AND_INIT: Save hydraulics; re-initialize flows.
       ]]
-      
-      while i<N do
-            --[[Set nodal demand, initialize hydraulics, make a single period run, and retrieve pressure]]
-            t= ENrunH(t);
-            local tstep = ENnextH() ;
-            local ftRow = {}
-            table.insert(ftRow, i)
-            for fittingTag in GetElementsByType("PIPE_FITTING") do
-               table.insert(ftRow,  ENgetnodevalue(ENgetnodeindex(fittingTag), EN_C("EN_PRESSURE")))
-            end 
-            table.insert(fittingTable, ftRow)
-            i = i + 1
-      end
+
+       ENsolveH()
+       ENsaveH();
+
+      local ftRow = {}
+      table.insert(ftRow, "Pressure")
+      for fittingTag in GetElementsByType("PIPE_FITTING") do
+         table.insert(ftRow,  ENgetnodevalue(ENgetnodeindex(fittingTag), EN_C("EN_PRESSURE")))
+      end 
+      table.insert(fittingTable, ftRow)
    
-      hydraulicsFileName="Hydraulics ".. GetDateTimeNow("yy MM dd hh mm ss");
+      hydraulicsFileName="Hydraulics ".. now;
    
       ENsavehydfile(hydraulicsFileName);
       ENreport();
       ENsaveRepfile();
 
           ENcloseH();
-          printTable("Nodes pressures", fittingTable)
+          printTable("Nodes Results", fittingTable)
 end
 ENclose();
 OpenAppWorkingFolder('EPANET');
