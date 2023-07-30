@@ -306,7 +306,7 @@ for i,ele in ipairs(ele_tbl) do
 end
 
 
-local filename ="EPANET input "..now..".inp"
+local filename ="EPANET input "..now
 ENsaveinpfile(filename);
 print("File: "..filename.." is saved in application folder!")
 
