@@ -1,7 +1,7 @@
---[[This script converts current project model to an EPANET project and runs hydraulic analysis and saves the input file]]
+--[[This script converts current project model to an EPANET project and saves the input file (.inp). Then it verifies the input, runs hydraulic analysis, and saves report (.rpt) and hydraulic (.hyd) files ]]
 
 --[[Initialising a new EPANET project:]]
-ENinit("","", EN_C( "EN_CMH"), EN_C( "EN_DW"))
+ENinit("Report".. GetDateTimeNow("yy MM dd hh mm ss"),"Output1", EN_C( "EN_CMH"), EN_C( "EN_DW"))
 
 --[[Or you can read the project from an input file located in EPANET folder inside working directory]]
 --[[ENopen("eptest1.inp","","")]]
@@ -24,6 +24,8 @@ local index=-1
 local now = GetDateTimeNow("yy MM dd hh mm")
 
 ENsettitle("EPANET Model for "..GetProjectProperty("NAME") , "Created on "..now, "Scripted by Sahand Tashak")
+ENwriteline("Duration: ".. duration);
+ENwriteline("Hydraulic Step: ".. hydstep);
 ENsettimeparam(EN_C("EN_DURATION"), duration)
 ENsettimeparam(EN_C("EN_HYDSTEP"), hydstep)
 
@@ -322,47 +324,60 @@ for i,ele in ipairs(ele_tbl) do
        end 
 end
 
---[[Opening project's hydraulic solver:]]
-ENopenH();
 
---[[Creating a lua table to add calculation results inside a HTML table:]]
-local fittingTable = {}
-local ftHeader = {}
-table.insert(ftHeader, "Row")
-
-for fittingTag in GetElementsByType("PIPE_FITTING") do
-   table.insert(ftHeader, fittingTag)
-end 
-table.insert(fittingTable, ftHeader)
-
-local i = 1
-
---[[initializing project's hydraulic solver:]]
-ENinitH(EN_C("EN_NOSAVE"));
-
---[[
-initializing options:
-EN_NOSAVE: Don't save hydraulics; don't re-initialize flows.
-EN_SAVE: Save hydraulics to file, don't re-initialize flows.
-EN_INITFLOW: Don't save hydraulics; re-initialize flows.
-EN_SAVE_AND_INIT: Save hydraulics; re-initialize flows.
-]]
-
-while i<N do
-      --[[Set nodal demand, initialize hydraulics, make a single period run, and retrieve pressure]]
-      t= ENrunH(t);
-      local tstep = ENnextH() ;
-      local ftRow = {}
-      table.insert(ftRow, i)
-      for fittingTag in GetElementsByType("PIPE_FITTING") do
-         table.insert(ftRow,  ENgetnodevalue(ENgetnodeindex(fittingTag), EN_C("EN_PRESSURE")))
-      end 
-      table.insert(fittingTable, ftRow)
-      i = i + 1
-end
-
-    ENcloseH();
-    printTable("Nodes pressures", fittingTable)
 local filename ="EPANET input "..now..".inp"
 ENsaveinpfile(filename);
 print("File: "..filename.." is saved in application folder!")
+
+if(ENVerifyInput()) then 
+
+      --[[Opening project's hydraulic solver:]]
+      ENopenH();
+      
+      --[[Creating a lua table to add calculation results inside a HTML table:]]
+      local fittingTable = {}
+      local ftHeader = {}
+      table.insert(ftHeader, "Row")
+      
+      for fittingTag in GetElementsByType("PIPE_FITTING") do
+         table.insert(ftHeader, fittingTag)
+      end 
+      table.insert(fittingTable, ftHeader)
+      
+      local i = 1
+      
+      --[[initializing project's hydraulic solver:]]
+      ENinitH(EN_C("EN_NOSAVE"));
+      
+      --[[
+      initializing options:
+      EN_NOSAVE: Don't save hydraulics; don't re-initialize flows.
+      EN_SAVE: Save hydraulics to file, don't re-initialize flows.
+      EN_INITFLOW: Don't save hydraulics; re-initialize flows.
+      EN_SAVE_AND_INIT: Save hydraulics; re-initialize flows.
+      ]]
+      
+      while i<N do
+            --[[Set nodal demand, initialize hydraulics, make a single period run, and retrieve pressure]]
+            t= ENrunH(t);
+            local tstep = ENnextH() ;
+            local ftRow = {}
+            table.insert(ftRow, i)
+            for fittingTag in GetElementsByType("PIPE_FITTING") do
+               table.insert(ftRow,  ENgetnodevalue(ENgetnodeindex(fittingTag), EN_C("EN_PRESSURE")))
+            end 
+            table.insert(fittingTable, ftRow)
+            i = i + 1
+      end
+   
+      hydraulicsFileName="Hydraulics ".. GetDateTimeNow("yy MM dd hh mm ss");
+   
+      ENsavehydfile(hydraulicsFileName);
+      ENreport();
+      ENsaveRepfile();
+
+          ENcloseH();
+          printTable("Nodes pressures", fittingTable)
+end
+ENclose();
+OpenAppWorkingFolder('EPANET');
