@@ -358,4 +358,5 @@ ModelicaComponentAddStartAttribute(syscom,"energyDynamics=Modelica.Fluid.Types.D
 
 local filename ="Model "..now..".mo"
 ModelicaSavePackage(filename)
-print("File: "..filename.." is saved in application local folder!")
+print("File: "..filename.." is saved in application work folder!")
+OpenAppWorkingFolder('MOD');
