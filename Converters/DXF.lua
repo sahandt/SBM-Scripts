@@ -105,4 +105,5 @@ end
 PrintCanvas(100) 
 local filename = "Drawing "..now..".dxf"
 CanvasSaveAsDXF(filename);
-print(filename.." ".."saved.")
+print("File: "..filename.." is saved in application work folder!")
+OpenAppWorkingFolder('DXF');
