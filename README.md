@@ -17,10 +17,8 @@ Comprehensive documentation for available functions, scripting capabilities, and
 This website includes descriptions of built-in functions, example codes, and visual guides for users who want to get the most out of SBM scripting.
 
 ## 📂 How to Use
-Clone or download this repository.
 
-Open Sustainable Building Modeller.
-
-Go to the Script Menu → Edit Script or Run Script.
-
-Load or paste your desired script and execute it.
+- Clone or download this repository.
+- Open Sustainable Building Modeller.
+- Go to the Script Menu → Edit Script or Run Script.
+- Load or paste your desired script and execute it.
