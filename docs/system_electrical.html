@@ -1,4 +1,140 @@
-<!DOCTYPE html><html><head>    <meta charset="UTF-8">    <title>Electrical System - SBM API</title>    <style>        body { font-family: Arial, sans-serif; margin: 40px; }        header { display: flex; align-items: center; margin-bottom: 30px; }        header svg { width: 48px; height: 48px; margin-right: 20px; }        h1 { margin: 0; font-size: 24px; }        .meta { color: #777; font-size: 14px; margin-top: 4px; }        nav a { font-size: 14px; text-decoration: none; color: #007acc; }        nav a:hover { text-decoration: underline; }    </style></head><body><header>    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">        <rect x="10" y="10" width="80" height="80" rx="15" ry="15" fill="#007acc"/>        <text x="50%" y="55%" font-size="36" text-anchor="middle" fill="white" font-family="Arial" dy=".3em">SBM</text>    </svg>    <div>        <h1>Electrical System</h1>        <div class="meta">Version: 1030400 | Generated: 2025-04-20</div>        <nav><a href="index.html">← Back to Main Page</a></nav>    </div></header>
-<!DOCTYPE html><html><head>  <meta charset="UTF-8">  <title>Electrical System Guide</title>    <style>      body {        font-family: Arial, sans-serif;        background-color: #f4f4f9;        margin: 0;        padding: 0;      }      h1, h2 {        color: #2c3e50;      }      .menu-item {        font-size: 18px;        padding: 10px;        background-color: #ecf0f1;        margin: 5px 0;        border-radius: 5px;        transition: background-color 0.3s;      }      .menu-item:hover {        background-color: #3498db;        color: white;      }      .menu-container {        max-width: 900px;        margin: 20px auto;        padding: 20px;        background-color: white;        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);        border-radius: 8px;      }      ul {        list-style-type: none;        padding-left: 20px;      }      li {        padding: 5px 0;      }      .submenu {        padding-left: 20px;      }      .highlight {        color: #e74c3c;      }      .footer {        text-align: center;        font-size: 14px;        color: #95a5a6;        margin-top: 20px;      }    </style>  </head><body>  <div class="menu-container">    <h1>Electrical Systems</h1>    <p>      The Electrical System module allows you to design and model electrical wiring and cable layouts within a building or system.      You can connect appliances, lights, and power distribution elements using various wire and cable components. The module      supports material definitions, connection logic, and hierarchical structures like conduits or grouped cables.    </p>    <h2>Wire and Cable Structure</h2>    <p>      Electrical wires are composed of:      <ul>        <li>Two <strong>electrical joints</strong> at each end.</li>        <li>A <strong>core material</strong> that conducts electricity.</li>        <li>An <strong>insulation material</strong> added as a child element for safety and protection.</li>      </ul>    </p>    <p>      Electrical cables also connect between two <strong>electrical joints</strong>, but instead of a single conductive core,      they are made of multiple individual wires, each insulated separately. A cable has:      <ul>        <li>Several embedded <strong>electrical wires</strong>.</li>        <li>An overall <strong>insulation layer</strong> around all wires for safety and structure.</li>      </ul>    </p>    <h2>Menu Guide</h2>    <ul>      <li class="menu-item">Cable Menu        <ul class="submenu">          <li>Add Wire</li>          <li>Add Cable</li>          <li>Add Electrical Conduit</li>          <li>Add Electrical Joint</li>        </ul>      </li>      <li class="menu-item">Appliance Menu        <ul class="submenu">          <li>Add Light</li>          <li>Add Electrical Appliance</li>        </ul>      </li>    </ul>    <div class="footer">      Page version: 1030400 – Created on: 2025-04-20    </div>  </div></body></html>  
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Electrical System - SBM API</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        header { display: flex; align-items: center; margin-bottom: 30px; }
+        header svg { width: 48px; height: 48px; margin-right: 20px; }
+        h1 { margin: 0; font-size: 24px; }
+        .meta { color: #777; font-size: 14px; margin-top: 4px; }
+        nav a { font-size: 14px; text-decoration: none; color: #007acc; }
+        nav a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<header>
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="80" height="80" rx="15" ry="15" fill="#007acc"/>
+        <text x="50%" y="55%" font-size="36" text-anchor="middle" fill="white" font-family="Arial" dy=".3em">SBM</text>
+    </svg>
+    <div>
+        <h1>Electrical System</h1>
+        <div class="meta">Version: 1030400 | Generated: 2025-04-25</div>
+        <nav><a href="index.html">← Back to Main Page</a></nav>
+    </div>
+</header>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1, h2 {
+        color: #2c3e50;
+      }
+
+      .menu-item {
+        font-size: 18px;
+        padding: 10px;
+        background-color: #ecf0f1;
+        margin: 5px 0;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .menu-item:hover {
+        background-color: #3498db;
+        color: white;
+      }
+
+      .menu-container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding-left: 20px;
+      }
+
+      li {
+        padding: 5px 0;
+      }
+
+      .submenu {
+        padding-left: 20px;
+      }
+
+      .highlight {
+        color: #e74c3c;
+      }
+
+      .footer {
+        text-align: center;
+        font-size: 14px;
+        color: #95a5a6;
+        margin-top: 20px;
+      }
+    </style>
+  <div class="menu-container">
+    <h1>Electrical Systems</h1>
+    <p>
+      The Electrical System module allows you to design and model electrical wiring and cable layouts within a building or system.
+      You can connect appliances, lights, and power distribution elements using various wire and cable components. The module
+      supports material definitions, connection logic, and hierarchical structures like conduits or grouped cables.
+    </p>
+
+    <h2>Wire and Cable Structure</h2>
+    <p>
+      Electrical wires are composed of:
+      <ul>
+        <li>Two <strong>electrical joints</strong> at each end.</li>
+        <li>A <strong>core material</strong> that conducts electricity.</li>
+        <li>An <strong>insulation material</strong> added as a child element for safety and protection.</li>
+      </ul>
+    </p>
+    <p>
+      Electrical cables also connect between two <strong>electrical joints</strong>, but instead of a single conductive core,
+      they are made of multiple individual wires, each insulated separately. A cable has:
+      <ul>
+        <li>Several embedded <strong>electrical wires</strong>.</li>
+        <li>An overall <strong>insulation layer</strong> around all wires for safety and structure.</li>
+      </ul>
+    </p>
+
+    <h2>Menu Guide</h2>
+    <ul>
+
+        <li class="menu-item">Cable Menu
+    <ul class="submenu">
+      <li><strong>Add Wire</strong> — Insert a single electrical wire used to connect appliances or components.</li>
+      <li><strong>Add Cable</strong> — Add a bundled set of wires for carrying multiple electrical signals or power lines.</li>
+      <li><strong>Add Electrical Conduit</strong> — Place a protective conduit to route wires or cables through the structure.</li>
+      <li><strong>Add Electrical Joint</strong> — Create a junction point where multiple wires or cables are electrically connected.</li>
+    </ul>
+  </li>
+
+  <li class="menu-item">Appliance Menu
+    <ul class="submenu">
+      <li><strong>Add Light</strong> — Add a light-emitting fixture to the model, such as a bulb, panel, or lamp.</li>
+      <li><strong>Add Electrical Appliance</strong> — Insert any generic electrical device that consumes power, like a fan or outlet.</li>
+    </ul>
+  </li>
+    </ul>
+  <footer class="footer">
+  <hr>
+  <p>Generated by Sustainable Building Modeller</p>
+  <p>Version: 1030400 &nbsp;|&nbsp; Generated on: 2025-04-25</p>
+  <p><a href="index.html">← Return to Main Page</a></p>
+</footer>
+</div>
 </body>
 </html>
