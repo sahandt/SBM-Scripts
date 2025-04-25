@@ -1,4 +1,174 @@
-<!DOCTYPE html><html><head>    <meta charset="UTF-8">    <title>Structural System - SBM API</title>    <style>        body { font-family: Arial, sans-serif; margin: 40px; }        header { display: flex; align-items: center; margin-bottom: 30px; }        header svg { width: 48px; height: 48px; margin-right: 20px; }        h1 { margin: 0; font-size: 24px; }        .meta { color: #777; font-size: 14px; margin-top: 4px; }        nav a { font-size: 14px; text-decoration: none; color: #007acc; }        nav a:hover { text-decoration: underline; }    </style></head><body><header>    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">        <rect x="10" y="10" width="80" height="80" rx="15" ry="15" fill="#007acc"/>        <text x="50%" y="55%" font-size="36" text-anchor="middle" fill="white" font-family="Arial" dy=".3em">SBM</text>    </svg>    <div>        <h1>Structural System</h1>        <div class="meta">Version: 1030400 | Generated: 2025-04-20</div>        <nav><a href="index.html">← Back to Main Page</a></nav>    </div></header>
-<!DOCTYPE html><html><head>  <meta charset="UTF-8">  <title>Structural System Guide</title>    <style>      body {        font-family: Arial, sans-serif;        background-color: #f4f4f9;        margin: 0;        padding: 0;      }      h1, h2 {        color: #2c3e50;      }      .menu-item {        font-size: 18px;        padding: 10px;        background-color: #ecf0f1;        margin: 5px 0;        border-radius: 5px;        transition: background-color 0.3s;      }      .menu-item:hover {        background-color: #3498db;        color: white;      }      .menu-container {        max-width: 900px;        margin: 20px auto;        padding: 20px;        background-color: white;        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);        border-radius: 8px;      }      ul {        list-style-type: none;        padding-left: 20px;      }      li {        padding: 5px 0;      }      .submenu {        padding-left: 20px;      }      .highlight {        color: #e74c3c;      }      .footer {        text-align: center;        font-size: 14px;        color: #95a5a6;        margin-top: 20px;      }    </style>  </head><body>  <div class="menu-container">    <h1>Structural Systems</h1>    <p>      The structural system in the Sustainable Building Modeller allows you to model buildings, walls, structural links, and nodes for      analysis and design purposes. It also supports dynamic physical elements that can interact with their environment through physics simulation.    </p>    <h2>Dynamic Elements</h2>    <p>      <strong>Dynamic elements</strong> are customizable elements that can move freely, simulate physical behavior, or be bound by constraints.      They can be assigned mass, velocity, and other physical properties, making them useful for simulating objects that interact dynamically       with their surroundings.    </p>    <h2>Adding Building Elements</h2>    <ul>      <li>When you add a new <strong>building</strong>, it becomes the active network. Be sure to select the right network for additional elements.</li>      <li>The first created building automatically defines these networks: <strong>Column-Floor</strong>, <strong>Floor-Column</strong>, and <strong>Room-Column</strong>.</li>      <li>Each building includes a default floor at the selected elevation. You can add additional floors with custom heights and properties.</li>      <li>To add <strong>columns</strong>, select points and assign their base and top elevations or floors.</li>      <li>Create <strong>walls</strong> by selecting two columns and two elevation levels. The direction of wall layers depends on the order of column selection.</li>      <li>Insert <strong>doors, windows, and wall openings</strong> using the Openings menu with a selected wall.</li>    </ul>    <h2>Structural Links and Nodes</h2>    <p>      Structural links and nodes are used for frame analysis, independent of building components. Use them to define structural frames       compatible with analysis tools like Frame3DD.    </p>    <p>See the <a href="https://raw.githubusercontent.com/sahandt/SBM-Scripts/master/Converters/Frame3DDConverter.lua">Frame3DD converter script</a> on GitHub for export options.</p>    <h2>Furniture, Fixtures, and Vehicles</h2>    <p>      Model interior and exterior objects using basic shapes like cubes, cylinders, and spheres. These can be combined using the       <strong>Attach</strong> function to build more complex forms.    </p>    <p>      Vehicles are special elements that can be controlled by the user. Right-click a vehicle and choose <strong>Drive</strong> to operate it.       Press <kbd>Escape</kbd> or click outside the vehicle to stop. Note that pressing <kbd>Escape</kbd> also resets the vehicle's position.    </p>    <h2>Structural System Menu Guide</h2>    <h3>Building Menu</h3>    <ul>      <li><strong>Add Building</strong> — Create a new building element.</li>      <li><strong>Add Floor</strong> — Add a floor to the selected building.</li>      <li><strong>Add Square Column</strong> — Add a basic square column.</li>      <li><strong>Add Column</strong> — Add a general-purpose column.</li>      <li><strong>Add Profiled Column</strong> — Use a predefined profile shape for a column.</li>      <li><strong>Add Wall</strong> — Add a wall between columns and elevation levels.</li>    </ul>    <h3>Opening Menu</h3>    <ul>      <li><strong>Add Door</strong> — Insert a door into a wall.</li>      <li><strong>Add Window</strong> — Insert a window into a wall.</li>      <li><strong>Add Rectangular Wall Opening</strong> — Create a custom opening in a wall.</li>    </ul>    <h3>Zones Menu</h3>    <ul>      <li><strong>Add Room</strong> — Define a room in the model.</li>      <li><strong>Add Zone</strong> — Group multiple rooms into a zone.</li>    </ul>    <h3>Custom Menu</h3>    <ul>      <li><strong>Add Furniture</strong> — Add generic furniture to the layout.</li>      <li><strong>Add Fixture</strong> — Add elements like sinks or lighting.</li>      <li><strong>Add Dynamic Element</strong> — Insert a physical object with mass, motion, and constraints.</li>      <li><strong>Add Vehicle</strong> — Add a controllable vehicle model.</li>    </ul>    <h3>Structural Network Menu</h3>    <ul>      <li><strong>Add Structural Node</strong> — Insert a node for frame analysis.</li>      <li><strong>Add Structural Link</strong> — Connect two nodes using a beam, truss, or other link type.</li>    </ul>    <div class="footer">      Page version: 1030400 – Created on: 2025-04-20    </div>  </div></body></html>  
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Structural System - SBM API</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        header { display: flex; align-items: center; margin-bottom: 30px; }
+        header svg { width: 48px; height: 48px; margin-right: 20px; }
+        h1 { margin: 0; font-size: 24px; }
+        .meta { color: #777; font-size: 14px; margin-top: 4px; }
+        nav a { font-size: 14px; text-decoration: none; color: #007acc; }
+        nav a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<header>
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="80" height="80" rx="15" ry="15" fill="#007acc"/>
+        <text x="50%" y="55%" font-size="36" text-anchor="middle" fill="white" font-family="Arial" dy=".3em">SBM</text>
+    </svg>
+    <div>
+        <h1>Structural System</h1>
+        <div class="meta">Version: 1030400 | Generated: 2025-04-25</div>
+        <nav><a href="index.html">← Back to Main Page</a></nav>
+    </div>
+</header>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1, h2 {
+        color: #2c3e50;
+      }
+
+      .menu-item {
+        font-size: 18px;
+        padding: 10px;
+        background-color: #ecf0f1;
+        margin: 5px 0;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .menu-item:hover {
+        background-color: #3498db;
+        color: white;
+      }
+
+      .menu-container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding-left: 20px;
+      }
+
+      li {
+        padding: 5px 0;
+      }
+
+      .submenu {
+        padding-left: 20px;
+      }
+
+      .highlight {
+        color: #e74c3c;
+      }
+
+      .footer {
+        text-align: center;
+        font-size: 14px;
+        color: #95a5a6;
+        margin-top: 20px;
+      }
+    </style>
+  <div class="menu-container">
+    <h1>Structural Systems</h1>
+    <p>
+      The structural system in the Sustainable Building Modeller allows you to model buildings, walls, structural links, and nodes for
+      analysis and design purposes. It also supports dynamic physical elements that can interact with their environment through physics simulation.
+    </p>
+
+    <h2>Dynamic Elements</h2>
+    <p>
+      <strong>Dynamic elements</strong> are customizable elements that can move freely, simulate physical behavior, or be bound by constraints.
+      They can be assigned mass, velocity, and other physical properties, making them useful for simulating objects that interact dynamically 
+      with their surroundings.
+    </p>
+
+    <h2>Adding Building Elements</h2>
+    <ul>
+      <li>When you add a new <strong>building</strong>, it becomes the active network. Be sure to select the right network for additional elements.</li>
+      <li>The first created building automatically defines these networks: <strong>Column-Floor</strong>, <strong>Floor-Column</strong>, and <strong>Room-Column</strong>.</li>
+      <li>Each building includes a default floor at the selected elevation. You can add additional floors with custom heights and properties.</li>
+      <li>To add <strong>columns</strong>, select points and assign their base and top elevations or floors.</li>
+      <li>Create <strong>walls</strong> by selecting two columns and two elevation levels. The direction of wall layers depends on the order of column selection.</li>
+      <li>Insert <strong>doors, windows, and wall openings</strong> using the Openings menu with a selected wall.</li>
+    </ul>
+
+    <h2>Structural Links and Nodes</h2>
+    <p>
+      Structural links and nodes are used for frame analysis, independent of building components. Use them to define structural frames 
+      compatible with analysis tools like Frame3DD.
+    </p>
+    <p>See the <a href="https://raw.githubusercontent.com/sahandt/SBM-Scripts/master/Converters/Frame3DDConverter.lua">Frame3DD converter script</a> on GitHub for export options.</p>
+
+    <h2>Furniture, Fixtures, and Vehicles</h2>
+    <p>
+      Model interior and exterior objects using basic shapes like cubes, cylinders, and spheres. These can be combined using the 
+      <strong>Attach</strong> function to build more complex forms.
+    </p>
+    <p>
+      Vehicles are special elements that can be controlled by the user. Right-click a vehicle and choose <strong>Drive</strong> to operate it. 
+      Press <kbd>Escape</kbd> or click outside the vehicle to stop. Note that pressing <kbd>Escape</kbd> also resets the vehicle's position.
+    </p>
+
+    <h2 class="menu-item">Structural System Menu Guide</h2>
+
+<h3 class="menu-item">Building Menu</h3>
+<ul class="submenu">
+  <li class="menu-item"><strong>Add Building</strong> — Create a new building element.</li>
+  <li class="menu-item"><strong>Add Floor</strong> — Add a floor to the selected building.</li>
+  <li class="menu-item"><strong>Add Square Column</strong> — Add a basic square column.</li>
+  <li class="menu-item"><strong>Add Column</strong> — Add a general-purpose column.</li>
+  <li class="menu-item"><strong>Add Profiled Column</strong> — Use a predefined profile shape for a column.</li>
+  <li class="menu-item"><strong>Add Wall</strong> — Add a wall between columns and elevation levels.</li>
+</ul>
+
+<h3 class="menu-item">Opening Menu</h3>
+<ul class="submenu">
+  <li class="menu-item"><strong>Add Door</strong> — Insert a door into a wall.</li>
+  <li class="menu-item"><strong>Add Window</strong> — Insert a window into a wall.</li>
+  <li class="menu-item"><strong>Add Rectangular Wall Opening</strong> — Create a custom opening in a wall.</li>
+</ul>
+
+<h3 class="menu-item">Zones Menu</h3>
+<ul class="submenu">
+  <li class="menu-item"><strong>Add Room</strong> — Define a room in the model.</li>
+  <li class="menu-item"><strong>Add Zone</strong> — Group multiple rooms into a zone.</li>
+</ul>
+
+<h3 class="menu-item">Custom Menu</h3>
+<ul class="submenu">
+  <li class="menu-item"><strong>Add Furniture</strong> — Add generic furniture to the layout.</li>
+  <li class="menu-item"><strong>Add Fixture</strong> — Add and combine elements to model fixtures.</li>
+  <li class="menu-item"><strong>Add Dynamic Element</strong> — Insert a physical object with mass, motion, and constraints.</li>
+  <li class="menu-item"><strong>Add Vehicle</strong> — Add a controllable vehicle model.</li>
+</ul>
+
+<h3 class="menu-item">Structural Network Menu</h3>
+<ul class="submenu">
+  <li class="menu-item"><strong>Add Structural Node</strong> — Insert a node for frame analysis.</li>
+  <li class="menu-item"><strong>Add Structural Link</strong> — Connect two nodes using a beam link type.</li>
+</ul>
+  <footer class="footer">
+  <hr>
+  <p>Generated by Sustainable Building Modeller</p>
+  <p>Version: 1030400 &nbsp;|&nbsp; Generated on: 2025-04-25</p>
+  <p><a href="index.html">← Return to Main Page</a></p>
+</footer>
+</div>
 </body>
 </html>
