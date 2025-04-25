@@ -1,4 +1,170 @@
-<!DOCTYPE html><html><head>    <meta charset="UTF-8">    <title>Ray Tracing System - SBM API</title>    <style>        body { font-family: Arial, sans-serif; margin: 40px; }        header { display: flex; align-items: center; margin-bottom: 30px; }        header svg { width: 48px; height: 48px; margin-right: 20px; }        h1 { margin: 0; font-size: 24px; }        .meta { color: #777; font-size: 14px; margin-top: 4px; }        nav a { font-size: 14px; text-decoration: none; color: #007acc; }        nav a:hover { text-decoration: underline; }    </style></head><body><header>    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">        <rect x="10" y="10" width="80" height="80" rx="15" ry="15" fill="#007acc"/>        <text x="50%" y="55%" font-size="36" text-anchor="middle" fill="white" font-family="Arial" dy=".3em">SBM</text>    </svg>    <div>        <h1>Ray Tracing System</h1>        <div class="meta">Version: 1030400 | Generated: 2025-04-20</div>        <nav><a href="index.html">← Back to Main Page</a></nav>    </div></header>
-    <style>      body {        font-family: Arial, sans-serif;        background-color: #f4f4f9;        margin: 0;        padding: 0;      }      h1, h2 {        color: #2c3e50;      }      .menu-item {        font-size: 18px;        padding: 10px;        background-color: #ecf0f1;        margin: 5px 0;        border-radius: 5px;        transition: background-color 0.3s;      }      .menu-item:hover {        background-color: #3498db;        color: white;      }      .menu-container {        max-width: 900px;        margin: 20px auto;        padding: 20px;        background-color: white;        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);        border-radius: 8px;      }      ul {        list-style-type: none;        padding-left: 20px;      }      li {        padding: 5px 0;      }      .submenu {        padding-left: 20px;      }      .highlight {        color: #e74c3c;      }      .footer {        text-align: center;        font-size: 14px;        color: #95a5a6;        margin-top: 20px;      }    </style>  <h1>Ray Tracing System</h1><p>The Ray Tracing system in the Sustainable Building Modeller allows you to simulate the propagation of electromagnetic rays through 3D environments. It supports modeling reflection, transmission, and diffusion behavior of rays as they interact with physical elements like walls, windows, and custom geometries. The system is useful for applications such as lighting studies, radiation estimation, and signal tracing.</p><h2>Introduction to Ray Tracing Elements</h2><p>The ray tracing system works by emitting rays from a <strong>ray bundle</strong>, which represents a group of rays with a planar, cylindrical, or spherical geometry. These rays interact with scene elements according to defined rules.</p><ul>  <li>Start by adding a <strong>ray bundle</strong> that resembles the real-world source. The shape and dimensions can be adjusted in the bundle's <strong>Appliance</strong> group.</li>  <li>Set the <strong>ray distance</strong> (distance between adjacent rays on the bundle surface), and the <strong>ray origin offset</strong> (distance from the bundle surface where rays originate).</li>  <li>The <strong>power density</strong> setting determines the power carried by each emitted ray based on the bundle area.</li>  <li>Use the <strong>maximum calculation level</strong> to define how many ray interactions (like transmission or reflection) should be considered.</li></ul><h2>Defining Ray Tracing Rules</h2><p>Rules are used to control what happens when rays hit objects:</p><ul>  <li>Rules can be set for all elements of a specific type, or for a single element by its tag.</li>  <li>For each rule, specify how much of the ray's power is <strong>transmitted</strong>, <strong>reflected</strong>, and the angle of <strong>diffusion</strong>.</li>  <li>The diffusion angle causes scattered ray paths in a random pattern within the defined angle.</li></ul><h2>Running a Ray Tracing Calculation</h2><ul>  <li>After setting up ray bundles, scene elements, and rules, click <strong>Trace Electromagnetic Rays</strong> to begin calculation.</li>  <li>When the simulation finishes, open the bundle's <strong>Ray Tracing</strong> tab to view results.</li>  <li>This tab shows how many rays hit which elements at each level, and how much power was absorbed.</li>  <li>Use <strong>Draw Ray Bundles</strong> to visualize calculated rays in the model view.</li>  <li>⚠️ Avoid using ray tracing when text objects are in the model — this may cause the software to crash.</li>  <li>Use <strong>Clean All Bundles</strong> to remove previously calculated rays and start a fresh simulation.</li></ul><h2>Scripted Ray Tracing</h2><p>You can also create and trace <strong>individual rays</strong> directly through the Lua scripting interface. This allows for fine control over origin, direction, and behavior. Example scripts are provided in the <strong>API documentation and example codes</strong>.</p><hr><h2>Ray Tracing Menu Guide</h2><ul class="menu-item">Ray Bundle Menu  <ul class="submenu">    <li><strong>Add Planar Ray Bundle</strong> — Insert a ray bundle with a flat emitting surface.</li>    <li><strong>Add Cylindrical Ray Bundle</strong> — Insert a bundle with rays emitted from a cylindrical shape.</li>    <li><strong>Add Spherical Ray Bundle</strong> — Insert a bundle emitting rays radially from a spherical surface.</li>  </ul></ul><ul class="menu-item">Ray Tracing Rule Menu  <ul class="submenu">    <li><strong>Add Rule by Tag</strong> — Define a rule that applies to an individual element (by tag).</li>    <li><strong>Add Rule by Type</strong> — Define a rule that applies to all elements of a given type.</li>  </ul></ul><ul class="menu-item">Calculation Menu  <ul class="submenu">    <li><strong>Trace Electromagnetic Rays</strong> — Start ray tracing calculations based on current bundles and rules.</li>    <li><strong>Clean All Bundles</strong> — Delete all previously calculated rays.</li>    <li><strong>Draw Ray Bundles</strong> — Display rays in the 3D scene for visual inspection.</li>  </ul></ul>    
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ray Tracing System - SBM API</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        header { display: flex; align-items: center; margin-bottom: 30px; }
+        header svg { width: 48px; height: 48px; margin-right: 20px; }
+        h1 { margin: 0; font-size: 24px; }
+        .meta { color: #777; font-size: 14px; margin-top: 4px; }
+        nav a { font-size: 14px; text-decoration: none; color: #007acc; }
+        nav a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<header>
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="80" height="80" rx="15" ry="15" fill="#007acc"/>
+        <text x="50%" y="55%" font-size="36" text-anchor="middle" fill="white" font-family="Arial" dy=".3em">SBM</text>
+    </svg>
+    <div>
+        <h1>Ray Tracing System</h1>
+        <div class="meta">Version: 1030400 | Generated: 2025-04-25</div>
+        <nav><a href="index.html">← Back to Main Page</a></nav>
+    </div>
+</header>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1, h2 {
+        color: #2c3e50;
+      }
+
+      .menu-item {
+        font-size: 18px;
+        padding: 10px;
+        background-color: #ecf0f1;
+        margin: 5px 0;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .menu-item:hover {
+        background-color: #3498db;
+        color: white;
+      }
+
+      .menu-container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding-left: 20px;
+      }
+
+      li {
+        padding: 5px 0;
+      }
+
+      .submenu {
+        padding-left: 20px;
+      }
+
+      .highlight {
+        color: #e74c3c;
+      }
+
+      .footer {
+        text-align: center;
+        font-size: 14px;
+        color: #95a5a6;
+        margin-top: 20px;
+      }
+    </style>
+  <div class="menu-container">
+    <h1>Ray Tracing System</h1>
+
+    <p>
+      The Ray Tracing system in the Sustainable Building Modeller allows you to simulate the propagation of electromagnetic rays through 3D environments.
+      It supports modeling reflection, transmission, and diffusion behavior of rays as they interact with physical elements like walls, windows, and custom geometries.
+      The system is useful for applications such as lighting studies, radiation estimation, and signal tracing.
+    </p>
+
+    <h2>Introduction to Ray Tracing Elements</h2>
+    <p>
+      The ray tracing system works by emitting rays from a <strong>ray bundle</strong>, which represents a group of rays with a planar, cylindrical, or spherical geometry.
+      These rays interact with scene elements according to defined rules.
+    </p>
+
+    <ul>
+      <li>Start by adding a <strong>ray bundle</strong> that resembles the real-world source. The shape and dimensions can be adjusted in the bundle's <strong>Appliance</strong> group.</li>
+      <li>Set the <strong>ray distance</strong> (distance between adjacent rays on the bundle surface), and the <strong>ray origin offset</strong> (distance from the bundle surface where rays originate).</li>
+      <li>The <strong>power density</strong> setting determines the power carried by each emitted ray based on the bundle area.</li>
+      <li>Use the <strong>maximum calculation level</strong> to define how many ray interactions (like transmission or reflection) should be considered.</li>
+    </ul>
+
+    <h2>Defining Ray Tracing Rules</h2>
+    <p>
+      Rules are used to control what happens when rays hit objects:
+    </p>
+
+    <ul>
+      <li>Rules can be set for all elements of a specific type, or for a single element by its tag.</li>
+      <li>For each rule, specify how much of the ray's power is <strong>transmitted</strong>, <strong>reflected</strong>, and the angle of <strong>diffusion</strong>.</li>
+      <li>The diffusion angle causes scattered ray paths in a random pattern within the defined angle.</li>
+    </ul>
+
+    <h2>Running a Ray Tracing Calculation</h2>
+    <ul>
+      <li>After setting up ray bundles, scene elements, and rules, click <strong>Trace Electromagnetic Rays</strong> to begin calculation.</li>
+      <li>When the simulation finishes, open the bundle's <strong>Ray Tracing</strong> tab to view results.</li>
+      <li>This tab shows how many rays hit which elements at each level, and how much power was absorbed.</li>
+      <li>Use <strong>Draw Ray Bundles</strong> to visualize calculated rays in the model view.</li>
+      <li>⚠️ Avoid using ray tracing when text objects are in the model — this may cause the software to crash.</li>
+      <li>Use <strong>Clean All Bundles</strong> to remove previously calculated rays and start a fresh simulation.</li>
+    </ul>
+
+    <h2>Scripted Ray Tracing</h2>
+    <p>
+      You can also create and trace <strong>individual rays</strong> directly through the Lua scripting interface. This allows for fine control over origin, direction, and behavior.
+      Example scripts are provided in the <strong>API documentation and example codes</strong>.
+    </p>
+
+    <hr>
+
+    <h2>Ray Tracing Menu Guide</h2>
+
+    <ul class="menu-item">Ray Bundle Menu
+      <ul class="submenu">
+        <li><strong>Add Planar Ray Bundle</strong> — Insert a ray bundle with a flat emitting surface.</li>
+        <li><strong>Add Cylindrical Ray Bundle</strong> — Insert a bundle with rays emitted from a cylindrical shape.</li>
+        <li><strong>Add Spherical Ray Bundle</strong> — Insert a bundle emitting rays radially from a spherical surface.</li>
+      </ul>
+    </ul>
+
+    <ul class="menu-item">Ray Tracing Rule Menu
+      <ul class="submenu">
+        <li><strong>Add Rule by Tag</strong> — Define a rule that applies to an individual element (by tag).</li>
+        <li><strong>Add Rule by Type</strong> — Define a rule that applies to all elements of a given type.</li>
+      </ul>
+    </ul>
+
+    <ul class="menu-item">Calculation Menu
+      <ul class="submenu">
+        <li><strong>Trace Electromagnetic Rays</strong> — Start ray tracing calculations based on current bundles and rules.</li>
+        <li><strong>Clean All Bundles</strong> — Delete all previously calculated rays.</li>
+        <li><strong>Draw Ray Bundles</strong> — Display rays in the 3D scene for visual inspection.</li>
+      </ul>
+    </ul>
+<footer class="footer">
+  <hr>
+  <p>Generated by Sustainable Building Modeller</p>
+  <p>Version: 1030400 &nbsp;|&nbsp; Generated on: 2025-04-25</p>
+  <p><a href="index.html">← Return to Main Page</a></p>
+</footer>
+</div>
 </body>
 </html>
