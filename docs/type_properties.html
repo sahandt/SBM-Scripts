@@ -21,7 +21,7 @@
     </svg>
     <div>
         <h1>Type Properties</h1>
-        <div class="meta">Version: 1030400 | Generated: 2025-04-25</div>
+        <div class="meta">Version: 1040100 | Generated: 2025-07-09</div>
         <nav><a href="index.html">← Back to Main Page</a></nav>
     </div>
 </header>
@@ -478,6 +478,20 @@
                             <span style="color: #555;">(Tag: <code>Y</code>, Type: <code>Number</code>, Format: <code>double</code>)</span></li><li><span style="font-weight: bold; color: #333;">Z</span> 
                             <span style="color: #555;">(Tag: <code>Z</code>, Type: <code>Number</code>, Format: <code>double</code>)</span></li><li><span style="font-weight: bold; color: #333;">Show local coordinate system</span> 
                             <span style="color: #555;">(Tag: <code>SHOW_COORDINATES</code>, Type: <code>Boolean</code>, Format: <code>boolean</code>)</span></li></ul></div></details><details style="margin: 12px 0;">
+  <summary style="font-weight: bold; color: #387645; font-size: 1.1em;">Air Distribution</summary>
+  <div style="padding-left: 16px;">
+    <p><strong>Group Tag:</strong> <code style="background:#f8f8f8;padding:2px 6px;border-radius:4px;">AIR_DISTRIBUTION</code></p>
+    <ul style="list-style: disc; margin-left: 20px; margin-top: 8px;">
+<li><span style="font-weight: bold; color: #333;">Is Air Outlet/Terminal</span> 
+                            <span style="color: #555;">(Tag: <code>IS_TERMINAL</code>, Type: <code>Boolean</code>, Format: <code>boolean</code>)</span></li><li><span style="font-weight: bold; color: #333;">Terminal Type</span> 
+                            <span style="color: #555;">(Tag: <code>TERMINAL_TYPE</code>, Type: <code>Combo options</code>, Format: <code>string</code>)</span></li><li><span style="font-weight: bold; color: #333;">Air Flow Rate</span> 
+                            <span style="color: #555;">(Tag: <code>FLOW_RATE</code>, Type: <code>Number</code>, Format: <code>double</code>)</span></li><li><span style="font-weight: bold; color: #333;">Face Velocity</span> 
+                            <span style="color: #555;">(Tag: <code>FACE_VELOCITY</code>, Type: <code>Number</code>, Format: <code>double</code>)</span></li><li><span style="font-weight: bold; color: #333;">Pressure Drop</span> 
+                            <span style="color: #555;">(Tag: <code>PRESSURE_DROP</code>, Type: <code>Number</code>, Format: <code>double</code>)</span></li><li><span style="font-weight: bold; color: #333;">Throw Distance</span> 
+                            <span style="color: #555;">(Tag: <code>THROW_DISTANCE</code>, Type: <code>Number</code>, Format: <code>double</code>)</span></li><li><span style="font-weight: bold; color: #333;">Noise Criterion (NC)</span> 
+                            <span style="color: #555;">(Tag: <code>NC_LEVEL</code>, Type: <code>Number</code>, Format: <code>double</code>)</span></li><li><span style="font-weight: bold; color: #333;">Register/Grille Width</span> 
+                            <span style="color: #555;">(Tag: <code>GRILLE_WIDTH</code>, Type: <code>Number</code>, Format: <code>double</code>)</span></li><li><span style="font-weight: bold; color: #333;">Register/Grille Height</span> 
+                            <span style="color: #555;">(Tag: <code>GRILLE_HEIGHT</code>, Type: <code>Number</code>, Format: <code>double</code>)</span></li></ul></div></details><details style="margin: 12px 0;">
   <summary style="font-weight: bold; color: #387645; font-size: 1.1em;">Model</summary>
   <div style="padding-left: 16px;">
     <p><strong>Group Tag:</strong> <code style="background:#f8f8f8;padding:2px 6px;border-radius:4px;">MODEL</code></p>
@@ -2360,7 +2374,8 @@
     <p><strong>Group Tag:</strong> <code style="background:#f8f8f8;padding:2px 6px;border-radius:4px;">ROOM</code></p>
     <ul style="list-style: disc; margin-left: 20px; margin-top: 8px;">
 <li><span style="font-weight: bold; color: #333;">Name</span> 
-                            <span style="color: #555;">(Tag: <code>NAME</code>, Type: <code>Text</code>, Format: <code>string</code>)</span></li></ul></div></details><details style="margin: 12px 0;">
+                            <span style="color: #555;">(Tag: <code>NAME</code>, Type: <code>Text</code>, Format: <code>string</code>)</span></li><li><span style="font-weight: bold; color: #333;">Tag</span> 
+                            <span style="color: #555;">(Tag: <code>TAG</code>, Type: <code>Text</code>, Format: <code>string</code>)</span></li></ul></div></details><details style="margin: 12px 0;">
   <summary style="font-weight: bold; color: #387645; font-size: 1.1em;">Model</summary>
   <div style="padding-left: 16px;">
     <p><strong>Group Tag:</strong> <code style="background:#f8f8f8;padding:2px 6px;border-radius:4px;">MODEL</code></p>
@@ -3056,15 +3071,6 @@
                             <span style="color: #555;">(Tag: <code>SHOULD_REPAIR</code>, Type: <code>Boolean</code>, Format: <code>boolean</code>)</span></li><li><span style="font-weight: bold; color: #333;">Repair date</span> 
                             <span style="color: #555;">(Tag: <code>REPAIR_DATE</code>, Type: <code>Date</code>, Format: <code>Date string</code>)</span></li><li><span style="font-weight: bold; color: #333;">Display product description</span> 
                             <span style="color: #555;">(Tag: <code>SHOW_DESCRIPTION</code>, Type: <code>Boolean</code>, Format: <code>boolean</code>)</span></li></ul></div></details></div><div class="type-block" style="border: 1px solid #ccc; padding: 16px; margin-bottom: 32px; border-radius: 10px;">
-  <h2 style="color: #2a6592;">3D Wall</h2>
-  <p><strong>Tag:</strong> <code style="background:#eef;padding:2px 6px;border-radius:4px;">WALL_3D</code></p>
-<details style="margin: 12px 0;">
-  <summary style="font-weight: bold; color: #387645; font-size: 1.1em;">General</summary>
-  <div style="padding-left: 16px;">
-    <p><strong>Group Tag:</strong> <code style="background:#f8f8f8;padding:2px 6px;border-radius:4px;">GENERAL</code></p>
-    <ul style="list-style: disc; margin-left: 20px; margin-top: 8px;">
-<li><span style="font-weight: bold; color: #333;">Name</span> 
-                            <span style="color: #555;">(Tag: <code>NAME</code>, Type: <code>Text</code>, Format: <code>string</code>)</span></li></ul></div></details></div><div class="type-block" style="border: 1px solid #ccc; padding: 16px; margin-bottom: 32px; border-radius: 10px;">
   <h2 style="color: #2a6592;">Window</h2>
   <p><strong>Tag:</strong> <code style="background:#eef;padding:2px 6px;border-radius:4px;">WINDOW</code></p>
 <details style="margin: 12px 0;">
@@ -3235,7 +3241,8 @@
     <p><strong>Group Tag:</strong> <code style="background:#f8f8f8;padding:2px 6px;border-radius:4px;">ZONE</code></p>
     <ul style="list-style: disc; margin-left: 20px; margin-top: 8px;">
 <li><span style="font-weight: bold; color: #333;">Name</span> 
-                            <span style="color: #555;">(Tag: <code>NAME</code>, Type: <code>Text</code>, Format: <code>string</code>)</span></li><li><span style="font-weight: bold; color: #333;">Building occupancy classifications (International Building Code)</span> 
+                            <span style="color: #555;">(Tag: <code>NAME</code>, Type: <code>Text</code>, Format: <code>string</code>)</span></li><li><span style="font-weight: bold; color: #333;">Tag</span> 
+                            <span style="color: #555;">(Tag: <code>TAG</code>, Type: <code>Text</code>, Format: <code>string</code>)</span></li><li><span style="font-weight: bold; color: #333;">Building occupancy classifications (International Building Code)</span> 
                             <span style="color: #555;">(Tag: <code>ZONE_USAGE</code>, Type: <code>Combo options</code>, Format: <code>string</code>)</span></li></ul></div></details><details style="margin: 12px 0;">
   <summary style="font-weight: bold; color: #387645; font-size: 1.1em;">Model</summary>
   <div style="padding-left: 16px;">
@@ -3254,7 +3261,7 @@
                             <span style="color: #555;">(Tag: <code>SHOW_COORDINATES</code>, Type: <code>Boolean</code>, Format: <code>boolean</code>)</span></li></ul></div></details></div><footer class="footer">
   <hr>
   <p>Generated by Sustainable Building Modeller</p>
-  <p>Version: 1030400 &nbsp;|&nbsp; Generated on: 2025-04-25</p>
+  <p>Version: 1040100 &nbsp;|&nbsp; Generated on: 2025-07-09</p>
   <p><a href="index.html">← Return to Main Page</a></p>
 </footer>
 </div>
