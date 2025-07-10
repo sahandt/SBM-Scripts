@@ -1,5 +1,110 @@
-<!DOCTYPE html><html><head>    <meta charset="UTF-8">    <title>Quantities & Units - SBM API</title>    <style>        body { font-family: Arial, sans-serif; margin: 40px; }        header { display: flex; align-items: center; margin-bottom: 30px; }        header svg { width: 48px; height: 48px; margin-right: 20px; }        h1 { margin: 0; font-size: 24px; }        .meta { color: #777; font-size: 14px; margin-top: 4px; }        nav a { font-size: 14px; text-decoration: none; color: #007acc; }        nav a:hover { text-decoration: underline; }    </style></head><body><header>    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">        <rect x="10" y="10" width="80" height="80" rx="15" ry="15" fill="#007acc"/>        <text x="50%" y="55%" font-size="36" text-anchor="middle" fill="white" font-family="Arial" dy=".3em">SBM</text>    </svg>    <div>        <h1>Quantities & Units</h1>        <div class="meta">Version: 1030400 | Generated: 2025-04-20</div>        <nav><a href="index.html">← Back to Main Page</a></nav>    </div></header>
-<h2>📏 Working with Quantities & Units</h2><p>The application uses a set of predefined <strong>default units</strong> for each quantity type (e.g., length, pressure, temperature).</p><h3>🔁 Input Flexibility</h3><p>When using the user interface, you can input values using different units. The software will automatically <strong>convert</strong> your input into the default unit for internal calculations.</p><h3>💻 Scripting with Lua</h3><p>When writing Lua scripts, always provide values using <strong>default units</strong>. If you want to use a different unit in your code, you must manually convert it using the command:</p><pre><code>ConvertUnit(value, fromUnit, toUnit)</code></pre><p>⚠️ <strong>Default units</strong> are always the <strong>first unit defined for each quantity</strong> in the internal database.</p><h3>📚 Useful API Commands</h3><p>Check the <strong>API Guide</strong> for more useful functions that let you:</p><ul><li>List all available units and quantities</li><li>Convert values between units</li><li>Retrieve unit symbols and names</li></ul><hr><div class='section'><h2>Unitless (UL)</h2><p>SI: </p><ul><li>Unitless (ul)</li></ul></div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Quantities & Units - SBM API</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        header { display: flex; align-items: center; margin-bottom: 30px; }
+        header svg { width: 48px; height: 48px; margin-right: 20px; }
+        h1 { margin: 0; font-size: 24px; }
+        .meta { color: #777; font-size: 14px; margin-top: 4px; }
+        nav a { font-size: 14px; text-decoration: none; color: #007acc; }
+        nav a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<header>
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="80" height="80" rx="15" ry="15" fill="#007acc"/>
+        <text x="50%" y="55%" font-size="36" text-anchor="middle" fill="white" font-family="Arial" dy=".3em">SBM</text>
+    </svg>
+    <div>
+        <h1>Quantities & Units</h1>
+        <div class="meta">Version: 1040100 | Generated: 2025-07-09</div>
+        <nav><a href="index.html">← Back to Main Page</a></nav>
+    </div>
+</header>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1, h2 {
+        color: #2c3e50;
+      }
+
+      .menu-item {
+        font-size: 18px;
+        padding: 10px;
+        background-color: #ecf0f1;
+        margin: 5px 0;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .menu-item:hover {
+        background-color: #3498db;
+        color: white;
+      }
+
+      .menu-container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding-left: 20px;
+      }
+
+      li {
+        padding: 5px 0;
+      }
+
+      .submenu {
+        padding-left: 20px;
+      }
+
+      .highlight {
+        color: #e74c3c;
+      }
+
+      .footer {
+        text-align: center;
+        font-size: 14px;
+        color: #95a5a6;
+        margin-top: 20px;
+      }
+    </style>
+  <div class="menu-container">
+<h2>📏 Working with Quantities & Units</h2>
+<p>The application uses a set of predefined <strong>default units</strong> for each quantity type (e.g., length, pressure, temperature).</p>
+
+<h3>🔁 Input Flexibility</h3>
+<p>When using the user interface, you can input values using different units. The software will automatically <strong>convert</strong> your input into the default unit for internal calculations.</p>
+
+<h3>💻 Scripting with Lua</h3>
+<p>When writing Lua scripts, always provide values using <strong>default units</strong>. If you want to use a different unit in your code, you must manually convert it using the command:</p>
+<pre><code>ConvertUnit(value, fromUnit, toUnit)</code></pre>
+<p>⚠️ <strong>Default units</strong> are always the <strong>first unit defined for each quantity</strong> in the internal database.</p>
+
+<h3>📚 Useful API Commands</h3>
+<p>Check the <strong>API Guide</strong> for more useful functions that let you:</p>
+<ul>
+<li>List all available units and quantities</li>
+<li>Convert values between units</li>
+<li>Retrieve unit symbols and names</li>
+</ul>
+<hr>
+<div class='section'><h2>Unitless (UL)</h2><p>SI: </p><ul><li>Unitless (ul)</li></ul></div>
 <div class='section'><h2>Length (LE)</h2><p>SI: Length</p><ul><li>Meter (m)</li><li>Inch (in)</li><li>Feet (ft)</li><li>Millimeter (mm)</li><li>Centimeter (cm)</li><li>Yard (yds)</li><li>Kilometer (km)</li></ul></div>
 <div class='section'><h2>Mass (MA)</h2><p>SI: Mass</p><ul><li>kilogram (kg)</li><li>Pound (lbs)</li><li>Gram (gr)</li><li>Ounce (oz)</li></ul></div>
 <div class='section'><h2>Time (TI)</h2><p>SI: Time</p><ul><li>second (s)</li><li>Minute (min)</li><li>Hour (hr)</li><li>Milisecond (ms)</li></ul></div>
@@ -118,6 +223,12 @@
 <div class='section'><h2>Thickness (THK)</h2><p>SI: Thickness</p><ul><li>meter (m)</li><li>Centimeters (cm)</li><li>Millimeters (mm)</li><li>Inch (in)</li></ul></div>
 <div class='section'><h2>Planar moment of inertia (PMOIN)</h2><p>SI: </p><ul><li>Meter to the fourth power (m⁴)</li><li>Centimeter to the fourth power (cm⁴)</li><li>Millimeter to the fourth power (mm⁴)</li><li>Inch to the fourth power (in⁴)</li></ul></div>
 <div class='section'><h2>Force per unit length  (FPUL)</h2><p>SI: </p><ul><li>newtons per metre ( N/m)</li><li>newtons per millimetre ( N/mm)</li><li>kilonewtons per millimetre ( kN/mm)</li><li>pound-force per inch ( lbf/in)</li><li>kilopound-force per inch ( kip/in)</li></ul></div>
-
+<footer class="footer">
+  <hr>
+  <p>Generated by Sustainable Building Modeller</p>
+  <p>Version: 1040100 &nbsp;|&nbsp; Generated on: 2025-07-09</p>
+  <p><a href="index.html">← Return to Main Page</a></p>
+</footer>
+</div>
 </body>
 </html>
