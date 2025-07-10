@@ -1,5 +1,157 @@
-<!DOCTYPE html><html><head>    <meta charset="UTF-8">    <title>Material Library - SBM API</title>    <style>        body { font-family: Arial, sans-serif; margin: 40px; }        header { display: flex; align-items: center; margin-bottom: 30px; }        header svg { width: 48px; height: 48px; margin-right: 20px; }        h1 { margin: 0; font-size: 24px; }        .meta { color: #777; font-size: 14px; margin-top: 4px; }        nav a { font-size: 14px; text-decoration: none; color: #007acc; }        nav a:hover { text-decoration: underline; }    </style></head><body><header>    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">        <rect x="10" y="10" width="80" height="80" rx="15" ry="15" fill="#007acc"/>        <text x="50%" y="55%" font-size="36" text-anchor="middle" fill="white" font-family="Arial" dy=".3em">SBM</text>    </svg>    <div>        <h1>Material Library</h1>        <div class="meta">Version: 1030400 | Generated: 2025-04-20</div>        <nav><a href="index.html">← Back to Main Page</a></nav>    </div></header>
-<h2>📘 Using the Material Library</h2><p>You can access the built-in material library by clicking <strong>“Material Library”</strong> in the <strong>“Manage”</strong> menu.</p><ul><li>The material list can be filtered by <strong>classification</strong> and <strong>usage</strong>.</li><li>Each material has a unique <strong>Material ID</strong>, used as a reference when reading or writing element properties.</li></ul><p>There are two main types of elements:</p><ol><li><strong>Homogeneous Elements</strong>:<br>Examples include appliances, structural links, and nodes. These have a single material ID.<br>➤ Use the <code>GetMaterialID</code> command to retrieve the material ID.</li><li><strong>Multi-layer Elements</strong>:<br>Examples include walls and floors.<br>➤ Use the <code>GetLayers</code> command to access material ID and thickness for each layer.</li></ol><h3>📌 About the Built-in Library</h3><p>The built-in material library was created using publicly available online sources. Material properties are approximate.<br>Always <strong>verify properties</strong> with trusted references and ensure they’re valid for the pressure and temperature ranges in your application.</p><p>You can view the list of properties for a material using:<br>🔹 <code>MaterialListProperties</code></p><h3>🛠 Creating and Modifying Materials</h3><p>You can define custom materials using Lua scripts. Here’s how:</p><ul><li><strong>Step 1</strong>: Create a new material object<br>Use <code>MaterialAddtoCollection(tag, id)</code><br><code>tag</code> is a user-defined identifier for the new material<br><code>id</code> refers to the source material in the library</li><li><strong>Step 2</strong>: Modify its properties<br>Use <code>MaterialSetProperty(tag, property, value)</code><br>Changes only affect the new material you created – <strong>not the library material</strong></li></ul><p>To <strong>read</strong> properties:</p><ul><li>Use <code>MaterialGetProperty(tagOrId, property)</code><br>If using a library material → supply its <strong>ID</strong><br>If using a custom material → supply its <strong>tag</strong></li></ul><h3>🔬 Property Types</h3><p>Some properties are <strong>fixed</strong> (e.g., Temperature, Pressure, Melting Point), while others are <strong>temperature-dependent</strong>, such as:</p><ul><li>Density</li><li>Specific Heat</li><li>Thermal Conductivity</li></ul><p>For temperature-dependent properties, the software interpolates the value based on the current material temperature.<br>⚠️ If the temperature is outside the defined range, it returns the value at the <strong>closest available temperature</strong>.</p><p>You can modify fixed properties with <code>MaterialSetProperty</code>.</p><h3>⚠️ Special Calculated Properties</h3><p>Some properties are derived and cannot be directly modified:</p><ul><li><strong>Dynamic Viscosity</strong> (for fluids) is calculated using:<br>Kinematic Viscosity and Density</li><li><strong>Constant Volume Specific Heat</strong> (for gases) is calculated using:<br>Constant Pressure Specific Heat and Specific Gas Constant</li></ul><h3>⚠️ Library Restrictions</h3><p>Properties of the following materials are calculated using built-in formulas:</p><ul><li>Dry Air</li><li>Air</li><li>Water</li><li>Water Vapor</li></ul><p>If you create custom materials based on these, you <strong>cannot override their properties</strong>.<br>To customize them, create a new material from scratch and calculate its properties manually within your desired pressure/temperature range using Lua scripts.</p><hr><li><strong>S10</strong>: Cast Iron [Fe] (Solid)</li>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Material Library - SBM API</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        header { display: flex; align-items: center; margin-bottom: 30px; }
+        header svg { width: 48px; height: 48px; margin-right: 20px; }
+        h1 { margin: 0; font-size: 24px; }
+        .meta { color: #777; font-size: 14px; margin-top: 4px; }
+        nav a { font-size: 14px; text-decoration: none; color: #007acc; }
+        nav a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<header>
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="80" height="80" rx="15" ry="15" fill="#007acc"/>
+        <text x="50%" y="55%" font-size="36" text-anchor="middle" fill="white" font-family="Arial" dy=".3em">SBM</text>
+    </svg>
+    <div>
+        <h1>Material Library</h1>
+        <div class="meta">Version: 1040100 | Generated: 2025-07-09</div>
+        <nav><a href="index.html">← Back to Main Page</a></nav>
+    </div>
+</header>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1, h2 {
+        color: #2c3e50;
+      }
+
+      .menu-item {
+        font-size: 18px;
+        padding: 10px;
+        background-color: #ecf0f1;
+        margin: 5px 0;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .menu-item:hover {
+        background-color: #3498db;
+        color: white;
+      }
+
+      .menu-container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding-left: 20px;
+      }
+
+      li {
+        padding: 5px 0;
+      }
+
+      .submenu {
+        padding-left: 20px;
+      }
+
+      .highlight {
+        color: #e74c3c;
+      }
+
+      .footer {
+        text-align: center;
+        font-size: 14px;
+        color: #95a5a6;
+        margin-top: 20px;
+      }
+    </style>
+  <div class="menu-container">
+<h2>📘 Using the Material Library</h2>
+<p>You can access the built-in material library by clicking <strong>“Material Library”</strong> in the <strong>“Manage”</strong> menu.</p>
+<ul>
+<li>The material list can be filtered by <strong>classification</strong> and <strong>usage</strong>.</li>
+<li>Each material has a unique <strong>Material ID</strong>, used as a reference when reading or writing element properties.</li>
+</ul>
+<p>There are two main types of elements:</p>
+<ol>
+<li><strong>Homogeneous Elements</strong>:<br>Examples include appliances, structural links, and nodes. These have a single material ID.<br>➤ Use the <code>GetMaterialID</code> command to retrieve the material ID.</li>
+<li><strong>Multi-layer Elements</strong>:<br>Examples include walls and floors.<br>➤ Use the <code>GetLayers</code> command to access material ID and thickness for each layer.</li>
+</ol>
+
+<h3>📌 About the Built-in Library</h3>
+<p>The built-in material library was created using publicly available online sources. Material properties are approximate.<br>
+Always <strong>verify properties</strong> with trusted references and ensure they’re valid for the pressure and temperature ranges in your application.</p>
+<p>You can view the list of properties for a material using:<br>🔹 <code>MaterialListProperties</code></p>
+
+<h3>🛠 Creating and Modifying Materials</h3>
+<p>You can define custom materials using Lua scripts. Here’s how:</p>
+<ul>
+<li><strong>Step 1</strong>: Create a new material object<br>
+Use <code>MaterialAddtoCollection(tag, id)</code><br>
+<code>tag</code> is a user-defined identifier for the new material<br>
+<code>id</code> refers to the source material in the library</li>
+<li><strong>Step 2</strong>: Modify its properties<br>
+Use <code>MaterialSetProperty(tag, property, value)</code><br>
+Changes only affect the new material you created – <strong>not the library material</strong></li>
+</ul>
+<p>To <strong>read</strong> properties:</p>
+<ul>
+<li>Use <code>MaterialGetProperty(tagOrId, property)</code><br>
+If using a library material → supply its <strong>ID</strong><br>
+If using a custom material → supply its <strong>tag</strong></li>
+</ul>
+
+<h3>🔬 Property Types</h3>
+<p>Some properties are <strong>fixed</strong> (e.g., Temperature, Pressure, Melting Point), while others are <strong>temperature-dependent</strong>, such as:</p>
+<ul>
+<li>Density</li>
+<li>Specific Heat</li>
+<li>Thermal Conductivity</li>
+</ul>
+<p>For temperature-dependent properties, the software interpolates the value based on the current material temperature.<br>
+⚠️ If the temperature is outside the defined range, it returns the value at the <strong>closest available temperature</strong>.</p>
+<p>You can modify fixed properties with <code>MaterialSetProperty</code>.</p>
+
+<h3>⚠️ Special Calculated Properties</h3>
+<p>Some properties are derived and cannot be directly modified:</p>
+<ul>
+<li><strong>Dynamic Viscosity</strong> (for fluids) is calculated using:<br>
+Kinematic Viscosity and Density</li>
+<li><strong>Constant Volume Specific Heat</strong> (for gases) is calculated using:<br>
+Constant Pressure Specific Heat and Specific Gas Constant</li>
+</ul>
+
+<h3>⚠️ Library Restrictions</h3>
+<p>Properties of the following materials are calculated using built-in formulas:</p>
+<ul>
+<li>Dry Air</li>
+<li>Air</li>
+<li>Water</li>
+<li>Water Vapor</li>
+</ul>
+<p>If you create custom materials based on these, you <strong>cannot override their properties</strong>.<br>
+To customize them, create a new material from scratch and calculate its properties manually within your desired pressure/temperature range using Lua scripts.</p>
+<hr>
+<li><strong>S10</strong>: Cast Iron [Fe] (Solid)</li>
 <li><strong>S20</strong>: Wrought Iron [Fe] (Solid)</li>
 <li><strong>S30</strong>: Carbon Steel [Fe] (Solid)</li>
 <li><strong>S35</strong>: Galvanized Steel [N/A] (Solid)</li>
@@ -320,6 +472,12 @@
 <li><strong>G590</strong>: Water Vapor [H2O] (Gas)</li>
 <li><strong>G600</strong>: Xenon [N/A] (Gas)</li>
 </ul>
-
+<footer class="footer">
+  <hr>
+  <p>Generated by Sustainable Building Modeller</p>
+  <p>Version: 1040100 &nbsp;|&nbsp; Generated on: 2025-07-09</p>
+  <p><a href="index.html">← Return to Main Page</a></p>
+</footer>
+</div>
 </body>
 </html>
