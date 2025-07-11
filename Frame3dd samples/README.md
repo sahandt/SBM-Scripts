@@ -51,7 +51,6 @@ Below is the rendered result of the script:
 
 ![Tetrahedral Frame Render](./ExampleC_TetrahedralFrame_Screenshot.png)
 
-> *(Upload your screenshot with this exact filename for the image to show)*
 
 ---
 
