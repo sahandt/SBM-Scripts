@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Catalogs and Products Database - SBM API</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        header { display: flex; align-items: center; margin-bottom: 30px; }
+        header svg { width: 48px; height: 48px; margin-right: 20px; }
+        h1 { margin: 0; font-size: 24px; }
+        .meta { color: #777; font-size: 14px; margin-top: 4px; }
+        nav a { font-size: 14px; text-decoration: none; color: #007acc; }
+        nav a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<header>
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="80" height="80" rx="15" ry="15" fill="#007acc"/>
+        <text x="50%" y="55%" font-size="36" text-anchor="middle" fill="white" font-family="Arial" dy=".3em">SBM</text>
+    </svg>
+    <div>
+        <h1>Catalogs and Products Database</h1>
+        <div class="meta">Version: 1040100 | Generated: 2025-07-09</div>
+        <nav><a href="index.html">← Back to Main Page</a></nav>
+    </div>
+</header>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1, h2 {
+        color: #2c3e50;
+      }
+
+      .menu-item {
+        font-size: 18px;
+        padding: 10px;
+        background-color: #ecf0f1;
+        margin: 5px 0;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .menu-item:hover {
+        background-color: #3498db;
+        color: white;
+      }
+
+      .menu-container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding-left: 20px;
+      }
+
+      li {
+        padding: 5px 0;
+      }
+
+      .submenu {
+        padding-left: 20px;
+      }
+
+      .highlight {
+        color: #e74c3c;
+      }
+
+      .footer {
+        text-align: center;
+        font-size: 14px;
+        color: #95a5a6;
+        margin-top: 20px;
+      }
+    </style>
+  <div class="menu-container">
+<h1>📦 Catalogs and Products Database</h1>
+
+<p>
+A <strong>Product Catalog</strong> is a collection of classified products organized by type. These catalogs are stored in a shared database and can be browsed through various pages within the app. However, <strong>only products from the User Palette</strong> can be used during modeling or scripting.
+</p>
+
+<h2>🔍 Accessing the User Palette</h2>
+<p>You can open the User Palette from the following places:</p>
+<ul>
+  <li>On the main page, via the left-side panel under the Solution Tree</li>
+  <li>From the Database Page</li>
+  <li>From the Catalog Page — by selecting an element, right-clicking, and choosing "Catalog"</li>
+</ul>
+
+<h2>⭐ Active Product</h2>
+<p>Each product type can have an <strong>active product</strong>. When you use the program menus to add an item, the active product for that type will be used. You can also drag and drop any product from the User Palette into your model.</p>
+
+<h2>📁 Types of Catalogs</h2>
+<ul>
+  <li><strong>Default Catalogs</strong>: Always present and cannot be removed (e.g., Generic Doors, Windows).</li>
+  <li><strong>Optional Catalogs</strong>: Large categories (e.g., beams, columns) not loaded by default. Users can add or remove them.</li>
+  <li><strong>User Catalogs</strong>: Created by the user. These can be removed and are deleted when the database is reset.</li>
+</ul>
+
+<p><strong>Important:</strong> After making changes, always click <em>“Update User Palette”</em> to apply them.</p>
+
+<h2>➕ Creating Products for Custom Catalogs</h2>
+<p>You can add products to custom catalogs using two methods:</p>
+<ol>
+  <li>Create a product in the app, right-click the element or press <strong>I</strong>, then choose “Save as Product” from the catalog page menu.</li>
+  <li>Use Lua API commands (see documentation and GitHub examples).</li>
+</ol>
+
+<p><strong>Note:</strong> Resetting the database via the UI restores default data. Resetting via Lua command <code>ResetDataBase</code> clears all entries, leaving the database empty.</p>
+
+<p> Example: reset and repopulate using Lua:</p>
+
+<pre><code>
+ResetDataBase()
+AddCatalogToDB("MyCatalog")
+ResetUserPalette()
+</code></pre>
+
+<h2>🧭 Database Page Menu Guide</h2>
+<ul>
+  <li class="menu-item">🔄 <strong>Update User Palette</strong>: Apply catalog changes.</li>
+
+  <li class="menu-item">📁 <strong>Custom Catalogs Menu:</strong>
+    <ul class="submenu">
+      <li>New Empty Catalog</li>
+      <li>Load a Local Catalog File into the Selected Catalog</li>
+      <li>Save Selected Catalog As a Local Catalog File</li>
+      <li>Load Local Product File into the Current Catalog</li>
+      <li>Remove Selected Product from the Selected Catalog</li>
+      <li>Remove Selected Catalog from Database</li>
+    </ul>
+  </li>
+
+  <li class="menu-item">⭐ <strong>User Palette Menu:</strong>
+    <ul class="submenu">
+      <li>Add to User Palette</li>
+      <li>Remove from User Palette</li>
+      <li>Add Catalog Tree</li>
+      <li>Remove Selected Catalog from Database</li>
+    </ul>
+  </li>
+
+  <li class="menu-item">🏠 <strong>Home</strong>: Save and return to the main page.</li>
+  <li class="menu-item">🗑️ <strong>Reset Database</strong>: Restore database to default values.</li>
+  <li class="menu-item">📂 <strong>Open App Folder</strong>: Open the app's data folder.</li>
+</ul>
+  <footer class="footer">
+  <hr>
+  <p>Generated by Sustainable Building Modeller</p>
+  <p>Version: 1040100 &nbsp;|&nbsp; Generated on: 2025-07-09</p>
+  <p><a href="index.html">← Return to Main Page</a></p>
+</footer>
+</div>
+</body>
+</html>
