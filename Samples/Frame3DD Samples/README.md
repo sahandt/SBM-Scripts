@@ -6,16 +6,6 @@ Each script programmatically generates a 3D structural frame model inside SBM. T
 
 ---
 
-## 📦 Contents
-
-- `Example A - Simple Beam.lua`
-- `Example B - 2D Portal Frame.lua`
-- `Example C - Tetrahedral Frame.lua`
-- `Example D - 3D Tower.lua`
-- *(... other Frame3DD-based examples ...)*
-
----
-
 ## 🚀 How to Use
 
 ### 1. **Load a Script in SBM**
