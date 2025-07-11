@@ -1,0 +1,100 @@
+--[[ This script creates a pyramid-shaped frame model in the software. ]]
+--[[ The model consists of 5 nodes and 4 links, with specified cross-sectional  ]]
+--[[ and material properties for the links.  Nodes 2, 3, 4, and 5 are restrained  ]]
+--[[ (fixed in all degrees of freedom).  The script uses a Lua table-based  ]]
+--[[ approach to store node coordinates, link connections, and properties,  ]]
+--[[ making the code more organized and easier to modify. ]]
+--[[ To run this script , you should add "Generic Pipe Section Beams, mm" catalog to the user script.]]
+
+CreateNewMetricProject();
+
+--[[ Create nodes]]
+local nodes = {}
+local links = {}
+local node_data = {
+    {0.0, 0.0, 1.0},
+    {-1.20, -0.90, 0.0},
+    {1.20, -0.90, 0.0},
+    {1.20, 0.90, 0.0},
+    {-1.20, 0.90, 0.0}
+}
+
+for i, data in ipairs(node_data) do
+    InputClear();
+    InputAddPoint(data[1], data[2], data[3]);
+    for tag in CreateElement('STRUCT_NODE') do
+        nodes[i] = tag;
+        print("Node " .. i .. ": " .. tag);
+    end
+end
+
+--[[ Create links]]
+local link_data = {
+    {nodes[2], nodes[1]},
+    {nodes[3], nodes[1]},
+    {nodes[4], nodes[1]},
+    {nodes[5], nodes[1]}
+}
+
+local link_properties = {
+    Ax = 36.0,
+    Asy = 20.0,
+    Asz = 20.0,
+    Jxx = 1000,
+    Iyy = 492,
+    Izz = 492,
+    E = 200000,
+    G = 79300,
+    roll = 0,
+    density = 7.85e-9
+}
+
+
+for i, data in ipairs(link_data) do
+    InputClear();
+    InputAddElement(data[1]);
+    InputAddElement(data[2]);
+
+    for tag in CreateElementFromCatalog('Generic Pipe Section Beams, mm','STRUCT_LINK',1) do
+        links[i] = tag;
+        print("Link " .. i .. ": " .. links[i]);
+    end
+end
+
+
+--[[ Set node restraints (reactions)]]
+local restrained_nodes = {nodes[2], nodes[3], nodes[4], nodes[5]}
+for _, node in ipairs(restrained_nodes) do
+    SetStrucNodeRestraint(node, true, true, true, true, true, true ) --[[ true means fixed, false means free for each DOF (x, y, z, xx, yy, zz)]]
+end
+
+SetProperty("Structural System", "SHEAR_DEFORMATION_EFFECTS", true);
+SetProperty("Structural System", "GEOMETRIC_STIFFNESS_EFFECTS", true);
+SetProperty("Structural System", "EXAGGERATION_FACTOR", 10.0);
+SetProperty("Structural System", "ZOOM_SCALE", 2.5);
+SetProperty("Structural System", "X_AXIS_INCREMENT", 20.0);
+SetProperty("Structural System", "NUMBER_OF_MODES", 6);
+SetProperty("Structural System", "NUMBER_OF_MODES_TO_ANIMATE", 6);
+SetProperty("Structural System", "MMETHOD", 1);
+SetProperty("Structural System", "MASS_MATRIX", 0);
+SetProperty("Structural System", "FREQUENCY_CONVERGENCE_TOLERANCE", 1e-9);
+SetProperty("Structural System", "SHIFT_FACTOR", 0.0);
+SetProperty("Structural System", "EXAGG_MODAL", 10.0);
+
+AddStrucNodeLoad (nodes[1],1,100,-200,-100,0,0,0 , 'node load' );
+
+AddStrucLinkUniformLoad(links[1], 2, 0,0,100, 'uniform load 1');
+AddStrucLinkUniformLoad(links[2], 2,  0,100,0, 'uniform load 2');
+
+AddStrucLinkTrapezoidLoad(links[3], 2, 0.02,0.08,10,50,0,0,0,0,0.08,0.83,-50, 70, 'trapezoid load 1');
+AddStrucLinkTrapezoidLoad(links[4], 2, 0,0,0,0,0.068,0.330,50,0,0.08,0.83,-50, 70, 'trapezoid load 2');
+
+AddStrucLinkTemperatureLoad(links[1],2, 12e-6 , 0.010 , 0.010 , 0.020 ,  10 ,  10 , -10, 'temperature load 1');
+
+AddStrucLinkConcentratedLoad(links[1], 3,0,100,-900,0.6, 'Concentrated load 1');
+AddStrucLinkConcentratedLoad(links[2], 3, 0, -200,200,0.8, 'Concentrated load 2');
+
+
+SetStrucNodeMassInertia(nodes[1], 100,0,0,0)
+
+print("Model creation complete.");
