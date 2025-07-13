@@ -102,7 +102,7 @@ This approach ensures the configuration is portable with the project on GitHub.
 
 Once setup is complete, open any `.lua` file in your project using SBM’s API. You should now see:
 
-- **Autocompletion** for SBM functions (e.g., `SBM_Application.loadModel`)
+- **Autocompletion** for SBM functions (e.g., `AddBuilding`)
 - **Hover Documentation** with function details
 - **Parameter Hints** as you type arguments
 
