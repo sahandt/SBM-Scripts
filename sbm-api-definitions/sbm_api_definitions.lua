@@ -6,81 +6,81 @@
 
 -- Functions from category: Catalog
 ---Adds a new catalogue to the catalogue with the given address.
----@param newCatalogueName String New catalogue name.
----@param parentCatalogue String Parent catalogue.
----@return String Returns: (string) New catalogue's address.
-function AddNewCatalogue() end
+---@param newCatalogueName string New catalogue name.
+---@param parentCatalogue string Parent catalogue.
+---@return string Returns: (string) New catalogue's address.
+function AddNewCatalogue(newCatalogueName, parentCatalogue) end
 
 ---Lists all the loaded catalogues in memory.
 ---@return Void 
 function ListCatalogues() end
 
 ---Sets product types to a catalogue with a given address.
----@param catalogueAddress String Catalogue address.
----@param typeTag1 String Type tag 1 (optional).
----@param typeTag2 String Type tag 2 (optional).
----@param typeTag3 String Type tag 3 (optional).
----@param typeTag4 String Type tag 4 (optional).
----@param typeTag5 String Type tag 5 (optional).
----@param typeTag6 String Type tag 6 (optional).
----@param typeTag7 String Type tag 7 (optional).
----@param typeTag8 String Type tag 8 (optional).
----@param typeTag9 String Type tag 9 (optional).
----@param typeTag10 String Type tag 10 (optional).
+---@param catalogueAddress string Catalogue address.
+---@param? typeTag1 string Type tag 1 (optional).
+---@param? typeTag2 string Type tag 2 (optional).
+---@param? typeTag3 string Type tag 3 (optional).
+---@param? typeTag4 string Type tag 4 (optional).
+---@param? typeTag5 string Type tag 5 (optional).
+---@param? typeTag6 string Type tag 6 (optional).
+---@param? typeTag7 string Type tag 7 (optional).
+---@param? typeTag8 string Type tag 8 (optional).
+---@param? typeTag9 string Type tag 9 (optional).
+---@param? typeTag10 string Type tag 10 (optional).
 ---@return Void Parameters: typeTag1 to typeTag10: (string) Type tags (maximum 10 types, optional).
-function CatalogueAddType() end
+function CatalogueAddType(catalogueAddress, typeTag1, typeTag2, typeTag3, typeTag4, typeTag5, typeTag6, typeTag7, typeTag8, typeTag9, typeTag10) end
 
 ---Creates a new product using an existing element and adds it to the given catalogue address.
----@param catalogueAddress String Catalogue address.
----@param elementTag String Element tag.
----@return String Returns: (string) New product's address.
-function ProductCreateFromElement() end
+---@param catalogueAddress string Catalogue address.
+---@param elementTag string Element tag.
+---@return string Returns: (string) New product's address.
+function ProductCreateFromElement(catalogueAddress, elementTag) end
 
 ---Creates a new product using an existing element and adds it to the given catalogue address. (Duplicate of ProductCreateFromElement)
----@param catalogueAddress String Catalogue address.
----@param elementTag String Element tag.
----@return String Returns: (string) New product's address.
-function CreateProductFromElement() end
+---@param catalogueAddress string Catalogue address.
+---@param elementTag string Element tag.
+---@return string Returns: (string) New product's address.
+function CreateProductFromElement(catalogueAddress, elementTag) end
 
 ---Saves a catalogue with a given address into the CAT folder of the application local folder.
----@param catalogueAddress String Catalogue address.
----@param fileName String File name.
+---@param catalogueAddress string Catalogue address.
+---@param fileName string File name.
 ---@return Void 
-function CatalogueSave() end
+function CatalogueSave(catalogueAddress, fileName) end
 
 ---Creates a new element using a product with a given address.
----@param productAddress String Product address.
----@param options Table Options for creating the element.
----@return Table Returns: (table) New element's details.
-function CreateElementFromProduct() end
+---@param productAddress string Product address.
+---@param options table Options for creating the element.
+---@return table Returns: (table) New element's details.
+function CreateElementFromProduct(productAddress, options) end
 
 ---Clears all the loaded catalogues.
 ---@return Void 
 function CatalogueClearAll() end
 
 ---Activates a product with a given address.
----@param productAddress String Product address.
+---@param productAddress string Product address.
 ---@return Void 
-function ActivateProduct() end
+function ActivateProduct(productAddress) end
 
 ---Returns a table containing information about children of a catalogue object.
----@param catalogueAddress String Catalogue address.
----@return Table Returns: (table) Table containing information about children.
-function CatalogueGetChildrenInfo() end
+---@param catalogueAddress string Catalogue address.
+---@return table Returns: (table) Table containing information about children.
+function CatalogueGetChildrenInfo(catalogueAddress) end
 
 ---Retrieves the number of products.
----@param catalogueAddress String Catalogue address.
----@param parentCatalogue String Parent catalogue.
+---@param catalogueAddress string Catalogue address.
+---@param parentCatalogue string Parent catalogue.
 ---@return Int 
-function GetNumberOfProducts() end
+function GetNumberOfProducts(catalogueAddress, parentCatalogue) end
 
 ---Creates a new element from a catalog.
----@param catalogueAddress String Catalogue address.
----@param elementTag String Element tag.
+---@param catalogueAddress string Catalogue address.
+---@param elementTag string Element tag.
 ---@param int Int Integer.
----@param options String Options for element creation.
+---@param options string Options for element creation.
 ---@return Iterator 
-function CreateElementFromCatalog() end
+function CreateElementFromCatalog(catalogueAddress, elementTag, int, options) end
 
 -- Functions from category: DataBase
 ---Clears and refills database with default catalogs. All modifications to the database will be lost!!!
@@ -92,685 +92,685 @@ function ResetDataBase() end
 function ResetUserPalette() end
 
 ---Adds a catalogue to the catalogue with given name. Parameters: Catalogue name. Catalogue's ID in DB
----@param catalogueName String Catalogue name
+---@param catalogueName string Catalogue name
 ---@return Void This function does not return a value.
-function AddCatalogToDB() end
+function AddCatalogToDB(catalogueName) end
 
 ---Removes all products with given types from database. Parameters: Products type tags (maximum 10 types)
----@param typeTag1 String Product type tag 1
----@param typeTag2 String Product type tag 2
----@param typeTag3 String Product type tag 3
----@param typeTag4 String Product type tag 4
----@param typeTag5 String Product type tag 5
----@param typeTag6 String Product type tag 6
----@param typeTag7 String Product type tag 7
----@param typeTag8 String Product type tag 8
----@param typeTag9 String Product type tag 9
----@param typeTag10 String Product type tag 10
+---@param typeTag1 string Product type tag 1
+---@param typeTag2 string Product type tag 2
+---@param typeTag3 string Product type tag 3
+---@param typeTag4 string Product type tag 4
+---@param typeTag5 string Product type tag 5
+---@param typeTag6 string Product type tag 6
+---@param typeTag7 string Product type tag 7
+---@param typeTag8 string Product type tag 8
+---@param typeTag9 string Product type tag 9
+---@param typeTag10 string Product type tag 10
 ---@return Void This function does not return a value.
-function RemoveProducts() end
+function RemoveProducts(typeTag1, typeTag2, typeTag3, typeTag4, typeTag5, typeTag6, typeTag7, typeTag8, typeTag9, typeTag10) end
 
 -- Functions from category: Dynamic Element
 ---Adds a shape to a dynamic element and returns the shape index.
----@param elementTag String Tag of the dynamic element
----@param shapeName String Name of the shape
----@param x Number X-dimension of the shape
----@param y Number Y-dimension of the shape
----@param z Number Z-dimension of the shape
+---@param elementTag string Tag of the dynamic element
+---@param shapeName string Name of the shape
+---@param x number X-dimension of the shape
+---@param y number Y-dimension of the shape
+---@param z number Z-dimension of the shape
 ---@return Int Index of the added shape
-function DynamicElementAddShape() end
+function DynamicElementAddShape(elementTag, shapeName, x, y, z) end
 
 ---Sets shape coordinates for a dynamic element.
----@param elementTag String Tag of the dynamic element
+---@param elementTag string Tag of the dynamic element
 ---@param shapeIndex Int Index of the shape
----@param centerX Number X-coordinate of the center point
----@param centerY Number Y-coordinate of the center point
----@param centerZ Number Z-coordinate of the center point
----@param axisA_X Number X-component of the X-axis vector
----@param axisA_Y Number Y-component of the X-axis vector
----@param axisA_Z Number Z-component of the X-axis vector
----@param axisB_X Number X-component of the Y-axis vector
----@param axisB_Y Number Y-component of the Y-axis vector
----@param axisB_Z Number Z-component of the Y-axis vector
+---@param centerX number X-coordinate of the center point
+---@param centerY number Y-coordinate of the center point
+---@param centerZ number Z-coordinate of the center point
+---@param axisA_X number X-component of the X-axis vector
+---@param axisA_Y number Y-component of the X-axis vector
+---@param axisA_Z number Z-component of the X-axis vector
+---@param axisB_X number X-component of the Y-axis vector
+---@param axisB_Y number Y-component of the Y-axis vector
+---@param axisB_Z number Z-component of the Y-axis vector
 ---@return Void 
-function SetShapeCoordinates() end
+function SetShapeCoordinates(elementTag, shapeIndex, centerX, centerY, centerZ, axisA_X, axisA_Y, axisA_Z, axisB_X, axisB_Y, axisB_Z) end
 
 ---Sets shape parameters for a dynamic element.
----@param elementTag String Tag of the dynamic element
+---@param elementTag string Tag of the dynamic element
 ---@param shapeIndex Int Index of the shape
----@param par1 Number shape parameter 1
----@param par2 Number shape parameter 2
----@param par3 Number shape parameter 3
+---@param par1 number shape parameter 1
+---@param par2 number shape parameter 2
+---@param par3 number shape parameter 3
 ---@return Void 
-function SetShapeParameters() end
+function SetShapeParameters(elementTag, shapeIndex, par1, par2, par3) end
 
 ---Sets shape color for a dynamic element.
----@param elementTag String Tag of the dynamic element
+---@param elementTag string Tag of the dynamic element
 ---@param shapeIndex Int Index of the shape
----@param alpha Number Alpha value (0-255)
----@param red Number Red value (0-255)
----@param green Number Green value (0-255)
----@param blue Number Blue value (0-255)
+---@param alpha number Alpha value (0-255)
+---@param red number Red value (0-255)
+---@param green number Green value (0-255)
+---@param blue number Blue value (0-255)
 ---@return Void 
-function SetShapeColor() end
+function SetShapeColor(elementTag, shapeIndex, alpha, red, green, blue) end
 
 ---Sets shape name for a dynamic element.
----@param elementTag String Tag of the dynamic element
+---@param elementTag string Tag of the dynamic element
 ---@param shapeIndex Int Index of the shape
----@param shapeName String Name of the shape
+---@param shapeName string Name of the shape
 ---@return Void 
-function SetShapeName() end
+function SetShapeName(elementTag, shapeIndex, shapeName) end
 
 ---Sets shape physics for a dynamic element.
----@param elementTag String Tag of the dynamic element
+---@param elementTag string Tag of the dynamic element
 ---@param shapeIndex Int Index of the shape
----@param mass Number Mass of the shape
----@param linearDamping Number Linear damping of the shape
----@param angularDamping Number Angular damping of the shape
----@param friction Number Friction of the shape
----@param rollingFriction Number Rolling friction of the shape
----@param restitution Number Restitution of the shape
----@param collisionLayer Number Collision layer of the shape
+---@param mass number Mass of the shape
+---@param linearDamping number Linear damping of the shape
+---@param angularDamping number Angular damping of the shape
+---@param friction number Friction of the shape
+---@param rollingFriction number Rolling friction of the shape
+---@param restitution number Restitution of the shape
+---@param collisionLayer number Collision layer of the shape
 ---@return Void 
-function SetShapePhysics() end
+function SetShapePhysics(elementTag, shapeIndex, mass, linearDamping, angularDamping, friction, rollingFriction, restitution, collisionLayer) end
 
 ---List of shapes and parameters for dynamic elements.
----@return Table Table containing shapes and their parameters
+---@return table Table containing shapes and their parameters
 function ListShapeParameters() end
 
 ---Removes all shapes from a dynamic element.
----@param elementTag String Tag of the dynamic element
+---@param elementTag string Tag of the dynamic element
 ---@return Void 
-function DynamicElementRemoveAllShapes() end
+function DynamicElementRemoveAllShapes(elementTag) end
 
 ---Adds a constraint to a dynamic element.
----@param elementTag String Tag of the dynamic element
----@param constraintType String Type of the constraint
+---@param elementTag string Tag of the dynamic element
+---@param constraintType string Type of the constraint
 ---@param shape1ID Int Index of the first shape in the constraint
 ---@param shape2ID Int Index of the second shape in the constraint
 ---@return Int Index of the added constraint
-function DynamicElementAddConstraint() end
+function DynamicElementAddConstraint(elementTag, constraintType, shape1ID, shape2ID) end
 
 ---Sets constraint position for a dynamic element.
----@param elementTag String Tag of the dynamic element
+---@param elementTag string Tag of the dynamic element
 ---@param constraintIndex Int Index of the constraint
 ---@param shapeIndex Int Index of the shape in the constraint
----@param posX Number X-coordinate of the position point
----@param posY Number Y-coordinate of the position point
----@param posZ Number Z-coordinate of the position point
+---@param posX number X-coordinate of the position point
+---@param posY number Y-coordinate of the position point
+---@param posZ number Z-coordinate of the position point
 ---@return Void 
-function SetConstraintPosition() end
+function SetConstraintPosition(elementTag, constraintIndex, shapeIndex, posX, posY, posZ) end
 
 ---Sets constraint axis for a dynamic element.
----@param elementTag String Tag of the dynamic element
+---@param elementTag string Tag of the dynamic element
 ---@param constraintIndex Int Index of the constraint
 ---@param shapeIndex Int Index of the shape in the constraint
----@param axisAX Number X-component of the first axis vector
----@param axisAY Number Y-component of the first axis vector
----@param axisAZ Number Z-component of the first axis vector
----@param axisBX Number X-component of the second axis vector
----@param axisBY Number Y-component of the second axis vector
----@param axisBZ Number Z-component of the second axis vector
+---@param axisAX number X-component of the first axis vector
+---@param axisAY number Y-component of the first axis vector
+---@param axisAZ number Z-component of the first axis vector
+---@param axisBX number X-component of the second axis vector
+---@param axisBY number Y-component of the second axis vector
+---@param axisBZ number Z-component of the second axis vector
 ---@return Void 
-function SetConstraintAxis() end
+function SetConstraintAxis(elementTag, constraintIndex, shapeIndex, axisAX, axisAY, axisAZ, axisBX, axisBY, axisBZ) end
 
 ---Enables or disables collision in a constraint for a dynamic element.
----@param elementTag String Tag of the dynamic element
+---@param elementTag string Tag of the dynamic element
 ---@param constraintIndex Int Index of the constraint
----@param enable Boolean True to enable collision, false to disable
+---@param enable boolean True to enable collision, false to disable
 ---@return Void 
-function SetConstraintCollision() end
+function SetConstraintCollision(elementTag, constraintIndex, enable) end
 
 ---Sets minimum and maximum angle limits for a hinge constraint.
----@param elementTag String Tag of the dynamic element
+---@param elementTag string Tag of the dynamic element
 ---@param constraintIndex Int Index of the constraint
----@param minAngle Number Minimum angle limit in degrees
----@param maxAngle Number Maximum angle limit in degrees
+---@param minAngle number Minimum angle limit in degrees
+---@param maxAngle number Maximum angle limit in degrees
 ---@return Void 
-function SetHingeConstraintAngleLimit() end
+function SetHingeConstraintAngleLimit(elementTag, constraintIndex, minAngle, maxAngle) end
 
 ---Sets constraint name for a dynamic element.
----@param elementTag String Tag of the dynamic element
+---@param elementTag string Tag of the dynamic element
 ---@param constraintIndex Int Index of the constraint
----@param constraintName String Name of the constraint
+---@param constraintName string Name of the constraint
 ---@return Void 
-function SetConstraintName() end
+function SetConstraintName(elementTag, constraintIndex, constraintName) end
 
 ---Sets body parameters for a vehicle.
----@param elementTag String Tag of the vehicle
----@param x Number X-dimension of the body
----@param y Number Y-dimension of the body
----@param z Number Z-dimension of the body
+---@param elementTag string Tag of the vehicle
+---@param x number X-dimension of the body
+---@param y number Y-dimension of the body
+---@param z number Z-dimension of the body
 ---@return Void 
-function SetBodyParameters() end
+function SetBodyParameters(elementTag, x, y, z) end
 
 ---Sets body color for a vehicle.
----@param elementTag String Tag of the vehicle
----@param alpha Number Alpha value (0-255)
----@param red Number Red value (0-255)
----@param green Number Green value (0-255)
----@param blue Number Blue value (0-255)
+---@param elementTag string Tag of the vehicle
+---@param alpha number Alpha value (0-255)
+---@param red number Red value (0-255)
+---@param green number Green value (0-255)
+---@param blue number Blue value (0-255)
 ---@return Void 
-function SetBodyColor() end
+function SetBodyColor(elementTag, alpha, red, green, blue) end
 
 ---Sets body physics for a vehicle.
----@param elementTag String Tag of the vehicle
----@param mass Number Mass of the body
----@param linearDamping Number Linear damping of the body
----@param angularDamping Number Angular damping of the body
----@param friction Number Friction of the body
----@param rollingFriction Number Rolling friction of the body
----@param restitution Number Restitution of the body
----@param collisionLayer Number Collision layer of the body
+---@param elementTag string Tag of the vehicle
+---@param mass number Mass of the body
+---@param linearDamping number Linear damping of the body
+---@param angularDamping number Angular damping of the body
+---@param friction number Friction of the body
+---@param rollingFriction number Rolling friction of the body
+---@param restitution number Restitution of the body
+---@param collisionLayer number Collision layer of the body
 ---@return Void 
-function SetBodyPhysics() end
+function SetBodyPhysics(elementTag, mass, linearDamping, angularDamping, friction, rollingFriction, restitution, collisionLayer) end
 
 ---Sets body shape for a vehicle.
----@param elementTag String Tag of the vehicle
----@param shapeName String Name of the shape
+---@param elementTag string Tag of the vehicle
+---@param shapeName string Name of the shape
 ---@return Void 
-function SetBodyShape() end
+function SetBodyShape(elementTag, shapeName) end
 
 ---Sets body material for a vehicle.
----@param elementTag String Tag of the vehicle
----@param materialName String Name of the material
+---@param elementTag string Tag of the vehicle
+---@param materialName string Name of the material
 ---@return Void 
-function SetBodyMaterial() end
+function SetBodyMaterial(elementTag, materialName) end
 
 ---Sets wheel parameters for a vehicle.
----@param elementTag String Tag of the vehicle
----@param x Number X-dimension of the wheel
----@param y Number Y-dimension of the wheel
----@param z Number Z-dimension of the wheel
+---@param elementTag string Tag of the vehicle
+---@param x number X-dimension of the wheel
+---@param y number Y-dimension of the wheel
+---@param z number Z-dimension of the wheel
 ---@return Void 
-function SetWheelParameters() end
+function SetWheelParameters(elementTag, x, y, z) end
 
 ---Sets wheel color for a vehicle.
----@param elementTag String Tag of the vehicle
----@param alpha Number Alpha value (0-255)
----@param red Number Red value (0-255)
----@param green Number Green value (0-255)
----@param blue Number Blue value (0-255)
+---@param elementTag string Tag of the vehicle
+---@param alpha number Alpha value (0-255)
+---@param red number Red value (0-255)
+---@param green number Green value (0-255)
+---@param blue number Blue value (0-255)
 ---@return Void 
-function SetWheelColor() end
+function SetWheelColor(elementTag, alpha, red, green, blue) end
 
 ---Sets wheel physics for a vehicle.
----@param elementTag String Tag of the vehicle
----@param mass Number Mass of the wheel
----@param linearDamping Number Linear damping of the wheel
----@param angularDamping Number Angular damping of the wheel
----@param friction Number Friction of the wheel
----@param rollingFriction Number Rolling friction of the wheel
----@param restitution Number Restitution of the wheel
----@param collisionLayer Number Collision layer of the wheel
+---@param elementTag string Tag of the vehicle
+---@param mass number Mass of the wheel
+---@param linearDamping number Linear damping of the wheel
+---@param angularDamping number Angular damping of the wheel
+---@param friction number Friction of the wheel
+---@param rollingFriction number Rolling friction of the wheel
+---@param restitution number Restitution of the wheel
+---@param collisionLayer number Collision layer of the wheel
 ---@return Void 
-function SetWheelPhysics() end
+function SetWheelPhysics(elementTag, mass, linearDamping, angularDamping, friction, rollingFriction, restitution, collisionLayer) end
 
 ---Sets wheel shape for a vehicle.
----@param elementTag String Tag of the vehicle
----@param shapeName String Name of the shape
+---@param elementTag string Tag of the vehicle
+---@param shapeName string Name of the shape
 ---@return Void 
-function SetWheelShape() end
+function SetWheelShape(elementTag, shapeName) end
 
 ---Sets wheel material for a vehicle.
----@param elementTag String Tag of the vehicle
----@param materialName String Name of the material
+---@param elementTag string Tag of the vehicle
+---@param materialName string Name of the material
 ---@return Void 
-function SetWheelMaterial() end
+function SetWheelMaterial(elementTag, materialName) end
 
 ---Sets front light color for a vehicle.
----@param elementTag String Tag of the vehicle
----@param red Number Red value (0-255)
----@param green Number Green value (0-255)
----@param blue Number Blue value (0-255)
+---@param elementTag string Tag of the vehicle
+---@param red number Red value (0-255)
+---@param green number Green value (0-255)
+---@param blue number Blue value (0-255)
 ---@return Void 
-function SetVehicleFrontLightColor() end
+function SetVehicleFrontLightColor(elementTag, red, green, blue) end
 
 ---Sets rear light color for a vehicle.
----@param elementTag String Tag of the vehicle
----@param red Number Red value (0-255)
----@param green Number Green value (0-255)
----@param blue Number Blue value (0-255)
+---@param elementTag string Tag of the vehicle
+---@param red number Red value (0-255)
+---@param green number Green value (0-255)
+---@param blue number Blue value (0-255)
 ---@return Void 
-function SetVehicleRearLightColor() end
+function SetVehicleRearLightColor(elementTag, red, green, blue) end
 
 -- Functions from category: Elements
 ---Returns an element property.
----@param elementTag String Element tag from which the property is to be retrieved
----@param propertyTag String Property tag to be retrieved
+---@param elementTag string Element tag from which the property is to be retrieved
+---@param propertyTag string Property tag to be retrieved
 ---@return Depends This function returns the value of the specified property.
-function GetProperty() end
+function GetProperty(elementTag, propertyTag) end
 
 ---Sets an element property.
----@param elementTag String Element tag for which the property is to be set
----@param propertyTag String Property tag to be set
+---@param elementTag string Element tag for which the property is to be set
+---@param propertyTag string Property tag to be set
 ---@param value Depends The value to be set for the property
 ---@return Void This function sets an element property.
-function SetProperty() end
+function SetProperty(elementTag, propertyTag, value) end
 
 ---Returns a Lua table containing information about all elements in the current project.
----@return Table This function returns a Lua table containing information about all elements in the current project.
+---@return table This function returns a Lua table containing information about all elements in the current project.
 function GetAllElements() end
 
 ---Returns a Lua table containing information about all connected links to a node.
----@param nodeTag String Node tag for which connected links are to be retrieved
----@return Table This function returns a Lua table containing information about all connected links to the node.
-function GetConnectedLinks() end
+---@param nodeTag string Node tag for which connected links are to be retrieved
+---@return table This function returns a Lua table containing information about all connected links to the node.
+function GetConnectedLinks(nodeTag) end
 
 ---List of all element tags in the current project with a given type.
----@param typeTag String Type tag for which elements are to be retrieved
+---@param typeTag string Type tag for which elements are to be retrieved
 ---@return Iterator This function returns a Lua iterator for iterating through the elements with the specified type.
-function GetElementsByType() end
+function GetElementsByType(typeTag) end
 
 ---Returns a Lua table containing information about children of an element.
----@param elementTag String Element tag for which children information is to be retrieved
----@return Table A Lua table containing information about the children of the element
-function GetChildrenInfo() end
+---@param elementTag string Element tag for which children information is to be retrieved
+---@return table A Lua table containing information about the children of the element
+function GetChildrenInfo(elementTag) end
 
 ---Returns the tag of an element's parent.
----@param elementTag String Element tag for which the parent tag is to be retrieved
----@return String The tag of the element's parent
-function GetParentTag() end
+---@param elementTag string Element tag for which the parent tag is to be retrieved
+---@return string The tag of the element's parent
+function GetParentTag(elementTag) end
 
 ---Returns the tag of an element's holder.
----@param elementTag String Element tag for which the holder tag is to be retrieved
----@return String The tag of the element's holder
-function GetHolderTag() end
+---@param elementTag string Element tag for which the holder tag is to be retrieved
+---@return string The tag of the element's holder
+function GetHolderTag(elementTag) end
 
 ---Checks if an element with the specified tag exists.
----@param elementTag String Element tag to check for existence
----@return Boolean true if the element exists, false otherwise
-function CheckElementExists() end
+---@param elementTag string Element tag to check for existence
+---@return boolean true if the element exists, false otherwise
+function CheckElementExists(elementTag) end
 
 ---Returns the type tag of an element.
----@param elementTag String Element tag for which the type is to be retrieved
----@return String The type tag of the element
-function GetElementType() end
+---@param elementTag string Element tag for which the type is to be retrieved
+---@return string The type tag of the element
+function GetElementType(elementTag) end
 
 ---Returns an iterator for iterating through all vessel tags in the current project.
 ---@return Iterator A Lua iterator for iterating through all vessel tags in the current project
 function GetVessels() end
 
 ---Returns the system tag of an element.
----@param elementTag String Element tag for which the system tag is to be retrieved
----@return String The system tag of the element
-function GetSystem() end
+---@param elementTag string Element tag for which the system tag is to be retrieved
+---@return string The system tag of the element
+function GetSystem(elementTag) end
 
 ---Returns the system type of an element.
----@param elementTag String Element tag for which the system type is to be retrieved
----@return String The system type of the element
-function GetSystemType() end
+---@param elementTag string Element tag for which the system type is to be retrieved
+---@return string The system type of the element
+function GetSystemType(elementTag) end
 
 ---Creates element(s) using input objects and returns created element(s) tags.
----@param typeTag String Type tag of the element to be created
----@param option String (Optional) Additional parameters depending on the type of element to be created
+---@param typeTag string Type tag of the element to be created
+---@param? option string (Optional) Additional parameters depending on the type of element to be created
 ---@return Iterator The tag(s) of the created element(s)
-function CreateElement() end
+function CreateElement(typeTag, option) end
 
 ---Creates element(s) using input objects and returns a lua table containing created elements' tags
----@param typeTag String Type tag of the element to be created
----@param options String (Optional) Additional parameters depending on the type of element to be created
----@return Table New element's tag.
-function CreateElement2() end
+---@param typeTag string Type tag of the element to be created
+---@param? options string (Optional) Additional parameters depending on the type of element to be created
+---@return table New element's tag.
+function CreateElement2(typeTag, options) end
 
 ---Adds nodes from input objects to a link.
----@param elementTag String Element tag for which nodes are to be added
+---@param elementTag string Element tag for which nodes are to be added
 ---@return Void 
-function AddNodeToElement() end
+function AddNodeToElement(elementTag) end
 
 ---Returns a table containing tags of connected nodes to a link.
----@param linkTag String Link tag for which connected nodes are to be retrieved
----@return Table A table containing tags of connected nodes to the link
-function GetLinkNodes() end
+---@param linkTag string Link tag for which connected nodes are to be retrieved
+---@return table A table containing tags of connected nodes to the link
+function GetLinkNodes(linkTag) end
 
 ---Returns true if an element exists.
----@param elementTag String Element tag to check.
----@return Boolean true if the element exists, false otherwise
-function ElementExists() end
+---@param elementTag string Element tag to check.
+---@return boolean true if the element exists, false otherwise
+function ElementExists(elementTag) end
 
 ---Returns true if an element is a storage tank.
----@param elementTag String Element tag to check if it is a storage tank
----@return Boolean true if the element is a storage tank, false otherwise
-function IsTank() end
+---@param elementTag string Element tag to check if it is a storage tank
+---@return boolean true if the element is a storage tank, false otherwise
+function IsTank(elementTag) end
 
 ---Returns true if an element is a valve.
----@param elementTag String Element tag to check if it is a valve
----@return Boolean true if the element is a valve, false otherwise
-function IsValve() end
+---@param elementTag string Element tag to check if it is a valve
+---@return boolean true if the element is a valve, false otherwise
+function IsValve(elementTag) end
 
 ---Returns true if an element is a building column.
----@param elementTag String Element tag to check if it is a building column
----@return Boolean true if the element is a building column, false otherwise
-function IsBuildingColumn() end
+---@param elementTag string Element tag to check if it is a building column
+---@return boolean true if the element is a building column, false otherwise
+function IsBuildingColumn(elementTag) end
 
 ---Returns true if an element is insulated.
----@param elementTag String Element tag to check if it is insulated
----@return Boolean true if the element is insulated, false otherwise
-function IsInsulated() end
+---@param elementTag string Element tag to check if it is insulated
+---@return boolean true if the element is insulated, false otherwise
+function IsInsulated(elementTag) end
 
 ---Returns the insulation of an element.
----@param elementTag String Element tag to get insulation from
----@return String The insulation of the element
-function GetInsulation() end
+---@param elementTag string Element tag to get insulation from
+---@return string The insulation of the element
+function GetInsulation(elementTag) end
 
 ---Sets the insulation for an element.
----@param elementTag String Element tag to set insulation for
----@param value Boolean Insulation value to set (true or false)
+---@param elementTag string Element tag to set insulation for
+---@param value boolean Insulation value to set (true or false)
 ---@return Void 
-function SetInsulation() end
+function SetInsulation(elementTag, value) end
 
 ---Sets the fill color of an element.
----@param elementTag String Element tag for which the fill color is to be set
----@param alpha Number Alpha value of the color (0-255)
----@param red Number Red component of the color (0-255)
----@param green Number Green component of the color (0-255)
----@param blue Number Blue component of the color (0-255)
----@param colorType Number (Optional) Type of element with 2 colors (1 or 2)
+---@param elementTag string Element tag for which the fill color is to be set
+---@param alpha number Alpha value of the color (0-255)
+---@param red number Red component of the color (0-255)
+---@param green number Green component of the color (0-255)
+---@param blue number Blue component of the color (0-255)
+---@param? colorType number (Optional) Type of element with 2 colors (1 or 2)
 ---@return Void 
-function SetFillColor() end
+function SetFillColor(elementTag, alpha, red, green, blue, colorType) end
 
 ---Sets the border color of an element.
----@param elementTag String Element tag for which the border color is to be set
----@param alpha Number Alpha value of the color (0-255)
----@param red Number Red component of the color (0-255)
----@param green Number Green component of the color (0-255)
----@param blue Number Blue component of the color (0-255)
----@param colorType Number (Optional) Type of element with 2 colors (1 or 2)
+---@param elementTag string Element tag for which the border color is to be set
+---@param alpha number Alpha value of the color (0-255)
+---@param red number Red component of the color (0-255)
+---@param green number Green component of the color (0-255)
+---@param blue number Blue component of the color (0-255)
+---@param? colorType number (Optional) Type of element with 2 colors (1 or 2)
 ---@return Void 
-function SetBorderColor() end
+function SetBorderColor(elementTag, alpha, red, green, blue, colorType) end
 
 ---Refreshes an element.
----@param elementTag String Element tag to be refreshed
+---@param elementTag string Element tag to be refreshed
 ---@return Void 
-function RefreshElement() end
+function RefreshElement(elementTag) end
 
 ---Checks if an element is attached to other elements.
----@param elementTag String Element tag to check if it is attached
----@return Boolean true if the element is attached, false otherwise
-function IsAttached() end
+---@param elementTag string Element tag to check if it is attached
+---@return boolean true if the element is attached, false otherwise
+function IsAttached(elementTag) end
 
 ---Returns true if a node is on the end side of a linear link.
----@param linkTag String Link tag to which the node belongs
----@param nodeTag String Node tag to check if it is on the end side of the link
----@return Boolean true if the node is on the end side of the linear link, false otherwise
-function GetNodeSide() end
+---@param linkTag string Link tag to which the node belongs
+---@param nodeTag string Node tag to check if it is on the end side of the link
+---@return boolean true if the node is on the end side of the linear link, false otherwise
+function GetNodeSide(linkTag, nodeTag) end
 
 ---Returns the tag of the first node of a link.
----@param linkTag String Link tag for which the first node tag is to be retrieved
----@return String The tag of the first node of the link
-function Get1stNode() end
+---@param linkTag string Link tag for which the first node tag is to be retrieved
+---@return string The tag of the first node of the link
+function Get1stNode(linkTag) end
 
 ---Returns the tag of the second node of a link.
----@param linkTag String Link tag for which the second node tag is to be retrieved
----@return String The tag of the second node of the link
-function Get2ndNode() end
+---@param linkTag string Link tag for which the second node tag is to be retrieved
+---@return string The tag of the second node of the link
+function Get2ndNode(linkTag) end
 
 ---Returns the angle between two linear links.
----@param link1Tag String Tag of the first linear link
----@param link2Tag String Tag of the second linear link
----@return Number The angle between the two linear links (in radians)
-function GetAngleBetweenLinks() end
+---@param link1Tag string Tag of the first linear link
+---@param link2Tag string Tag of the second linear link
+---@return number The angle between the two linear links (in radians)
+function GetAngleBetweenLinks(link1Tag, link2Tag) end
 
 ---Checks if an element is a linear link.
----@param elementTag String Element tag to check if it is a linear link
----@return Boolean true if the element is a linear link, false otherwise
-function IsLinearLink() end
+---@param elementTag string Element tag to check if it is a linear link
+---@return boolean true if the element is a linear link, false otherwise
+function IsLinearLink(elementTag) end
 
 ---Checks if an element is a joint for linear links.
----@param elementTag String Element tag to check if it is a joint
----@return Boolean true if the element is a joint, false otherwise
-function IsJoint() end
+---@param elementTag string Element tag to check if it is a joint
+---@return boolean true if the element is a joint, false otherwise
+function IsJoint(elementTag) end
 
 ---Checks if an element is an appliance.
----@param elementTag String Element tag to check if it is an appliance
----@return Boolean true if the element is an appliance, false otherwise
-function IsAppliance() end
+---@param elementTag string Element tag to check if it is an appliance
+---@return boolean true if the element is an appliance, false otherwise
+function IsAppliance(elementTag) end
 
 ---Sets the position data for a specified object.
----@param name String Name of the object
----@param x Number X-coordinate to set
----@param y Number Y-coordinate to set
----@param z Number Z-coordinate to set
+---@param name string Name of the object
+---@param x number X-coordinate to set
+---@param y number Y-coordinate to set
+---@param z number Z-coordinate to set
 ---@return Void 
-function SetPosition() end
+function SetPosition(name, x, y, z) end
 
 ---Gets the direction data for a specified object.
----@param name String Name of the object
----@return Table Returns a Lua table containing direction data with the following fields: x: X-direction of the object, y: Y-direction of the object, z: Z-direction of the object
-function GetDirection() end
+---@param name string Name of the object
+---@return table Returns a Lua table containing direction data with the following fields: x: X-direction of the object, y: Y-direction of the object, z: Z-direction of the object
+function GetDirection(name) end
 
 ---Sets the direction data for a specified object.
----@param name String Name of the object
----@param x Number X-direction to set
----@param y Number Y-direction to set
----@param z Number Z-direction to set
+---@param name string Name of the object
+---@param x number X-direction to set
+---@param y number Y-direction to set
+---@param z number Z-direction to set
 ---@return Void 
-function SetDirection() end
+function SetDirection(name, x, y, z) end
 
 ---Adds a node element, such as a pipe fitting, duct fitting, electrical joint, or structural node.
----@param nodeTypeTag String The type tag of the node to create.
----@param X Number The X-coordinate of the node position.
----@param Y Number The Y-coordinate of the node position.
----@param Z Number The Z-coordinate of the node position.
----@param nodeName String Optional name for the node.
----@return String Returns the tag of the newly created node element.
-function AddNode() end
+---@param nodeTypeTag string The type tag of the node to create.
+---@param X number The X-coordinate of the node position.
+---@param Y number The Y-coordinate of the node position.
+---@param Z number The Z-coordinate of the node position.
+---@param? nodeName string Optional name for the node.
+---@return string Returns the tag of the newly created node element.
+function AddNode(nodeTypeTag, X, Y, Z, nodeName) end
 
 ---Adds a link element, such as a pipe, duct, wire, electrical conduit, or structural link.
----@param linkTypeTag String The type tag of the link to create.
----@param node1Tag String The tag of the first node to connect.
----@param node2Tag String The tag of the second node to connect.
----@param linkName String Optional name for the link.
----@return String Returns the tag of the newly created link element.
-function AddLink() end
+---@param linkTypeTag string The type tag of the link to create.
+---@param node1Tag string The tag of the first node to connect.
+---@param node2Tag string The tag of the second node to connect.
+---@param? linkName string Optional name for the link.
+---@return string Returns the tag of the newly created link element.
+function AddLink(linkTypeTag, node1Tag, node2Tag, linkName) end
 
 ---Creates a new rectangular cuboid appliance element of the given type and returns its tag.
----@param applianceTypeTag String The type tag of the appliance (e.g., 'FIXTURE', 'FURNITURE', 'HVAC_APPLIANCE').
----@param length Number The length of the appliance.
----@param width Number The width of the appliance.
----@param height Number The height of the appliance.
----@param X Number The X-coordinate of the appliance position.
----@param Y Number The Y-coordinate of the appliance position.
----@param Z Number The Z-coordinate (elevation) of the appliance position.
----@param applianceName String Optional name for the appliance.
----@return String Returns the tag of the newly created appliance element.
-function AddRectangularAppliance() end
+---@param applianceTypeTag string The type tag of the appliance (e.g., 'FIXTURE', 'FURNITURE', 'HVAC_APPLIANCE').
+---@param length number The length of the appliance.
+---@param width number The width of the appliance.
+---@param height number The height of the appliance.
+---@param X number The X-coordinate of the appliance position.
+---@param Y number The Y-coordinate of the appliance position.
+---@param Z number The Z-coordinate (elevation) of the appliance position.
+---@param? applianceName string Optional name for the appliance.
+---@return string Returns the tag of the newly created appliance element.
+function AddRectangularAppliance(applianceTypeTag, length, width, height, X, Y, Z, applianceName) end
 
 ---Creates a new cylindrical appliance of the specified type and returns its element tag.
----@param applianceTypeTag String The type tag of the appliance (e.g., 'FURNITURE', 'HVAC_APPLIANCE').
----@param length Number The length of the cylindrical appliance.
----@param diameter Number The diameter of the cylindrical appliance.
----@param X Number X-coordinate of the appliance's position.
----@param Y Number Y-coordinate of the appliance's position.
----@param Z Number Z-coordinate of the appliance's position.
----@param isHorizontal Boolean Indicates whether the appliance is horizontal. Default is false (vertical).
----@param applianceName String Optional name of the appliance.
----@return String Returns the unique element tag of the newly created cylindrical appliance.
-function AddCylindricalAppliance() end
+---@param applianceTypeTag string The type tag of the appliance (e.g., 'FURNITURE', 'HVAC_APPLIANCE').
+---@param length number The length of the cylindrical appliance.
+---@param diameter number The diameter of the cylindrical appliance.
+---@param X number X-coordinate of the appliance's position.
+---@param Y number Y-coordinate of the appliance's position.
+---@param Z number Z-coordinate of the appliance's position.
+---@param isHorizontal boolean Indicates whether the appliance is horizontal. Default is false (vertical).
+---@param? applianceName string Optional name of the appliance.
+---@return string Returns the unique element tag of the newly created cylindrical appliance.
+function AddCylindricalAppliance(applianceTypeTag, length, diameter, X, Y, Z, isHorizontal, applianceName) end
 
 ---Creates a new spherical appliance of the specified type and returns its element tag.
----@param applianceTypeTag String The type tag of the appliance (e.g., 'FURNITURE', 'FIXTURE', 'HVAC_APPLIANCE').
----@param diameter Number The diameter of the spherical appliance.
----@param X Number X-coordinate of the appliance's position.
----@param Y Number Y-coordinate of the appliance's position.
----@param Z Number Z-coordinate of the appliance's position.
----@param applianceName String Optional name of the appliance.
----@return String Returns the unique element tag of the newly created spherical appliance.
-function AddSphericalAppliance() end
+---@param applianceTypeTag string The type tag of the appliance (e.g., 'FURNITURE', 'FIXTURE', 'HVAC_APPLIANCE').
+---@param diameter number The diameter of the spherical appliance.
+---@param X number X-coordinate of the appliance's position.
+---@param Y number Y-coordinate of the appliance's position.
+---@param Z number Z-coordinate of the appliance's position.
+---@param? applianceName string Optional name of the appliance.
+---@return string Returns the unique element tag of the newly created spherical appliance.
+function AddSphericalAppliance(applianceTypeTag, diameter, X, Y, Z, applianceName) end
 
 ---Attaches an element to a rectangular appliance at a specified side and offset.
----@param elementTag String The tag of the element to be attached.
----@param applianceTag String The tag of the rectangular appliance to attach to.
----@param sideName String The side of the appliance to attach to (e.g., 'Bottom', 'Top', 'Left', 'Right', 'Front', 'Back').
----@param distance1 Number First offset distance from the center of the specified side.
----@param distance2 Number Second offset distance from the center of the specified side.
----@return Boolean Returns true if the element was successfully attached to the appliance; otherwise, returns false.
-function AttachToRectangularAppliance() end
+---@param elementTag string The tag of the element to be attached.
+---@param applianceTag string The tag of the rectangular appliance to attach to.
+---@param sideName string The side of the appliance to attach to (e.g., 'Bottom', 'Top', 'Left', 'Right', 'Front', 'Back').
+---@param distance1 number First offset distance from the center of the specified side.
+---@param distance2 number Second offset distance from the center of the specified side.
+---@return boolean Returns true if the element was successfully attached to the appliance; otherwise, returns false.
+function AttachToRectangularAppliance(elementTag, applianceTag, sideName, distance1, distance2) end
 
 ---Attaches an element to a cylindrical appliance (vertical or horizontal) at a specified side and offset.
----@param elementTag String The tag of the element to be attached.
----@param applianceTag String The tag of the cylindrical appliance to attach to.
----@param sideName String The side of the appliance to attach to. For vertical: 'Bottom', 'Top', 'Side'. For horizontal: 'Left', 'Right', 'Side'.
----@param distance1 Number Offset distance or angle depending on the side. For 'Bottom'/'Top': X offset. For 'Side': angle (vertical) or Y offset (horizontal).
----@param distance2 Number Second offset. For 'Bottom'/'Top': Y or Z offset. For 'Side': height (vertical) or Z offset (horizontal).
----@return Boolean Returns true if the element was successfully attached to the cylindrical appliance; otherwise, returns false.
-function AttachToCylindricalAppliance() end
+---@param elementTag string The tag of the element to be attached.
+---@param applianceTag string The tag of the cylindrical appliance to attach to.
+---@param sideName string The side of the appliance to attach to. For vertical: 'Bottom', 'Top', 'Side'. For horizontal: 'Left', 'Right', 'Side'.
+---@param distance1 number Offset distance or angle depending on the side. For 'Bottom'/'Top': X offset. For 'Side': angle (vertical) or Y offset (horizontal).
+---@param distance2 number Second offset. For 'Bottom'/'Top': Y or Z offset. For 'Side': height (vertical) or Z offset (horizontal).
+---@return boolean Returns true if the element was successfully attached to the cylindrical appliance; otherwise, returns false.
+function AttachToCylindricalAppliance(elementTag, applianceTag, sideName, distance1, distance2) end
 
 ---Attaches an element to a spherical appliance using a polar angle and vertical offset.
----@param elementTag String The tag of the element to be attached.
----@param applianceTag String The tag of the spherical appliance to attach to.
----@param angleRadians Number Angle around the equator of the sphere in radians, starting from the appliance's X-axis.
----@param verticalOffset Number Vertical offset from the equator of the sphere in meters.
----@return Boolean Returns true if the element was successfully attached to the spherical appliance; otherwise, returns false.
-function AttachToSphericalAppliance() end
+---@param elementTag string The tag of the element to be attached.
+---@param applianceTag string The tag of the spherical appliance to attach to.
+---@param angleRadians number Angle around the equator of the sphere in radians, starting from the appliance's X-axis.
+---@param verticalOffset number Vertical offset from the equator of the sphere in meters.
+---@return boolean Returns true if the element was successfully attached to the spherical appliance; otherwise, returns false.
+function AttachToSphericalAppliance(elementTag, applianceTag, angleRadians, verticalOffset) end
 
 ---Attaches an element to a building floor at a given X, Y offset, and whether it is above or below the floor.
----@param elementTag String The tag of the element to be attached.
----@param floorTag String The tag of the building floor.
----@param xOffset Number The X offset relative to the floor's origin.
----@param yOffset Number The Y offset relative to the floor's origin.
----@param aboveGround Boolean True to attach above the floor, false to attach below.
----@return Boolean Returns true if the element was successfully attached to the building floor; otherwise, returns false.
-function AttachToFloor() end
+---@param elementTag string The tag of the element to be attached.
+---@param floorTag string The tag of the building floor.
+---@param xOffset number The X offset relative to the floor's origin.
+---@param yOffset number The Y offset relative to the floor's origin.
+---@param aboveGround boolean True to attach above the floor, false to attach below.
+---@return boolean Returns true if the element was successfully attached to the building floor; otherwise, returns false.
+function AttachToFloor(elementTag, floorTag, xOffset, yOffset, aboveGround) end
 
 ---Attaches an element to a wall at a given horizontal and vertical offset from the center, and on the specified side.
----@param elementTag String The tag of the element to be attached.
----@param wallTag String The tag of the wall.
----@param horizontalOffset Number Horizontal offset from the center of the wall (in meters). Positive is to the right.
----@param verticalOffset Number Vertical offset from the center of the wall (in meters). Positive is upward.
----@param frontSide Boolean True to attach to the front face of the wall, false for the back face.
----@return Boolean Returns true if the element was successfully attached to the wall; otherwise, returns false.
-function AttachToWall() end
+---@param elementTag string The tag of the element to be attached.
+---@param wallTag string The tag of the wall.
+---@param horizontalOffset number Horizontal offset from the center of the wall (in meters). Positive is to the right.
+---@param verticalOffset number Vertical offset from the center of the wall (in meters). Positive is upward.
+---@param frontSide boolean True to attach to the front face of the wall, false for the back face.
+---@return boolean Returns true if the element was successfully attached to the wall; otherwise, returns false.
+function AttachToWall(elementTag, wallTag, horizontalOffset, verticalOffset, frontSide) end
 
 ---Deletes an element with the specified tag.
----@param elementTag String The unique tag of the element to delete.
----@return Boolean Returns true if the element was successfully deleted; otherwise, returns false.
-function DeleteElement() end
+---@param elementTag string The unique tag of the element to delete.
+---@return boolean Returns true if the element was successfully deleted; otherwise, returns false.
+function DeleteElement(elementTag) end
 
 ---Adds a building to the project at specified (x, y) location.
----@param x Number X coordinate of the building
----@param y Number Y coordinate of the building
----@return Table Tags of created building and floor.
-function AddBuilding() end
+---@param x number X coordinate of the building
+---@param y number Y coordinate of the building
+---@return table Tags of created building and floor.
+function AddBuilding(x, y) end
 
 ---Adds a floor to a building.
----@param buildingTag String Tag of the target building
----@param floorHeight Number Height of the floor to add
----@return String Tag of the created floor.
-function AddFloor() end
+---@param buildingTag string Tag of the target building
+---@param floorHeight number Height of the floor to add
+---@return string Tag of the created floor.
+function AddFloor(buildingTag, floorHeight) end
 
 ---Adds a wall using two columns, optionally linking it to floors.
----@param col1 String Tag of the first column
----@param col2 String Tag of the second column
----@param floor1 String (Optional) First floor tag
----@param floor2 String (Optional) Second floor tag
----@return String Tag of the created wall.
-function AddWall() end
+---@param col1 string Tag of the first column
+---@param col2 string Tag of the second column
+---@param? floor1 string (Optional) First floor tag
+---@param? floor2 string (Optional) Second floor tag
+---@return string Tag of the created wall.
+function AddWall(col1, col2, floor1, floor2) end
 
 ---Adds a window to a wall.
----@param wallTag String Tag of the wall
----@param offsetX Number Horizontal offset from wall center
----@param offsetY Number Vertical offset from wall base
----@return String Tag of the created window.
-function AddWindow() end
+---@param wallTag string Tag of the wall
+---@param offsetX number Horizontal offset from wall center
+---@param offsetY number Vertical offset from wall base
+---@return string Tag of the created window.
+function AddWindow(wallTag, offsetX, offsetY) end
 
 ---Adds a door to a wall.
----@param wallTag String Tag of the wall
----@param offsetX Number Horizontal offset from wall center
----@return String Tag of the created door.
-function AddDoor() end
+---@param wallTag string Tag of the wall
+---@param offsetX number Horizontal offset from wall center
+---@return string Tag of the created door.
+function AddDoor(wallTag, offsetX) end
 
 ---Activates a building for subsequent operations.
----@param buildingTag String Tag of the building to activate
+---@param buildingTag string Tag of the building to activate
 ---@return Void No return value
-function ActivateBuilding() end
+function ActivateBuilding(buildingTag) end
 
 ---Adds a set of building columns at input points, and optionally assigns them to specified floors, rooms, or zones.
----@param points Table 2D points (Lua table) where columns will be created
----@param columnType String (Optional) Column type: "RNDCOLUMN", "SQCOLUMN" or "PROFILED_COLUMN"
----@param floorsOrZones Table (Optional) Tags of floors, rooms or zones where columns should be added
----@param updateFloorColumns Boolean (Optional) If true, updates column references in the floors, rooms or zones. Default is false
----@return Table Lua table of created column tags
-function AddColumns() end
+---@param points table 2D points (Lua table) where columns will be created
+---@param? columnType string (Optional) Column type: "RNDCOLUMN", "SQCOLUMN" or "PROFILED_COLUMN"
+---@param? floorsOrZones table (Optional) Tags of floors, rooms or zones where columns should be added
+---@param? updateFloorColumns boolean (Optional) If true, updates column references in the floors, rooms or zones. Default is false
+---@return table Lua table of created column tags
+function AddColumns(points, columnType, floorsOrZones, updateFloorColumns) end
 
 ---Assigns a set of columns to a floor, room or zone, and optionally resets its associated nodes.
----@param linkTag String Tag of the floor, room, or zone, to which columns will be assigned
----@param columnTags Table Lua table of column tags to assign
----@param resetNodes Boolean (Optional) If true, clears existing columns. Default is false
+---@param linkTag string Tag of the floor, room, or zone, to which columns will be assigned
+---@param columnTags table Lua table of column tags to assign
+---@param? resetNodes boolean (Optional) If true, clears existing columns. Default is false
 ---@return Void No return value
-function SetColumns() end
+function SetColumns(linkTag, columnTags, resetNodes) end
 
 ---Adds a room to a floor using column boundaries.
----@param floorTag String Tag of the floor
----@param roomName String Name of the room
----@param columnTags Table List of column tags forming the room boundary
----@return String Tag of the created room.
-function AddRoom() end
+---@param floorTag string Tag of the floor
+---@param roomName string Name of the room
+---@param columnTags table List of column tags forming the room boundary
+---@return string Tag of the created room.
+function AddRoom(floorTag, roomName, columnTags) end
 
 ---Adds a zone to a floor using column boundaries.
----@param floorTag String Tag of the floor
----@param zoneName String Name of the zone
----@param columnTags Table List of column tags forming the zone boundary
----@return String Tag of the created zone.
-function AddZone() end
+---@param floorTag string Tag of the floor
+---@param zoneName string Name of the zone
+---@param columnTags table List of column tags forming the zone boundary
+---@return string Tag of the created zone.
+function AddZone(floorTag, zoneName, columnTags) end
 
 ---Adds a rectangular opening to a wall.
----@param wallTag String Tag of the wall
----@param height Number Opening height
----@param width Number Opening width
----@param offsetX Number Horizontal offset from center
----@param offsetY Number Vertical offset from bottom
----@return String Tag of the created opening.
-function AddRectangularOpening() end
+---@param wallTag string Tag of the wall
+---@param height number Opening height
+---@param width number Opening width
+---@param offsetX number Horizontal offset from center
+---@param offsetY number Vertical offset from bottom
+---@return string Tag of the created opening.
+function AddRectangularOpening(wallTag, height, width, offsetX, offsetY) end
 
 -- Functions from category: EPANET
 ---Returns the Missing value indicator.
----@return Number Missing value indicator (-1.0E10)
+---@return number Missing value indicator (-1.0E10)
 function EN_MISSING() end
 
 ---Returns an EPANET constant value.
----@param EPANETConstant String The name of the EPANET constant.
----@return Number The value of the EPANET constant.
-function EN_C() end
+---@param EPANETConstant string The name of the EPANET constant.
+---@return number The value of the EPANET constant.
+function EN_C(EPANETConstant) end
 
 ---Lists EPANET constants.
 ---@return Void 
 function List_EPANET_Constants() end
 
 ---Opens an EPANET project.
----@param inputFileName String Input file name.
----@param reportFileName String Report file name.
----@param outputFileName String Output file name.
+---@param inputFileName string Input file name.
+---@param reportFileName string Report file name.
+---@param outputFileName string Output file name.
 ---@return Void 
-function ENopen() end
+function ENopen(inputFileName, reportFileName, outputFileName) end
 
 ---Initializes a network prior to running a hydraulic analysis.
----@param reportFileName String Report file name.
----@param outputFileName String Output file name.
+---@param reportFileName string Report file name.
+---@param outputFileName string Output file name.
 ---@param unitsTypeFlag Int Units type flag.
 ---@param headlossTypeFlag Int Headloss type flag.
 ---@return Void 
-function ENinit() end
+function ENinit(reportFileName, outputFileName, unitsTypeFlag, headlossTypeFlag) end
 
 ---Retrieves the EPANET version number.
 ---@return Int The EPANET version number.
 function ENgetversion() end
 
 ---Retrieves the EPANET project title.
----@return Table The EPANET project title (a list of strings).
+---@return table The EPANET project title (a list of strings).
 function ENgettitle() end
 
 ---Sets the EPANET project title.
----@param titleLine1 String First line of the title.
----@param titleLine2 String Second line of the title.
----@param titleLine3 String Third line of the title.
+---@param titleLine1 string First line of the title.
+---@param titleLine2 string Second line of the title.
+---@param titleLine3 string Third line of the title.
 ---@return Void 
-function ENsettitle() end
+function ENsettitle(titleLine1, titleLine2, titleLine3) end
 
 ---Saves the current network design to a file.
----@param fileName String Name of the file to save the project to.
+---@param fileName string Name of the file to save the project to.
 ---@return Void 
-function ENsaveinpfile() end
+function ENsaveinpfile(fileName) end
 
 ---Saves the current report to a file.
 ---@return Void 
@@ -795,7 +795,7 @@ function ENopenH() end
 ---Initializes the hydraulic analysis engine.
 ---@param saveResults Int Flag indicating whether to save results.
 ---@return Void 
-function ENinitH() end
+function ENinitH(saveResults) end
 
 ---Runs a step-by-step hydraulic analysis.
 ---@return Int Error code (0 if successful).
@@ -810,28 +810,28 @@ function ENnextH() end
 function ENcloseH() end
 
 ---Saves the current hydraulic solution to a binary file.
----@param fileName String Name of the file to save the hydraulic results to.
+---@param fileName string Name of the file to save the hydraulic results to.
 ---@return Void 
-function ENsavehydfile() end
+function ENsavehydfile(fileName) end
 
 ---Uses a specific binary file containing a previously saved hydraulic solution.
----@param fileName String Name of the file containing the hydraulic results.
+---@param fileName string Name of the file containing the hydraulic results.
 ---@return Void 
-function ENusehydfile() end
+function ENusehydfile(fileName) end
 
 ---Writes a line of text to the EPANET report file.
----@param line String The line of text to write.
+---@param line string The line of text to write.
 ---@return Void 
-function ENwriteline() end
+function ENwriteline(line) end
 
 ---Generates the standard EPANET report.
 ---@return Void 
 function ENreport() end
 
 ---Copies the current report to a file.
----@param fileName String Name of the file to copy the report to.
+---@param fileName string Name of the file to copy the report to.
 ---@return Void 
-function ENcopyreport() end
+function ENcopyreport(fileName) end
 
 ---Clears the current report.
 ---@return Void 
@@ -842,41 +842,41 @@ function ENclearreport() end
 function ENresetreport() end
 
 ---Sets the name of the report file.
----@param fileName String Name of the report file.
+---@param fileName string Name of the report file.
 ---@return Void 
-function ENsetreport() end
+function ENsetreport(fileName) end
 
 ---Sets the status reporting option.
 ---@param statusFlag Int Status reporting option flag.
 ---@return Void 
-function ENsetstatusreport() end
+function ENsetstatusreport(statusFlag) end
 
 ---Retrieves the number of network elements of a specific type.
 ---@param elementType Int Code number of the element type.
 ---@return Int The number of elements of the specified type.
-function ENgetcount() end
+function ENgetcount(elementType) end
 
 ---Retrieves a summary statistic for an EPANET analysis.
 ---@param statisticCode Int Code number of the statistic.
----@return Number The value of the specified statistic.
-function ENgetstatistic() end
+---@return number The value of the specified statistic.
+function ENgetstatistic(statisticCode) end
 
 ---Retrieves the index of a node or link given its ID.
 ---@param elementType Int Code number of the element type.
 ---@param elementID Int ID label of the element.
 ---@return Int The index number of the element.
-function ENgetresultindex() end
+function ENgetresultindex(elementType, elementID) end
 
 ---Retrieves the current value of a computation option.
 ---@param optionCode Int Code number of the option.
----@return Number The value of the specified computation option.
-function ENgetoption() end
+---@return number The value of the specified computation option.
+function ENgetoption(optionCode) end
 
 ---Sets the value of a computation option.
 ---@param optionCode Int Code number of the option.
----@param optionValue Number Value to assign to the option.
+---@param optionValue number Value to assign to the option.
 ---@return Void 
-function ENsetoption() end
+function ENsetoption(optionCode, optionValue) end
 
 ---Retrieves the code number of the flow units option.
 ---@return Int The code number of the flow units option.
@@ -885,34 +885,34 @@ function ENgetflowunits() end
 ---Sets the code number of the flow units option.
 ---@param unitsCode Int Code number of the flow units option.
 ---@return Void 
-function ENsetflowunits() end
+function ENsetflowunits(unitsCode) end
 
 ---Retrieves the value of a time parameter.
 ---@param timeParameterCode Int Code number of the time parameter.
 ---@return Int The value of the specified time parameter.
-function ENgettimeparam() end
+function ENgettimeparam(timeParameterCode) end
 
 ---Sets the value of a time parameter.
 ---@param timeParameterCode Int Code number of the time parameter.
 ---@param timeValue Int Value to assign to the time parameter.
 ---@return Void 
-function ENsettimeparam() end
+function ENsettimeparam(timeParameterCode, timeValue) end
 
 ---Retrieves information about water quality analysis.
----@return Table A table containing information about water quality analysis.
+---@return table A table containing information about water quality analysis.
 function ENgetqualinfo() end
 
 ---Retrieves information about the type of water quality analysis.
----@return Table A table containing information about the type of water quality analysis.
+---@return table A table containing information about the type of water quality analysis.
 function ENgetqualtype() end
 
 ---Sets the type of water quality analysis.
 ---@param analysisType Int Code number of the analysis type.
----@param chemicalName String Name of the chemical being analyzed.
----@param massUnits String Units in which chemical mass is measured.
----@param traceNode String ID of node being traced (used for Trace analysis).
+---@param chemicalName string Name of the chemical being analyzed.
+---@param massUnits string Units in which chemical mass is measured.
+---@param traceNode string ID of node being traced (used for Trace analysis).
 ---@return Void 
-function ENsetqualtype() end
+function ENsetqualtype(analysisType, chemicalName, massUnits, traceNode) end
 
 ---Solves the current EPANET water quality network.
 ---@return Void 
@@ -925,7 +925,7 @@ function ENopenQ() end
 ---Initializes the water quality analysis engine.
 ---@param saveResults Int Flag indicating whether to save results.
 ---@return Void 
-function ENinitQ() end
+function ENinitQ(saveResults) end
 
 ---Runs a step-by-step water quality analysis.
 ---@return Int Error code (0 if successful).
@@ -944,449 +944,449 @@ function ENstepQ() end
 function ENcloseQ() end
 
 ---Adds a node to the network.
----@param nodeID String The node's ID.
+---@param nodeID string The node's ID.
 ---@param nodeType Int The node's type.
 ---@return Int 
-function ENaddnode() end
+function ENaddnode(nodeID, nodeType) end
 
 ---Deletes a node from the network.
 ---@param nodeIndex Int The node's index.
 ---@param deleteOption Int Option for deleting the node.
 ---@return Void 
-function ENdeletenode() end
+function ENdeletenode(nodeIndex, deleteOption) end
 
 ---Retrieves the index of a node.
----@param nodeID String The node's ID.
+---@param nodeID string The node's ID.
 ---@return Int 
-function ENgetnodeindex() end
+function ENgetnodeindex(nodeID) end
 
 ---Retrieves the ID of a node.
 ---@param nodeIndex Int The node's index.
----@return String 
-function ENgetnodeid() end
+---@return string 
+function ENgetnodeid(nodeIndex) end
 
 ---Sets the ID of a node.
 ---@param nodeIndex Int The node's index.
----@param nodeID String The new ID for the node.
+---@param nodeID string The new ID for the node.
 ---@return Void 
-function ENsetnodeid() end
+function ENsetnodeid(nodeIndex, nodeID) end
 
 ---Retrieves the type of a node.
 ---@param nodeIndex Int The node's index.
 ---@return Int 
-function ENgetnodetype() end
+function ENgetnodetype(nodeIndex) end
 
 ---Retrieves a property value for a node.
 ---@param nodeIndex Int The node's index.
 ---@param propertyCode Int The property's code.
----@return Number 
-function ENgetnodevalue() end
+---@return number 
+function ENgetnodevalue(nodeIndex, propertyCode) end
 
 ---Sets a property value for a node.
 ---@param nodeIndex Int The node's index.
 ---@param propertyCode Int The property's code.
----@param value Number The value to set.
+---@param value number The value to set.
 ---@return Void 
-function ENsetnodevalue() end
+function ENsetnodevalue(nodeIndex, propertyCode, value) end
 
 ---Sets data for a junction node.
 ---@param nodeIndex Int The junction node's index.
----@param elevation Number Elevation of the junction.
----@param basedemand Number Base demand for the junction.
----@param demandPattern String Demand pattern name.
+---@param elevation number Elevation of the junction.
+---@param basedemand number Base demand for the junction.
+---@param demandPattern string Demand pattern name.
 ---@return Void 
-function ENsetjuncdata() end
+function ENsetjuncdata(nodeIndex, elevation, basedemand, demandPattern) end
 
 ---Sets data for a tank node.
 ---@param nodeIndex Int The tank node's index.
----@param elevation Number Elevation of the tank.
----@param minLevel Number Minimum water level.
----@param maxLevel Number Maximum water level.
----@param initLevel Number Initial water level.
----@param diameter Number Tank diameter.
----@param minVolume Number Minimum water volume.
----@param volumeCurve String ID of the volume curve.
+---@param elevation number Elevation of the tank.
+---@param minLevel number Minimum water level.
+---@param maxLevel number Maximum water level.
+---@param initLevel number Initial water level.
+---@param diameter number Tank diameter.
+---@param minVolume number Minimum water volume.
+---@param volumeCurve string ID of the volume curve.
 ---@return Void 
-function ENsettankdata() end
+function ENsettankdata(nodeIndex, elevation, minLevel, maxLevel, initLevel, diameter, minVolume, volumeCurve) end
 
 ---Retrieves coordinates for a node.
 ---@param nodeIndex Int The node's index.
----@return Table 
-function ENgetcoord() end
+---@return table 
+function ENgetcoord(nodeIndex) end
 
 ---Sets coordinates for a node.
 ---@param nodeIndex Int The node's index.
----@param x Number X-coordinate.
----@param y Number Y-coordinate.
+---@param x number X-coordinate.
+---@param y number Y-coordinate.
 ---@return Void 
-function ENsetcoord() end
+function ENsetcoord(nodeIndex, x, y) end
 
 ---Retrieves the demand model.
----@return Table 
+---@return table 
 function ENgetdemandmodel() end
 
 ---Sets parameters of a demand model.
 ---@param nodeIndex Int Index of the node.
----@param demandType Number Demand type code.
----@param value Number Demand value.
----@param patternIndex Number Demand pattern index.
+---@param demandType number Demand type code.
+---@param value number Demand value.
+---@param patternIndex number Demand pattern index.
 ---@return Void 
-function ENsetdemandmodel() end
+function ENsetdemandmodel(nodeIndex, demandType, value, patternIndex) end
 
 ---Adds a new demand to a node.
 ---@param nodeIndex Int Index of the node to which demand is added.
----@param basedemand Number Base demand value.
----@param demandPattern String Demand pattern name.
----@param demandName String Name of the demand.
+---@param basedemand number Base demand value.
+---@param demandPattern string Demand pattern name.
+---@param demandName string Name of the demand.
 ---@return Void 
-function ENadddemand() end
+function ENadddemand(nodeIndex, basedemand, demandPattern, demandName) end
 
 ---Deletes a demand from a node.
 ---@param nodeIndex Int Index of the node from which demand is deleted.
 ---@param demandIndex Int Index of the demand to delete.
 ---@return Void 
-function ENdeletedemand() end
+function ENdeletedemand(nodeIndex, demandIndex) end
 
 ---Retrieves the index of a demand.
 ---@param nodeIndex Int Index of the node.
----@param demandName String Name of the demand.
+---@param demandName string Name of the demand.
 ---@return Int 
-function ENgetdemandindex() end
+function ENgetdemandindex(nodeIndex, demandName) end
 
 ---Retrieves the number of demands at a node.
 ---@param nodeIndex Int Index of the node.
 ---@return Int 
-function ENgetnumdemands() end
+function ENgetnumdemands(nodeIndex) end
 
 ---Retrieves the base demand value.
 ---@param nodeIndex Int Index of the node.
 ---@param demandIndex Int Index of the demand.
----@return Number 
-function ENgetbasedemand() end
+---@return number 
+function ENgetbasedemand(nodeIndex, demandIndex) end
 
 ---Sets the base demand value.
 ---@param nodeIndex Int Index of the node.
 ---@param demandIndex Int Index of the demand.
----@param basedemand Number Base demand value to set.
+---@param basedemand number Base demand value to set.
 ---@return Void 
-function ENsetbasedemand() end
+function ENsetbasedemand(nodeIndex, demandIndex, basedemand) end
 
 ---Retrieves the demand pattern assigned to a specific demand.
 ---@param nodeIndex Int Index of the node.
 ---@param demandIndex Int Index of the demand.
 ---@return Int Index of the assigned demand pattern.
-function ENgetdemandpattern() end
+function ENgetdemandpattern(nodeIndex, demandIndex) end
 
 ---Assigns a demand pattern to a specific demand.
 ---@param nodeIndex Int Index of the node.
 ---@param demandIndex Int Index of the demand.
 ---@param patternIndex Int Index of the demand pattern to assign.
 ---@return Void 
-function ENsetdemandpattern() end
+function ENsetdemandpattern(nodeIndex, demandIndex, patternIndex) end
 
 ---Retrieves the name assigned to a specific demand.
 ---@param nodeIndex Int Index of the node.
 ---@param demandIndex Int Index of the demand.
----@return String Name of the assigned demand.
-function ENgetdemandname() end
+---@return string Name of the assigned demand.
+function ENgetdemandname(nodeIndex, demandIndex) end
 
 ---Assigns a name to a specific demand.
 ---@param nodeIndex Int Index of the node.
 ---@param demandIndex Int Index of the demand.
----@param demandName String Name to assign to the demand.
+---@param demandName string Name to assign to the demand.
 ---@return Void 
-function ENsetdemandname() end
+function ENsetdemandname(nodeIndex, demandIndex, demandName) end
 
 ---Adds a new link to the network.
----@param linkID String ID of the link to add.
+---@param linkID string ID of the link to add.
 ---@param fromNodeIndex Int Index of the node the link connects from.
----@param toNodeIndex String Index of the node the link connects to.
----@param linkType String Type of link to add.
+---@param toNodeIndex string Index of the node the link connects to.
+---@param linkType string Type of link to add.
 ---@return Int Index of the newly added link.
-function ENaddlink() end
+function ENaddlink(linkID, fromNodeIndex, toNodeIndex, linkType) end
 
 ---Deletes an existing link from the network.
 ---@param linkIndex Int Index of the link to delete.
 ---@param deleteNodes Int Flag indicating whether to delete nodes connected to the link.
 ---@return Void 
-function ENdeletelink() end
+function ENdeletelink(linkIndex, deleteNodes) end
 
 ---Retrieves the index of a link given its ID.
----@param linkID String ID of the link.
+---@param linkID string ID of the link.
 ---@return Int Index of the link.
-function ENgetlinkindex() end
+function ENgetlinkindex(linkID) end
 
 ---Retrieves the ID of a link given its index.
 ---@param linkIndex Int Index of the link.
----@return String ID of the link.
-function ENgetlinkid() end
+---@return string ID of the link.
+function ENgetlinkid(linkIndex) end
 
 ---Assigns a new ID to a link.
 ---@param linkIndex Int Index of the link.
----@param newLinkID String New ID to assign to the link.
+---@param newLinkID string New ID to assign to the link.
 ---@return Void 
-function ENsetlinkid() end
+function ENsetlinkid(linkIndex, newLinkID) end
 
 ---Retrieves the type of a link.
 ---@param linkIndex Int Index of the link.
 ---@return Int Type of the link.
-function ENgetlinktype() end
+function ENgetlinktype(linkIndex) end
 
 ---Sets the type of a link.
 ---@param linkIndex Int Index of the link.
 ---@param newLinkType Int New type to set for the link.
 ---@return Void 
-function ENsetlinktype() end
+function ENsetlinktype(linkIndex, newLinkType) end
 
 ---Retrieves the nodes connected to a link.
 ---@param linkIndex Int Index of the link.
----@return Table Table containing indices of the connected nodes.
-function ENgetlinknodes() end
+---@return table Table containing indices of the connected nodes.
+function ENgetlinknodes(linkIndex) end
 
 ---Sets the nodes connected to a link.
 ---@param linkIndex Int Index of the link.
 ---@param fromNodeIndex Int Index of the node to connect from.
 ---@param toNodeIndex Int Index of the node to connect to.
 ---@return Void 
-function ENsetlinknodes() end
+function ENsetlinknodes(linkIndex, fromNodeIndex, toNodeIndex) end
 
 ---Retrieves a value for a link attribute.
 ---@param linkIndex Int Index of the link.
 ---@param attributeCode Int Code of the attribute to retrieve.
----@return Number Value of the link attribute.
-function ENgetlinkvalue() end
+---@return number Value of the link attribute.
+function ENgetlinkvalue(linkIndex, attributeCode) end
 
 ---Sets a value for a link attribute.
 ---@param linkIndex Int Index of the link.
 ---@param attributeCode Int Code of the attribute to set.
----@param value Number Value to set for the attribute.
+---@param value number Value to set for the attribute.
 ---@return Void 
-function ENsetlinkvalue() end
+function ENsetlinkvalue(linkIndex, attributeCode, value) end
 
 ---Sets data for a pipe link.
 ---@param linkIndex Int Index of the pipe link.
----@param length Number Length of the pipe.
----@param diameter Number Diameter of the pipe.
----@param roughness Number Roughness coefficient of the pipe.
----@param lossCoefficient Number Minor loss coefficient for the pipe.
+---@param length number Length of the pipe.
+---@param diameter number Diameter of the pipe.
+---@param roughness number Roughness coefficient of the pipe.
+---@param lossCoefficient number Minor loss coefficient for the pipe.
 ---@return Void 
-function ENsetpipedata() end
+function ENsetpipedata(linkIndex, length, diameter, roughness, lossCoefficient) end
 
 ---Retrieves the number of vertices in a link.
 ---@param linkIndex Int Index of the link.
 ---@return Int Number of vertices in the link.
-function ENgetvertexcount() end
+function ENgetvertexcount(linkIndex) end
 
 ---Retrieves the coordinates of a vertex in a link.
 ---@param linkIndex Int Index of the link.
 ---@param vertexIndex Int Index of the vertex.
----@return Table Table containing the coordinates of the vertex.
-function ENgetvertex() end
+---@return table Table containing the coordinates of the vertex.
+function ENgetvertex(linkIndex, vertexIndex) end
 
 ---Sets the vertices for a link.
 ---@param linkIndex Int Index of the link.
----@param xCoordinates Table Table of X-coordinates for the vertices.
----@param yCoordinates Table Table of Y-coordinates for the vertices.
+---@param xCoordinates table Table of X-coordinates for the vertices.
+---@param yCoordinates table Table of Y-coordinates for the vertices.
 ---@param coordinateCount Int Number of vertices.
 ---@return Void 
-function ENsetvertices() end
+function ENsetvertices(linkIndex, xCoordinates, yCoordinates, coordinateCount) end
 
 ---Retrieves the index of a pump's head curve.
 ---@param pumpIndex Int The pump's index (starting from 1).
 ---@return Int The pump's head curve index.
-function ENgetheadcurveindex() end
+function ENgetheadcurveindex(pumpIndex) end
 
 ---Assigns a head curve to a pump.
 ---@param pumpIndex Int The pump's index (starting from 1).
 ---@param curveIndex Int The head curve's index (starting from 1).
 ---@return Void 
-function ENsetheadcurveindex() end
+function ENsetheadcurveindex(pumpIndex, curveIndex) end
 
 ---Retrieves the type of pump.
 ---@param pumpIndex Int The pump's index (starting from 1).
 ---@return Int The pump's type (see EN_PumpType).
-function ENgetpumptype() end
+function ENgetpumptype(pumpIndex) end
 
 ---Adds a new time pattern to the project.
----@param patternId String The ID name assigned to the pattern.
+---@param patternId string The ID name assigned to the pattern.
 ---@return Void 
-function ENaddpattern() end
+function ENaddpattern(patternId) end
 
 ---Deletes a time pattern from the project.
 ---@param patternIndex Int The time pattern's index (starting from 1).
 ---@return Void 
-function ENdeletepattern() end
+function ENdeletepattern(patternIndex) end
 
 ---Retrieves the index of a time pattern given its ID name.
----@param patternId String The ID name of the time pattern.
+---@param patternId string The ID name of the time pattern.
 ---@return Int The time pattern's index.
-function ENgetpatternindex() end
+function ENgetpatternindex(patternId) end
 
 ---Retrieves the ID name of a time pattern given its index.
 ---@param patternIndex Int The time pattern's index (starting from 1).
----@return String The time pattern's ID name.
-function ENgetpatternid() end
+---@return string The time pattern's ID name.
+function ENgetpatternid(patternIndex) end
 
 ---Assigns a new ID name to a time pattern.
 ---@param patternIndex Int The time pattern's index (starting from 1).
----@param patternId String The new ID name for the pattern.
+---@param patternId string The new ID name for the pattern.
 ---@return Void 
-function ENsetpatternid() end
+function ENsetpatternid(patternIndex, patternId) end
 
 ---Retrieves the number of time periods in a time pattern.
 ---@param patternIndex Int The time pattern's index (starting from 1).
 ---@return Int The number of time periods in the pattern.
-function ENgetpatternlen() end
+function ENgetpatternlen(patternIndex) end
 
 ---Retrieves a multiplier factor from a time pattern.
 ---@param patternIndex Int A time pattern index (starting from 1).
 ---@param period Int A time period in the pattern (starting from 1).
----@return Number The pattern factor for the given time period.
-function ENgetpatternvalue() end
+---@return number The pattern factor for the given time period.
+function ENgetpatternvalue(patternIndex, period) end
 
 ---Sets a multiplier factor for a time pattern for a given time period.
 ---@param patternIndex Int A time pattern index (starting from 1).
 ---@param period Int A time period in the pattern (starting from 1).
----@param value Number The new value of the pattern factor for the given time period.
+---@param value number The new value of the pattern factor for the given time period.
 ---@return Void 
-function ENsetpatternvalue() end
+function ENsetpatternvalue(patternIndex, period, value) end
 
 ---Retrieves the average of all pattern factors in a time pattern.
 ---@param patternIndex Int A time pattern index (starting from 1).
----@return Number The average of all of the time pattern's factors.
-function ENgetaveragepatternvalue() end
+---@return number The average of all of the time pattern's factors.
+function ENgetaveragepatternvalue(patternIndex) end
 
 ---Sets all time pattern factors at once.
 ---@param patternIndex Int Time pattern index.
----@param values Table A Lua table containing the entire set of multiplier factors for the pattern.
+---@param values table A Lua table containing the entire set of multiplier factors for the pattern.
 ---@param len Int Number of time periods in the pattern.
 ---@return Void 
-function ENsetpattern() end
+function ENsetpattern(patternIndex, values, len) end
 
 ---Adds a new data curve to the project.
----@param curveId String The ID name of the curve to be added.
+---@param curveId string The ID name of the curve to be added.
 ---@return Void The new curve contains a single data point (1.0, 1.0).
-function ENaddcurve() end
+function ENaddcurve(curveId) end
 
 ---Deletes a data curve from the project.
 ---@param curveIndex Int The data curve's index (starting from 1).
 ---@return Void 
-function ENdeletecurve() end
+function ENdeletecurve(curveIndex) end
 
 ---Retrieves the index of a curve given its ID name.
----@param curveId String The ID name of the curve.
+---@param curveId string The ID name of the curve.
 ---@return Int The curve's index.
-function ENgetcurveindex() end
+function ENgetcurveindex(curveId) end
 
 ---Retrieves the ID name of a curve given its index.
 ---@param curveIndex Int The curve's index (starting from 1).
----@return String The curve's ID name.
-function ENgetcurveid() end
+---@return string The curve's ID name.
+function ENgetcurveid(curveIndex) end
 
 ---Assigns a new ID name to a curve.
 ---@param curveIndex Int The curve's index (starting from 1).
----@param curveId String The new ID name for the curve.
+---@param curveId string The new ID name for the curve.
 ---@return Void 
-function ENsetcurveid() end
+function ENsetcurveid(curveIndex, curveId) end
 
 ---Retrieves the number of data pairs contained in a curve.
 ---@param curveIndex Int The curve's index (starting from 1).
 ---@return Int The number of data pairs in the curve.
-function ENgetcurvelen() end
+function ENgetcurvelen(curveIndex) end
 
 ---Retrieves the type of data stored in a curve.
 ---@param curveIndex Int The curve's index (starting from 1).
 ---@return Int The curve's type (see EN_CurveType).
-function ENgetcurvetype() end
+function ENgetcurvetype(curveIndex) end
 
 ---Retrieves a value from a curve.
 ---@param curveIndex Int Index of the curve
 ---@param valueIndex Int Index of the value in the curve
----@return Table A table containing the curve value
-function ENgetcurvevalue() end
+---@return table A table containing the curve value
+function ENgetcurvevalue(curveIndex, valueIndex) end
 
 ---Sets a value for a curve.
 ---@param curveIndex Int Index of the curve
 ---@param valueIndex Int Index of the value in the curve
----@param xValue Number X-value of the curve
----@param yValue Number Y-value of the curve
+---@param xValue number X-value of the curve
+---@param yValue number Y-value of the curve
 ---@return Void 
-function ENsetcurvevalue() end
+function ENsetcurvevalue(curveIndex, valueIndex, xValue, yValue) end
 
 ---Retrieves a curve.
 ---@param curveIndex Int Index of the curve
----@param curveID String ID of the curve
+---@param curveID string ID of the curve
 ---@param valueIndex Int Index of the value in the curve
----@return Table A table containing the curve
-function ENgetcurve() end
+---@return table A table containing the curve
+function ENgetcurve(curveIndex, curveID, valueIndex) end
 
 ---Sets a curve.
 ---@param curveIndex Int Index of the curve
----@param xValues Table Table of X-values for the curve
----@param yValues Table Table of Y-values for the curve
+---@param xValues table Table of X-values for the curve
+---@param yValues table Table of Y-values for the curve
 ---@param curveType Int Type of the curve
 ---@return Void 
-function ENsetcurve() end
+function ENsetcurve(curveIndex, xValues, yValues, curveType) end
 
 ---Adds a new simple control to EPANET.
 ---@param controlType Int Type of control
 ---@param linkIndex Int Index of the link being controlled
----@param setting Number Control setting
+---@param setting number Control setting
 ---@param nodeIndex Int Index of the node triggering the control
----@param level Number Trigger level for the control
+---@param level number Trigger level for the control
 ---@return Int Index of the added control
-function ENaddcontrol() end
+function ENaddcontrol(controlType, linkIndex, setting, nodeIndex, level) end
 
 ---Deletes a simple control.
 ---@param controlIndex Int Index of the control to delete
 ---@return Void 
-function ENdeletecontrol() end
+function ENdeletecontrol(controlIndex) end
 
 ---Retrieves a simple control.
----@return Table A table containing the control
+---@return table A table containing the control
 function ENgetcontrol() end
 
 ---Sets parameters for a simple control.
 ---@param controlIndex Int Index of the control
 ---@param controlType Int Type of control
 ---@param linkIndex Int Index of the controlled link
----@param setting Number Control setting
+---@param setting number Control setting
 ---@param nodeIndex Int Index of the trigger node
----@param level Number Trigger level
+---@param level number Trigger level
 ---@return Void 
-function ENsetcontrol() end
+function ENsetcontrol(controlIndex, controlType, linkIndex, setting, nodeIndex, level) end
 
 ---Adds a rule-based control.
----@param rule String Rule text
+---@param rule string Rule text
 ---@return Void 
-function ENaddrule() end
+function ENaddrule(rule) end
 
 ---Deletes a rule-based control.
 ---@param ruleIndex Int Index of the rule to delete
 ---@return Void 
-function ENdeleterule() end
+function ENdeleterule(ruleIndex) end
 
 ---Retrieves a rule-based control's summary.
 ---@param ruleIndex Int Index of the rule
----@return Table A table containing rule summary information
-function ENgetrule() end
+---@return table A table containing rule summary information
+function ENgetrule(ruleIndex) end
 
 ---Retrieves the ID of a rule.
 ---@param ruleIndex Int Index of the rule
----@return String The ID of the rule
-function ENgetruleID() end
+---@return string The ID of the rule
+function ENgetruleID(ruleIndex) end
 
 ---Sets the priority for a rule.
 ---@param ruleIndex Int Index of the rule
----@param priority Number Priority value
+---@param priority number Priority value
 ---@return Void 
-function ENsetrulepriority() end
+function ENsetrulepriority(ruleIndex, priority) end
 
 ---Retrieves a premise from a rule.
 ---@param ruleIndex Int Index of the rule
 ---@param premiseIndex Int Index of the premise
----@return Table A table containing the premise
-function ENgetpremise() end
+---@return table A table containing the premise
+function ENgetpremise(ruleIndex, premiseIndex) end
 
 ---Sets a premise in a rule.
 ---@param ruleIndex Int Index of the rule
@@ -1397,60 +1397,60 @@ function ENgetpremise() end
 ---@param variable Int Variable being tested
 ---@param relation Int Relation between variable and value
 ---@param status Int Status of the premise
----@param value Number Value in the premise
+---@param value number Value in the premise
 ---@return Void 
-function ENsetpremise() end
+function ENsetpremise(ruleIndex, premiseIndex, logop, objectType, objectIndex, variable, relation, status, value) end
 
 ---Sets the object index for a premise.
 ---@param ruleIndex Int Index of the rule
 ---@param premiseIndex Int Index of the premise
 ---@param objectIndex Int New object index
 ---@return Void 
-function ENsetpremiseindex() end
+function ENsetpremiseindex(ruleIndex, premiseIndex, objectIndex) end
 
 ---Sets the status of a premise.
 ---@param ruleIndex Int Index of the rule
 ---@param premiseIndex Int Index of the premise
 ---@param status Int New status for the premise
 ---@return Void 
-function ENsetpremisestatus() end
+function ENsetpremisestatus(ruleIndex, premiseIndex, status) end
 
 ---Sets the value in a premise.
 ---@param ruleIndex Int Index of the rule
 ---@param premiseIndex Int Index of the premise
----@param value Number New value for the premise
+---@param value number New value for the premise
 ---@return Void 
-function ENsetpremisevalue() end
+function ENsetpremisevalue(ruleIndex, premiseIndex, value) end
 
 ---Retrieves a THEN action from a rule.
 ---@param ruleIndex Int Index of the rule
 ---@param actionIndex Int Index of the THEN action
----@return Table A table containing the THEN action
-function ENgetthenaction() end
+---@return table A table containing the THEN action
+function ENgetthenaction(ruleIndex, actionIndex) end
 
 ---Sets a THEN action in a rule.
 ---@param ruleIndex Int Index of the rule
 ---@param actionIndex Int Index of the THEN action
 ---@param linkIndex Int Index of the link in the action
 ---@param status Int New status for the link
----@param setting Number New setting for the link
+---@param setting number New setting for the link
 ---@return Void 
-function ENsetthenaction() end
+function ENsetthenaction(ruleIndex, actionIndex, linkIndex, status, setting) end
 
 ---Retrieves an ELSE action from a rule.
 ---@param ruleIndex Int Index of the rule
 ---@param actionIndex Int Index of the ELSE action
----@return Table A table containing the ELSE action
-function ENgetelseaction() end
+---@return table A table containing the ELSE action
+function ENgetelseaction(ruleIndex, actionIndex) end
 
 ---Sets an ELSE action in a rule.
 ---@param ruleIndex Int Index of the rule
 ---@param actionIndex Int Index of the ELSE action
 ---@param linkIndex Int Index of the link in the action
 ---@param status Int New status for the link
----@param setting Number New setting for the link
+---@param setting number New setting for the link
 ---@return Void 
-function ENsetelseaction() end
+function ENsetelseaction(ruleIndex, actionIndex, linkIndex, status, setting) end
 
 ---Initializes the EPANET solver.
 ---@return Void 
@@ -1461,9 +1461,9 @@ function ENRinit() end
 function ENRclose() end
 
 ---Opens an EPANET input file.
----@param filename String Name of the EPANET input file.
+---@param filename string Name of the EPANET input file.
 ---@return Void 
-function ENRopen() end
+function ENRopen(filename) end
 
 ---Retrieves the EPANET version number.
 ---@return Int 
@@ -1483,17 +1483,17 @@ function ENRgetTimes() end
 
 ---Retrieves the ID name of a network element.
 ---@param index Int Index number of the element.
----@return String 
-function ENRgetElementName() end
+---@return string 
+function ENRgetElementName(index) end
 
 ---Retrieves energy usage results for a pump during a period.
 ---@param pumpIndex Int Index number of the pump.
 ---@param periodIndices Int Time period indices for reporting results.
----@return Table An array of energy usage values.
-function ENRgetEnergyUsage() end
+---@return table An array of energy usage values.
+function ENRgetEnergyUsage(pumpIndex, periodIndices) end
 
 ---Retrieves average network reaction rates over a time period.
----@return Table An array of reaction rate values.
+---@return table An array of reaction rate values.
 function ENRgetNetReacts() end
 
 ---Frees all memory used to store EPANET data.
@@ -1504,90 +1504,90 @@ function ENRfree() end
 ---@param nodeIndex Int Index number of the node.
 ---@param attributeCode Int Code for the node attribute to report.
 ---@param timeIndices Int Time indices for which results are to be reported.
----@return Table An array of time series values.
-function ENRgetNodeSeries() end
+---@return table An array of time series values.
+function ENRgetNodeSeries(nodeIndex, attributeCode, timeIndices) end
 
 ---Retrieves a time series of results for a link.
 ---@param linkIndex Int Index number of the link.
 ---@param attributeCode Int Code for the link attribute to report.
 ---@param timeIndices Int Time indices for which results are to be reported.
----@return Table An array of time series values.
-function ENRgetLinkSeries() end
+---@return table An array of time series values.
+function ENRgetLinkSeries(linkIndex, attributeCode, timeIndices) end
 
 ---Get a particular attribute for all nodes at a given time.
 ---@param periodIndex Int The time period index for reporting results.
 ---@param attr Int Code for the node attribute to report (see ENR_NodeAttribute).
----@return Table An array of node attribute values.
-function ENR_getNodeAttribute() end
+---@return table An array of node attribute values.
+function ENR_getNodeAttribute(periodIndex, attr) end
 
 ---Get a particular attribute for all links at a given time.
 ---@param periodIndex Int The time period index for reporting results.
 ---@param attr Int Code for the link attribute to report (see ENR_LinkAttribute).
----@return Table 
-function ENRgetLinkAttribute() end
+---@return table 
+function ENRgetLinkAttribute(periodIndex, attr) end
 
 ---Get all attributes for a node at a given time.
 ---@param periodIndex Int The time period index for reporting results.
 ---@param nodeIndex Int The node index for reporting results.
----@return Table An array of node result values.
-function ENRgetNodeResult() end
+---@return table An array of node result values.
+function ENRgetNodeResult(periodIndex, nodeIndex) end
 
 ---Get all attributes for a link at a given time.
 ---@param periodIndex Int The time period index for reporting results.
 ---@param linkIndex Int The link index for reporting results.
----@return Table An array of link result values.
-function ENRgetLinkResult() end
+---@return table An array of link result values.
+function ENRgetLinkResult(periodIndex, linkIndex) end
 
 ---Clears the current error status.
 ---@return Void 
 function ENRclearError() end
 
 ---Checks the current error status.
----@return String The current error code.
+---@return string The current error code.
 function ENRcheckError() end
 
 ---Verifies that all input data has been entered correctly. (Beta version.)
----@return Boolean 
+---@return boolean 
 function ENVerifyInput() end
 
 ---Verifies that a string is valid to be used as an EPANET object ID.
----@param objectID String The object ID to be validated.
----@return Boolean 
-function ENIsIDValid() end
+---@param objectID string The object ID to be validated.
+---@return boolean 
+function ENIsIDValid(objectID) end
 
 -- Functions from category: General
 ---Adds a header line to the report.
----@param rtext String Text to be printed
----@param size Number Size of the font
----@param cssColorName String CSS color name
+---@param rtext string Text to be printed
+---@param size number Size of the font
+---@param cssColorName string CSS color name
 ---@return Void This function adds a header line to the report with specified text, size, and color.
-function print() end
+function print(rtext, size, cssColorName) end
 
 ---Adds a paragraph to the report.
----@param text String Text to be printed
----@param cssColorName String CSS color name
----@param label String (Optional) Label to be added
+---@param text string Text to be printed
+---@param cssColorName string CSS color name
+---@param? label string (Optional) Label to be added
 ---@return Void This function adds a paragraph to the report with specified text, color, and an optional label.
-function printp() end
+function printp(text, cssColorName, label) end
 
 ---Adds a line of HTML tags to the report body.
----@param htmlCode String A line of HTML code to be added to the report body
+---@param htmlCode string A line of HTML code to be added to the report body
 ---@return Void This function adds a line of HTML code to the report body.
-function printHTML() end
+function printHTML(htmlCode) end
 
 ---Clears the report.
 ---@return Void This function clears the report.
 function clear() end
 
 ---List of all elements in the current project.
----@param ShowCoordinates Boolean (Optional) Whether to show coordinate details.
+---@param? ShowCoordinates boolean (Optional) Whether to show coordinate details.
 ---@return Void This function lists all elements in the current project.
-function ListElements() end
+function ListElements(ShowCoordinates) end
 
 ---List of all objects in the current project tree.
----@param ShowNetworks Boolean (Optional) Whether to show node-link details.
+---@param? ShowNetworks boolean (Optional) Whether to show node-link details.
 ---@return Void This function lists all objects in the current project tree.
-function ListObjects() end
+function ListObjects(ShowNetworks) end
 
 ---List of all available commands in the Lua script editor.
 ---@return Void This function lists all available commands in the Lua script editor.
@@ -1598,29 +1598,29 @@ function ListCommands() end
 function ListTypes() end
 
 ---List of properties for a given type.
----@param typeTag String Type tag for which properties are to be listed
+---@param typeTag string Type tag for which properties are to be listed
 ---@return Void This function lists the properties for a given type.
-function ListTypeProperties() end
+function ListTypeProperties(typeTag) end
 
 ---Returns a Lua table containing properties of an element.
----@param elementTag String Element tag for which properties are to be retrieved
----@return Table This function returns a Lua table containing the properties of an element.
-function GetTypeProperties() end
+---@param elementTag string Element tag for which properties are to be retrieved
+---@return table This function returns a Lua table containing the properties of an element.
+function GetTypeProperties(elementTag) end
 
 ---Finds objects with the same tag in the current project.
----@param fixDuplicate Boolean Whether to automatically fix duplicate tags (true or false)
+---@param fixDuplicate boolean Whether to automatically fix duplicate tags (true or false)
 ---@return Void This function finds objects with the same tag in the current project and automatically fixes the tag if the value is set to true.
-function CheckDuplicate() end
+function CheckDuplicate(fixDuplicate) end
 
 ---Lists all nodes in the current project.
----@param ShowNetworks Boolean (Optional) Whether to show node-link details.
+---@param? ShowNetworks boolean (Optional) Whether to show node-link details.
 ---@return Void This function lists all nodes in the current project.
-function ListNodes() end
+function ListNodes(ShowNetworks) end
 
 ---Lists all links in the current project.
----@param ShowNetworks Boolean (Optional) Whether to show node-link details.
+---@param? ShowNetworks boolean (Optional) Whether to show node-link details.
 ---@return Void This function lists all links in the current project.
-function ListLinks() end
+function ListLinks(ShowNetworks) end
 
 ---Returns an iterator for iterating through all system types.
 ---@return Iterator A Lua iterator for iterating through all system types
@@ -1643,111 +1643,111 @@ function InputClear() end
 function InputAddEnterKey() end
 
 ---Adds an element to input objects.
----@param elementTag String Element tag to be added to input objects
+---@param elementTag string Element tag to be added to input objects
 ---@return Void 
-function InputAddElement() end
+function InputAddElement(elementTag) end
 
 ---Adds a point to input objects.
----@param x Number X-coordinate of the point
----@param y Number Y-coordinate of the point
----@param z Number Z-coordinate of the point
+---@param x number X-coordinate of the point
+---@param y number Y-coordinate of the point
+---@param z number Z-coordinate of the point
 ---@return Void 
-function InputAddPoint() end
+function InputAddPoint(x, y, z) end
 
 ---Returns the current date and time formatted using Microsoft Standard date and time format strings.
----@param format String Date and time format string (e.g., "yyyy-MM-dd HH:mm:ss")
----@return String The formatted current date and time
-function GetDateTimeNow() end
+---@param format string Date and time format string (e.g., "yyyy-MM-dd HH:mm:ss")
+---@return string The formatted current date and time
+function GetDateTimeNow(format) end
 
 ---Returns the active project's numerical property.
----@param propertyTag String Property tag for which the value is to be retrieved
+---@param propertyTag string Property tag for which the value is to be retrieved
 ---@return Depends The value of the specified property
-function GetProjectProperty() end
+function GetProjectProperty(propertyTag) end
 
 ---Sets the active project's numerical property.
----@param propertyTag String Property tag to be set
+---@param propertyTag string Property tag to be set
 ---@param value Depends The value to be set for the property
 ---@return Void 
-function SetProjectProperty() end
+function SetProjectProperty(propertyTag, value) end
 
 ---Outputs a Lua table.
----@param title String Title to be displayed for the table
----@param table Table The Lua table to be printed
+---@param title string Title to be displayed for the table
+---@param table table The Lua table to be printed
 ---@return Void 
-function printTable() end
+function printTable(title, table) end
 
 ---Sets the working plane visibility.
----@param visibility Boolean Whether to set the working plane visibility (true or false)
+---@param visibility boolean Whether to set the working plane visibility (true or false)
 ---@return Void 
-function SetWorkPlaneVisibility() end
+function SetWorkPlaneVisibility(visibility) end
 
 ---Sets the working plane position.
----@param x Number X-coordinate of the working plane position
----@param y Number Y-coordinate of the working plane position
----@param z Number Z-coordinate of the working plane position
+---@param x number X-coordinate of the working plane position
+---@param y number Y-coordinate of the working plane position
+---@param z number Z-coordinate of the working plane position
 ---@return Void 
-function SetWorkPlanePosition() end
+function SetWorkPlanePosition(x, y, z) end
 
 ---Sets the working plane rotation around coordinate axes.
----@param angleX Number Rotation angle around the X-axis (radians)
----@param angleY Number Rotation angle around the Y-axis (radians)
----@param angleZ Number Rotation angle around the Z-axis (radians)
+---@param angleX number Rotation angle around the X-axis (radians)
+---@param angleY number Rotation angle around the Y-axis (radians)
+---@param angleZ number Rotation angle around the Z-axis (radians)
 ---@return Void 
-function SetWorkPlaneRotation() end
+function SetWorkPlaneRotation(angleX, angleY, angleZ) end
 
 ---Marks the first run of the script.
 ---@return Void 
 function SetFirstRun() end
 
 ---Saves a string to a text file inside the app local folder.
----@param text String The string to be saved to the text file
----@param filename String The name of the file to be saved
----@param foldername String (Optional) The subfolder name within the app local folder to save the file
+---@param text string The string to be saved to the text file
+---@param filename string The name of the file to be saved
+---@param? foldername string (Optional) The subfolder name within the app local folder to save the file
 ---@return Void 
-function SaveTextFile() end
+function SaveTextFile(text, filename, foldername) end
 
 ---Returns the description of a type.
----@param typeTag String Type tag for which the description is to be retrieved
----@return String The description of the specified type
-function GetTypeDescription() end
+---@param typeTag string Type tag for which the description is to be retrieved
+---@return string The description of the specified type
+function GetTypeDescription(typeTag) end
 
 ---Returns a project's variable value as a string.
----@param variableName String Name of the variable to retrieve its value
----@return String The value of the project's variable as a string
-function GetProjectVariable() end
+---@param variableName string Name of the variable to retrieve its value
+---@return string The value of the project's variable as a string
+function GetProjectVariable(variableName) end
 
 ---Returns a project's variable value as a number.
----@param variableName String Name of the variable to retrieve its value
----@return Number The value of the project's variable as a number
-function GetProjectVariableAsNumber() end
+---@param variableName string Name of the variable to retrieve its value
+---@return number The value of the project's variable as a number
+function GetProjectVariableAsNumber(variableName) end
 
 ---Sets a project's variable value.
----@param variableName String Name of the variable to be set
----@param variableValue String The value to set for the variable
+---@param variableName string Name of the variable to be set
+---@param variableValue string The value to set for the variable
 ---@return Void 
-function SetProjectVariable() end
+function SetProjectVariable(variableName, variableValue) end
 
 ---Renames a project variable.
----@param oldVariableName String Current name of the variable to be renamed
----@param newVariableName String New name for the variable
+---@param oldVariableName string Current name of the variable to be renamed
+---@param newVariableName string New name for the variable
 ---@return Void 
-function RenameProjectVariable() end
+function RenameProjectVariable(oldVariableName, newVariableName) end
 
 ---Sets a project variable's name.
 ---@param variableNumber Int Number of the variable to be renamed
----@param newVariableName String New name for the variable
+---@param newVariableName string New name for the variable
 ---@return Void 
-function SetProjectVariableName() end
+function SetProjectVariableName(variableNumber, newVariableName) end
 
 ---Sets the project's time.
 ---@param hour Int Hour value (0-23)
 ---@param minute Int Minute value (0-59)
 ---@param second Int Second value (0-59)
 ---@return Void 
-function SetProjectTime() end
+function SetProjectTime(hour, minute, second) end
 
 ---Returns a Lua table containing the project's time.
----@return Table A table containing project's time (hour, minute, second)
+---@return table A table containing project's time (hour, minute, second)
 function GetProjectTime() end
 
 ---Sets the project's sunrise time.
@@ -1755,10 +1755,10 @@ function GetProjectTime() end
 ---@param minute Int Minute value (0-59)
 ---@param second Int Second value (0-59)
 ---@return Void 
-function SetProjectSunrise() end
+function SetProjectSunrise(hour, minute, second) end
 
 ---Returns a Lua table containing the project's sunrise time.
----@return Table A table containing project's sunrise time (hour, minute, second)
+---@return table A table containing project's sunrise time (hour, minute, second)
 function GetProjectSunrise() end
 
 ---Sets the project's sunset time.
@@ -1766,40 +1766,40 @@ function GetProjectSunrise() end
 ---@param minute Int Minute value (0-59)
 ---@param second Int Second value (0-59)
 ---@return Void 
-function SetProjectSunset() end
+function SetProjectSunset(hour, minute, second) end
 
 ---Returns a Lua table containing the project's sunset time.
----@return Table A table containing project's sunset time (hour, minute, second)
+---@return table A table containing project's sunset time (hour, minute, second)
 function GetProjectSunset() end
 
 ---Sets the project's date.
----@param year Number Year value (1-9999)
----@param month Number Month value (1-12)
----@param day Number Day value (1-31)
+---@param year number Year value (1-9999)
+---@param month number Month value (1-12)
+---@param day number Day value (1-31)
 ---@return Void 
-function SetProjectDate() end
+function SetProjectDate(year, month, day) end
 
 ---Returns a Lua table containing the project's date.
----@return Table A table containing project's date (year, month, day)
+---@return table A table containing project's date (year, month, day)
 function GetProjectDate() end
 
 ---Returns true if the project's time is between the project's sunrise and sunset.
----@return Boolean true if it is daytime, false if it is nighttime
+---@return boolean true if it is daytime, false if it is nighttime
 function IsDay() end
 
 ---Returns a Lua table containing the direction vector of the sunlight.
----@return Table A table containing the direction vector of the sunlight (x, y, z)
+---@return table A table containing the direction vector of the sunlight (x, y, z)
 function GetSunLightDirection() end
 
 ---Gets the position data for a specified object.
----@param name String Name of the object
----@return Table Returns a Lua table containing position data with the following fields: x: X-coordinate of the object, y: Y-coordinate of the object, z: Z-coordinate of the object
-function GetPosition() end
+---@param name string Name of the object
+---@return table Returns a Lua table containing position data with the following fields: x: X-coordinate of the object, y: Y-coordinate of the object, z: Z-coordinate of the object
+function GetPosition(name) end
 
 ---Raises an exception with the given error message.
----@param message String Exception message
+---@param message string Exception message
 ---@return Void 
-function RaiseError() end
+function RaiseError(message) end
 
 ---Opens the application's local folder.
 ---@return Void 
@@ -1810,428 +1810,428 @@ function OpenAppLocalFolder() end
 function OpenAppTemporaryFolder() end
 
 ---Opens the application's working folder.
----@param subfolder String (Optional) Subfolder name to open within the working folder
+---@param? subfolder string (Optional) Subfolder name to open within the working folder
 ---@return Void 
-function OpenAppWorkingFolder() end
+function OpenAppWorkingFolder(subfolder) end
 
 ---Opens the application's local cache folder.
 ---@return Void 
 function OpenAppLocalCacheFolder() end
 
 ---Returns a Lua table containing a list of information about specific regions.
----@return Table Output: A Lua table containing region information.
+---@return table Output: A Lua table containing region information.
 function RegionsInfo() end
 
 -- Functions from category: Geometry
 ---Checks if a table represents a simple polygon.
----@param polygon Table The table representing the polygon.
----@return Boolean True if the polygon is simple, false otherwise.
-function IsSimplePolygon() end
+---@param polygon table The table representing the polygon.
+---@return boolean True if the polygon is simple, false otherwise.
+function IsSimplePolygon(polygon) end
 
 ---Checks if a table represents a convex polygon.
----@param polygon Table The table representing the polygon.
----@return Boolean True if the polygon is convex, false otherwise.
-function IsConvexPolygon() end
+---@param polygon table The table representing the polygon.
+---@return boolean True if the polygon is convex, false otherwise.
+function IsConvexPolygon(polygon) end
 
 ---Calculates the convex hull of a set of 2D points.
----@param points Table A table containing the points (each with X and Y properties).
----@return Table Returns a table of points that form the convex hull of the input set of points.
-function GetConvexHull() end
+---@param points table A table containing the points (each with X and Y properties).
+---@return table Returns a table of points that form the convex hull of the input set of points.
+function GetConvexHull(points) end
 
 ---Checks if a point is inside a convex polygon.
----@param polygonPoints Table A table of points defining the convex polygon.
----@param point Table The point to test for containment within the polygon.
----@return Boolean Returns true if the point is inside the convex polygon or on its edge.
-function IsPointInConvexPolygon() end
+---@param polygonPoints table A table of points defining the convex polygon.
+---@param point table The point to test for containment within the polygon.
+---@return boolean Returns true if the point is inside the convex polygon or on its edge.
+function IsPointInConvexPolygon(polygonPoints, point) end
 
 ---Processes 2D points and partition definitions to generate walls and partition wall sequences.
----@param points Table List of 2D points (each a table of {x, y}) defining all possible geometry corners.
----@param partitions Table List of tables, each containing indices into the points table defining a polygonal partition.
----@return Table Returns a table with two entries: { [1] = list of walls as point index pairs, [2] = list of wall index sequences for each partition including the global space. }
-function ProcessWalls() end
+---@param points table List of 2D points (each a table of {x, y}) defining all possible geometry corners.
+---@param partitions table List of tables, each containing indices into the points table defining a polygonal partition.
+---@return table Returns a table with two entries: { [1] = list of walls as point index pairs, [2] = list of wall index sequences for each partition including the global space. }
+function ProcessWalls(points, partitions) end
 
 -- Functions from category: Materials
 ---Returns Material ID of a homogen body.
----@param elementTag String Element tag.
----@return String Material ID.
-function GetMaterialID() end
+---@param elementTag string Element tag.
+---@return string Material ID.
+function GetMaterialID(elementTag) end
 
 ---Sets layer material ID of an element.
----@param elementTag String Element tag.
----@param layerNumber Number Layer number.
----@param materialID String Material ID.
+---@param elementTag string Element tag.
+---@param layerNumber number Layer number.
+---@param materialID string Material ID.
 ---@return Void 
-function SetLayerMaterialID() end
+function SetLayerMaterialID(elementTag, layerNumber, materialID) end
 
 ---Sets layer thickness of an element.
----@param elementTag String Element tag.
----@param layerNumber Number Layer number.
----@param thickness Number Thickness value.
----@param doubleMultiLayerBody Number 1 or 2 for elements with double multi-layer body.
+---@param elementTag string Element tag.
+---@param layerNumber number Layer number.
+---@param thickness number Thickness value.
+---@param doubleMultiLayerBody number 1 or 2 for elements with double multi-layer body.
 ---@return Void 
-function SetLayerThickness() end
+function SetLayerThickness(elementTag, layerNumber, thickness, doubleMultiLayerBody) end
 
 ---Creates a new instance of a material and adds it to the materials collection.
----@param materialTag String Material tag.
----@param materialID String Material ID.
+---@param materialTag string Material tag.
+---@param materialID string Material ID.
 ---@return Void 
-function MaterialAddtoCollection() end
+function MaterialAddtoCollection(materialTag, materialID) end
 
 ---Returns tags for all materials in the material collection.
 ---@return Iterator A Lua table containing tags for all materials.
 function MaterialGetCollectionTags() end
 
 ---Lists all numerical properties of a material with a given tag.
----@param materialTag String Material tag.
+---@param materialTag string Material tag.
 ---@return Void 
-function MaterialListProperties() end
+function MaterialListProperties(materialTag) end
 
 ---Returns the property of the given material.
----@param materialTag String Material tag.
----@param propertyTag String Property tag.
+---@param materialTag string Material tag.
+---@param propertyTag string Property tag.
 ---@return Depends The property value.
-function MaterialGetProperty() end
+function MaterialGetProperty(materialTag, propertyTag) end
 
 ---Sets the property of the given material.
----@param materialTag String Material tag.
----@param propertyTag String Property tag.
+---@param materialTag string Material tag.
+---@param propertyTag string Property tag.
 ---@param value Depends Value to set.
 ---@return Void 
-function MaterialSetProperty() end
+function MaterialSetProperty(materialTag, propertyTag, value) end
 
 ---Lists all materials in the built-in library.
 ---@return Void 
 function ListMaterialsLibrary() end
 
 ---Returns the Material ID of the liquid distribution system of an element.
----@param elementTag String Element tag.
----@return String Material ID.
-function GetElementLiquidID() end
+---@param elementTag string Element tag.
+---@return string Material ID.
+function GetElementLiquidID(elementTag) end
 
 ---Returns the Material ID of a Liquid distribution system.
----@param systemName String System name.
----@return String Material ID.
-function GetSystemLiquidID() end
+---@param systemName string System name.
+---@return string Material ID.
+function GetSystemLiquidID(systemName) end
 
 ---Returns the number of layers for a given multi-layer body name.
----@param elementTag String Element tag.
----@param doubleMultiLayerBody Number 1 or 2 for elements with double multi-layer body.
+---@param elementTag string Element tag.
+---@param doubleMultiLayerBody number 1 or 2 for elements with double multi-layer body.
 ---@return Int Number of layers.
-function GetLayersCount() end
+function GetLayersCount(elementTag, doubleMultiLayerBody) end
 
 ---Sets the number of layers for a given multi-layer body name.
----@param elementTag String Element tag.
----@param numberLayers Number Number of layers.
----@param doubleMultiLayerBody Number 1 or 2 for elements with double multi-layer body.
+---@param elementTag string Element tag.
+---@param numberLayers number Number of layers.
+---@param doubleMultiLayerBody number 1 or 2 for elements with double multi-layer body.
 ---@return Void 
-function SetLayersCount() end
+function SetLayersCount(elementTag, numberLayers, doubleMultiLayerBody) end
 
 ---Returns a Lua table containing data for layers in a given multi-layer body name.
----@param elementTag String Element tag.
----@param doubleMultiLayerBody Number 1 or 2 for elements with double multi-layer body.
----@return Table A Lua table containing data for layers.
-function GetLayers() end
+---@param elementTag string Element tag.
+---@param doubleMultiLayerBody number 1 or 2 for elements with double multi-layer body.
+---@return table A Lua table containing data for layers.
+function GetLayers(elementTag, doubleMultiLayerBody) end
 
 ---Clears the material collection.
 ---@return Void 
 function MaterialClearCollection() end
 
 ---Checks if a material tag exists.
----@param materialTag String Material tag.
----@return Boolean True if the material tag exists, otherwise false.
-function CheckMaterialTagExists() end
+---@param materialTag string Material tag.
+---@return boolean True if the material tag exists, otherwise false.
+function CheckMaterialTagExists(materialTag) end
 
 -- Functions from category: Mathematics
 ---Returns the value of a number raised to the power of another number.
----@param x Number The base number.
----@param y Number The exponent.
----@return Number The result of x raised to the power of y.
-function Pow() end
+---@param x number The base number.
+---@param y number The exponent.
+---@return number The result of x raised to the power of y.
+function Pow(x, y) end
 
 ---Returns the value of a number rounded to a specified number of digits.
----@param x Number The number to round.
+---@param x number The number to round.
 ---@param digits Int The number of fractional digits to round to.
----@return Number The number rounded to the specified number of digits.
-function Round() end
+---@return number The number rounded to the specified number of digits.
+function Round(x, digits) end
 
 ---Returns the middle value of five numbers.
----@param n1 Number The first number.
----@param n2 Number The second number.
----@param n3 Number The third number.
----@param n4 Number The fourth number.
----@param n5 Number The fifth number.
----@return Number The middle value of the five numbers.
-function MiddleNumber() end
+---@param n1 number The first number.
+---@param n2 number The second number.
+---@param n3 number The third number.
+---@param n4 number The fourth number.
+---@param n5 number The fifth number.
+---@return number The middle value of the five numbers.
+function MiddleNumber(n1, n2, n3, n4, n5) end
 
 ---Parses and evaluates a mathematical expression.
----@param expression String The mathematical expression to parse.
----@param variableName String The name of the variable used in the expression.
----@param variableValue Number The value of the variable.
----@param defaultValue Number The default value to use if the expression cannot be parsed.
----@return Number The result of the parsed expression.
-function ParseMathExpression() end
+---@param expression string The mathematical expression to parse.
+---@param variableName string The name of the variable used in the expression.
+---@param variableValue number The value of the variable.
+---@param defaultValue number The default value to use if the expression cannot be parsed.
+---@return number The result of the parsed expression.
+function ParseMathExpression(expression, variableName, variableValue, defaultValue) end
 
 ---Converts a double to a fraction string.
----@param number Number The double to convert.
----@return String The fraction string representation of the number.
-function Double2Fraction() end
+---@param number number The double to convert.
+---@return string The fraction string representation of the number.
+function Double2Fraction(number) end
 
 -- Functions from category: Modelica
 ---Adds a new Modelica package.
----@param packageName String Name of the package.
----@param parentPackage String Name of the parent package.
----@param version String Version of the package.
----@param icon String Path to the icon file.
----@return String Address of the created package.
-function ModelicaAddPackage() end
+---@param packageName string Name of the package.
+---@param parentPackage string Name of the parent package.
+---@param version string Version of the package.
+---@param icon string Path to the icon file.
+---@return string Address of the created package.
+function ModelicaAddPackage(packageName, parentPackage, version, icon) end
 
 ---Adds a new Modelica model.
----@param modelName String Name of the model.
----@param parentPackage String Name of the parent package.
----@param icon String Path to the icon file.
----@param diagramExtent String Extent of the diagram.
----@return String Address of the created model.
-function ModelicaAddModel() end
+---@param modelName string Name of the model.
+---@param parentPackage string Name of the parent package.
+---@param icon string Path to the icon file.
+---@param diagramExtent string Extent of the diagram.
+---@return string Address of the created model.
+function ModelicaAddModel(modelName, parentPackage, icon, diagramExtent) end
 
 ---Adds a new component to a Modelica model.
----@param componentName String Name of the component.
----@param componentType String Type of the component.
----@param parentModel String Name of the parent model.
----@param position String Position of the component.
----@param rotation String Rotation of the component.
----@return String Address of the created component.
-function ModelicaAddComponent() end
+---@param componentName string Name of the component.
+---@param componentType string Type of the component.
+---@param parentModel string Name of the parent model.
+---@param position string Position of the component.
+---@param rotation string Rotation of the component.
+---@return string Address of the created component.
+function ModelicaAddComponent(componentName, componentType, parentModel, position, rotation) end
 
 ---Adds a new Real variable to a Modelica model.
----@param variableName String Name of the variable.
----@param parentModel String Name of the parent model.
----@param dataType String Data type of the variable.
----@param description String Description of the variable.
----@return String Address of the created variable.
-function ModelicaAddRealVariable() end
+---@param variableName string Name of the variable.
+---@param parentModel string Name of the parent model.
+---@param dataType string Data type of the variable.
+---@param description string Description of the variable.
+---@return string Address of the created variable.
+function ModelicaAddRealVariable(variableName, parentModel, dataType, description) end
 
 ---Adds a new Integer variable to a Modelica model.
----@param variableName String Name of the variable.
----@param parentModel String Name of the parent model.
----@param dataType String Data type of the variable.
----@param description String Description of the variable.
----@return String Address of the created variable.
-function ModelicaAddIntegerVariable() end
+---@param variableName string Name of the variable.
+---@param parentModel string Name of the parent model.
+---@param dataType string Data type of the variable.
+---@param description string Description of the variable.
+---@return string Address of the created variable.
+function ModelicaAddIntegerVariable(variableName, parentModel, dataType, description) end
 
 ---Adds a new String variable to a Modelica model.
----@param variableName String Name of the variable.
----@param parentModel String Name of the parent model.
----@param dataType String Data type of the variable.
----@param description String Description of the variable.
----@return String Address of the created variable.
-function ModelicaAddStringVariable() end
+---@param variableName string Name of the variable.
+---@param parentModel string Name of the parent model.
+---@param dataType string Data type of the variable.
+---@param description string Description of the variable.
+---@return string Address of the created variable.
+function ModelicaAddStringVariable(variableName, parentModel, dataType, description) end
 
 ---Adds a new Boolean variable to a Modelica model.
----@param variableName String Name of the variable.
----@param parentModel String Name of the parent model.
----@param dataType String Data type of the variable.
----@param description String Description of the variable.
----@return String Address of the created variable.
-function ModelicaAddBooleanVariable() end
+---@param variableName string Name of the variable.
+---@param parentModel string Name of the parent model.
+---@param dataType string Data type of the variable.
+---@param description string Description of the variable.
+---@return string Address of the created variable.
+function ModelicaAddBooleanVariable(variableName, parentModel, dataType, description) end
 
 ---Adds a new SI unit variable to a Modelica model.
----@param variableName String Name of the variable.
----@param parentModel String Name of the parent model.
----@param dataType String Data type of the variable.
----@param description String Description of the variable.
----@param quantity String Quantity of the SI unit.
----@return String Address of the created variable.
-function ModelicaAddSIVariable() end
+---@param variableName string Name of the variable.
+---@param parentModel string Name of the parent model.
+---@param dataType string Data type of the variable.
+---@param description string Description of the variable.
+---@param quantity string Quantity of the SI unit.
+---@return string Address of the created variable.
+function ModelicaAddSIVariable(variableName, parentModel, dataType, description, quantity) end
 
 ---Adds a new derived variable to a Modelica model.
----@param variableName String Name of the variable.
----@param parentModel String Name of the parent model.
----@param dataType String Data type of the variable.
----@param description String Description of the variable.
----@param quantity String Quantity of the derived variable.
----@return String Address of the created variable.
-function ModelicaAddDerivedVariable() end
+---@param variableName string Name of the variable.
+---@param parentModel string Name of the parent model.
+---@param dataType string Data type of the variable.
+---@param description string Description of the variable.
+---@param quantity string Quantity of the derived variable.
+---@return string Address of the created variable.
+function ModelicaAddDerivedVariable(variableName, parentModel, dataType, description, quantity) end
 
 ---Saves a Modelica package to a file.
----@param packageAddress String Address of the package to save.
+---@param packageAddress string Address of the package to save.
 ---@return Void 
-function ModelicaSavePackage() end
+function ModelicaSavePackage(packageAddress) end
 
 ---Clears all Modelica data.
 ---@return Void 
 function ModelicaClearAll() end
 
 ---Sets a Modelica variable as a parameter.
----@param variableAddress String Address of the variable to set as a parameter.
+---@param variableAddress string Address of the variable to set as a parameter.
 ---@return Void 
-function ModelicaSetAsParameter() end
+function ModelicaSetAsParameter(variableAddress) end
 
 ---Sets the start value for a Modelica variable.
----@param variableAddress String Address of the variable.
----@param startValue String Start value for the variable.
+---@param variableAddress string Address of the variable.
+---@param startValue string Start value for the variable.
 ---@return Void 
-function ModelicaSetStart() end
+function ModelicaSetStart(variableAddress, startValue) end
 
 ---Sets the unit for a Modelica variable.
----@param variableAddress String Address of the variable.
----@param unit String Unit for the variable.
+---@param variableAddress string Address of the variable.
+---@param unit string Unit for the variable.
 ---@return Void 
-function ModelicaSetUnit() end
+function ModelicaSetUnit(variableAddress, unit) end
 
 ---Sets an annotation for a Modelica object.
----@param objectAddress String Address of the object.
----@param annotation String Annotation for the object.
+---@param objectAddress string Address of the object.
+---@param annotation string Annotation for the object.
 ---@return Void 
-function ModelicaSetAnnotation() end
+function ModelicaSetAnnotation(objectAddress, annotation) end
 
 ---Extends a Modelica model.
----@param modelAddress String Address of the model to extend.
----@param extensionAddress String Address of the model to extend with.
+---@param modelAddress string Address of the model to extend.
+---@param extensionAddress string Address of the model to extend with.
 ---@return Void 
-function ModelicaExtendModel() end
+function ModelicaExtendModel(modelAddress, extensionAddress) end
 
 ---Modifies a Modelica model.
----@param modelAddress String Address of the model to modify.
----@param modification String Modification to apply to the model.
+---@param modelAddress string Address of the model to modify.
+---@param modification string Modification to apply to the model.
 ---@return Void 
-function ModelicaModifyModel() end
+function ModelicaModifyModel(modelAddress, modification) end
 
 ---Adds an equation to a Modelica model.
----@param modelAddress String Address of the model to add the equation to.
----@param equation String Equation to add.
+---@param modelAddress string Address of the model to add the equation to.
+---@param equation string Equation to add.
 ---@return Void 
-function ModelicaAddEquation() end
+function ModelicaAddEquation(modelAddress, equation) end
 
 ---Adds an initial equation to a Modelica model.
----@param modelAddress String Address of the model to add the initial equation to.
----@param equation String Initial equation to add.
+---@param modelAddress string Address of the model to add the initial equation to.
+---@param equation string Initial equation to add.
 ---@return Void 
-function ModelicaAddInitialEquation() end
+function ModelicaAddInitialEquation(modelAddress, equation) end
 
 ---Imports a Modelica model.
----@param modelName String Name of the model to import.
----@param modelLocation String Location of the model file.
+---@param modelName string Name of the model to import.
+---@param modelLocation string Location of the model file.
 ---@return Void 
-function ModelicaModelImport() end
+function ModelicaModelImport(modelName, modelLocation) end
 
 ---Adds a connection between two Modelica components.
----@param modelAddress String Address of the model to add the connection to.
----@param component1Address String Address of the first component.
----@param connector1Name String Name of the connector on the first component.
----@param component2Address String Address of the second component.
----@param connector2Name String Name of the connector on the second component.
----@return String Address of the created connection.
-function ModelicaAddConnection() end
+---@param modelAddress string Address of the model to add the connection to.
+---@param component1Address string Address of the first component.
+---@param connector1Name string Name of the connector on the first component.
+---@param component2Address string Address of the second component.
+---@param connector2Name string Name of the connector on the second component.
+---@return string Address of the created connection.
+function ModelicaAddConnection(modelAddress, component1Address, connector1Name, component2Address, connector2Name) end
 
 ---Retrieves the address of a Modelica object given its name.
----@param objectName String Name of the Modelica object.
----@return String Address of the Modelica object.
-function ModelicaGetAddressFromName() end
+---@param objectName string Name of the Modelica object.
+---@return string Address of the Modelica object.
+function ModelicaGetAddressFromName(objectName) end
 
 ---Adds a start attribute to a Modelica component.
----@param componentAddress String Address of the component.
----@param startAttribute String Start attribute to add to the component.
+---@param componentAddress string Address of the component.
+---@param startAttribute string Start attribute to add to the component.
 ---@return Void 
-function ModelicaComponentAddStartAttribute() end
+function ModelicaComponentAddStartAttribute(componentAddress, startAttribute) end
 
 ---Sets a Modelica component as inner.
----@param componentAddress String Address of the component to set as inner.
+---@param componentAddress string Address of the component to set as inner.
 ---@return Void 
-function ModelicaSetInner() end
+function ModelicaSetInner(componentAddress) end
 
 ---Sets a Modelica component as outer.
----@param componentAddress String Address of the component to set as outer.
+---@param componentAddress string Address of the component to set as outer.
 ---@return Void 
-function ModelicaSetOuter() end
+function ModelicaSetOuter(componentAddress) end
 
 -- Functions from category: Product
 ---Returns a Lua table containing list of wire gauges and diameters.
----@return Table A Lua table containing wire gauges and diameters.
+---@return table A Lua table containing wire gauges and diameters.
 function GetWireGauges() end
 
 ---Returns a Lua table containing pipe outside diameters and wall thicknesses from ASME B36.10.
----@return Table A Lua table containing pipe outside diameters and wall thicknesses.
+---@return table A Lua table containing pipe outside diameters and wall thicknesses.
 function GetPipeDimensionsB3610() end
 
 ---Returns a Lua table containing nominal pipe sizes from ASME B36.10.
----@return Table A Lua table containing nominal pipe sizes.
+---@return table A Lua table containing nominal pipe sizes.
 function GetNominalPipeSizesB3610() end
 
 ---Returns a Lua table containing pipe diametre nominals from ASME B36.10.
----@return Table A Lua table containing pipe diametre nominals.
+---@return table A Lua table containing pipe diametre nominals.
 function GetDiametreNominalsB3610() end
 
 ---Returns a Lua table containing pipe outside diameters from ASME B36.10.
----@return Table A Lua table containing pipe outside diameters.
+---@return table A Lua table containing pipe outside diameters.
 function GetOutsideDiametersB3610() end
 
 ---Returns a Lua table containing pipe schedule names from ASME B36.10.
----@return String A Lua table containing pipe schedule names.
+---@return string A Lua table containing pipe schedule names.
 function GetScheduleNamesB3610() end
 
 ---Returns a Lua table containing pipe type names from ASTM B88.
----@return String A Lua table containing pipe type names.
+---@return string A Lua table containing pipe type names.
 function GetTypesNamesB88() end
 
 ---Returns a Lua table containing nominal pipe sizes from ASTM B88.
----@return String A Lua table containing nominal pipe sizes.
+---@return string A Lua table containing nominal pipe sizes.
 function GetNominalPipeSizesB88() end
 
 ---Returns a Lua table containing diametre nominals from ASTM B88.
----@return Table A Lua table containing diametre nominals.
+---@return table A Lua table containing diametre nominals.
 function GetDiametreNominalsB88() end
 
 ---Returns a Lua table containing outside diameters from ASTM B88.
----@return Table A Lua table containing outside diameters.
+---@return table A Lua table containing outside diameters.
 function GetOutsideDiametersB88() end
 
 ---Returns a Lua table containing pipe outside diameters and wall thicknesses from ASTM B88.
----@return Table A Lua table containing pipe outside diameters and wall thicknesses.
+---@return table A Lua table containing pipe outside diameters and wall thicknesses.
 function GetPipeDimensionsB88() end
 
 ---Returns a Lua table containing flange dimensions from ASME B16.5.
----@return Table A Lua table containing flange dimensions.
+---@return table A Lua table containing flange dimensions.
 function GetFlangeDimensionsB165() end
 
 ---Returns a Lua table containing data for a given shape: shape type.  Parameters: EDI STD Nomenclature, parameter Tag
----@param shapeType String EDI STD Nomenclature
----@param parameterTag String Parameter Tag
----@return Table A Lua table containing data for a given shape.
-function GetAISC_ShapeData() end
+---@param shapeType string EDI STD Nomenclature
+---@param parameterTag string Parameter Tag
+---@return table A Lua table containing data for a given shape.
+function GetAISC_ShapeData(shapeType, parameterTag) end
 
 ---Returns a Lua table containing EDI STD Nomenclature names for a specified shape type, from AISC database. Parameters: shape type, imperial units (true or false)
----@param shapeType String Shape type
----@param imperialUnits Boolean Imperial units (true or false)
----@return String A Lua table containing EDI STD Nomenclature names for a specified shape type.
-function GetAISC_ShapeNames() end
+---@param shapeType string Shape type
+---@param imperialUnits boolean Imperial units (true or false)
+---@return string A Lua table containing EDI STD Nomenclature names for a specified shape type.
+function GetAISC_ShapeNames(shapeType, imperialUnits) end
 
 -- Functions from category: Runtime
 ---Displays a message.
----@param message String The message to display.
+---@param message string The message to display.
 ---@return Void 
-function ShowMessage() end
+function ShowMessage(message) end
 
 ---Gets the current camera position.
----@return Table A table containing the X, Y, and Z coordinates of the camera.
+---@return table A table containing the X, Y, and Z coordinates of the camera.
 function GetCameraPosition() end
 
 ---Sets the camera position.
----@param x Number The X coordinate.
----@param y Number The Y coordinate.
----@param z Number The Z coordinate.
+---@param x number The X coordinate.
+---@param y number The Y coordinate.
+---@param z number The Z coordinate.
 ---@return Void 
-function SetCameraPosition() end
+function SetCameraPosition(x, y, z) end
 
 ---Gets the current camera direction.
----@return Table A table containing the X, Y, and Z direction components of the camera.
+---@return table A table containing the X, Y, and Z direction components of the camera.
 function GetCameraDirection() end
 
 ---Sets the camera direction.
----@param x Number The X direction component.
----@param y Number The Y direction component.
----@param z Number The Z direction component.
+---@param x number The X direction component.
+---@param y number The Y direction component.
+---@param z number The Z direction component.
 ---@return Void 
-function SetCameraDirection() end
+function SetCameraDirection(x, y, z) end
 
 ---Gets the number of times that the project script runs.
 ---@return Int The number of intervals.
@@ -2244,26 +2244,26 @@ function GetRemainingIntervals() end
 ---Sets the number of times that the project script runs.
 ---@param numberOfIntervals Int Number of intervals
 ---@return Void 
-function SetNumberOfIntervals() end
+function SetNumberOfIntervals(numberOfIntervals) end
 
 ---Returns the interval between project script runs, in milliseconds.
----@return Number The interval between project script runs, in milliseconds.
+---@return number The interval between project script runs, in milliseconds.
 function GetScriptInterval() end
 
 ---Sets the interval between project script runs.
----@param timeInMilliseconds Number Time in milliseconds
+---@param timeInMilliseconds number Time in milliseconds
 ---@return Void 
-function SetScriptInterval() end
+function SetScriptInterval(timeInMilliseconds) end
 
 ---Adds a ray line to the list of raycast calculations.
----@param originX Number X coordinate of the line origin
----@param originY Number Y coordinate of the line origin
----@param originZ Number Z coordinate of the line origin
----@param directionA Number A component of the line direction vector
----@param directionB Number B component of the line direction vector
----@param directionC Number C component of the line direction vector
+---@param originX number X coordinate of the line origin
+---@param originY number Y coordinate of the line origin
+---@param originZ number Z coordinate of the line origin
+---@param directionA number A component of the line direction vector
+---@param directionB number B component of the line direction vector
+---@param directionC number C component of the line direction vector
 ---@return Void 
-function AddRay() end
+function AddRay(originX, originY, originZ, directionA, directionB, directionC) end
 
 ---Clears the list of raycast calculations.
 ---@return Void 
@@ -2275,57 +2275,57 @@ function CalculateRaycasts() end
 
 ---Gets the position of a raycast result.
 ---@param index Int The index of the ray.
----@return Table A table containing the X, Y, and Z coordinates of the raycast result.
-function GetRaycastResultPosition() end
+---@return table A table containing the X, Y, and Z coordinates of the raycast result.
+function GetRaycastResultPosition(index) end
 
 ---Gets the normal vector of a raycast result.
 ---@param index Int The index of the ray.
----@return Table A table containing the X, Y, and Z components of the normal vector.
-function GetRaycastResultNormal() end
+---@return table A table containing the X, Y, and Z components of the normal vector.
+function GetRaycastResultNormal(index) end
 
 ---Gets the distance of a raycast result.
 ---@param index Int The index of the ray.
----@return Number The distance of the raycast result.
-function GetRaycastResultDistance() end
+---@return number The distance of the raycast result.
+function GetRaycastResultDistance(index) end
 
 ---Saves a screenshot.
----@param filename String The name of the file to save the screenshot to.
+---@param filename string The name of the file to save the screenshot to.
 ---@return Void 
-function SaveScreenshot() end
+function SaveScreenshot(filename) end
 
 ---Sets the screenshot scale.
 ---@param width Int The width of the screenshot.
 ---@param height Int The height of the screenshot.
 ---@return Void 
-function SetScreenshotScale() end
+function SetScreenshotScale(width, height) end
 
 ---Adds a line to the scene.
----@param x1 Number The starting X coordinate.
----@param y1 Number The starting Y coordinate.
----@param z1 Number The starting Z coordinate.
----@param x2 Number The ending X coordinate.
----@param y2 Number The ending Y coordinate.
----@param z2 Number The ending Z coordinate.
----@param red Number The red color component (0-1).
----@param green Number The green color component (0-1).
----@param blue Number The blue color component (0-1).
+---@param x1 number The starting X coordinate.
+---@param y1 number The starting Y coordinate.
+---@param z1 number The starting Z coordinate.
+---@param x2 number The ending X coordinate.
+---@param y2 number The ending Y coordinate.
+---@param z2 number The ending Z coordinate.
+---@param red number The red color component (0-1).
+---@param green number The green color component (0-1).
+---@param blue number The blue color component (0-1).
 ---@return Void 
-function AddLine() end
+function AddLine(x1, y1, z1, x2, y2, z2, red, green, blue) end
 
 ---Gets the tag of the element hit by a raycast.
 ---@param index Int The index of the ray.
----@return String The tag of the hit element.
-function GetRaycastResultTag() end
+---@return string The tag of the hit element.
+function GetRaycastResultTag(index) end
 
 ---Gets the origin of a ray.
 ---@param index Int The index of the ray.
----@return Table A table containing the X, Y, and Z coordinates of the ray's origin.
-function GetRayOrigin() end
+---@return table A table containing the X, Y, and Z coordinates of the ray's origin.
+function GetRayOrigin(index) end
 
 ---Gets the direction of a ray.
 ---@param index Int The index of the ray.
----@return Table A table containing the X, Y, and Z components of the ray's direction.
-function GetRayDirection() end
+---@return table A table containing the X, Y, and Z components of the ray's direction.
+function GetRayDirection(index) end
 
 ---Returns the number of rays.
 ---@return Int The number of rays.
@@ -2333,8 +2333,8 @@ function GetRayCount() end
 
 ---Checks if a ray has been calculated.
 ---@param index Int The index of the ray.
----@return Boolean True if the ray is calculated, false otherwise.
-function IsRayCalculated() end
+---@return boolean True if the ray is calculated, false otherwise.
+function IsRayCalculated(index) end
 
 ---Updates the scene.
 ---@return Void 
@@ -2354,145 +2354,145 @@ function DrawRayBundles() end
 
 -- Functions from category: Sketch
 ---Adds a new layer to the canvas.
----@param layerName String Name of the layer to be added
+---@param layerName string Name of the layer to be added
 ---@return Void 
-function CanvasAddLayer() end
+function CanvasAddLayer(layerName) end
 
 ---Clears all layers in the canvas.
 ---@return Void 
 function CanvasClearLayers() end
 
 ---Adds a drawing to the active layer.
----@param drawingName String Name of the drawing to be added
+---@param drawingName string Name of the drawing to be added
 ---@return Void 
-function AddDrawing() end
+function AddDrawing(drawingName) end
 
 ---Clears all drawings in the active layer.
 ---@return Void 
 function ClearDrawings() end
 
 ---Adds a line to the active drawing.
----@param startX Number X-coordinate of the line's starting point
----@param startY Number Y-coordinate of the line's starting point
----@param endX Number X-coordinate of the line's ending point
----@param endY Number Y-coordinate of the line's ending point
+---@param startX number X-coordinate of the line's starting point
+---@param startY number Y-coordinate of the line's starting point
+---@param endX number X-coordinate of the line's ending point
+---@param endY number Y-coordinate of the line's ending point
 ---@return Void 
-function DrawingAddLine() end
+function DrawingAddLine(startX, startY, endX, endY) end
 
 ---Adds a circle to the active drawing.
----@param centerX Number X-coordinate of the circle's center
----@param centerY Number Y-coordinate of the circle's center
----@param diameter Number Diameter of the circle
+---@param centerX number X-coordinate of the circle's center
+---@param centerY number Y-coordinate of the circle's center
+---@param diameter number Diameter of the circle
 ---@return Void 
-function DrawingAddCircle() end
+function DrawingAddCircle(centerX, centerY, diameter) end
 
 ---Adds an arc to the active drawing.
----@param centerX Number X-coordinate of the arc's center
----@param centerY Number Y-coordinate of the arc's center
----@param radius Number Radius of the arc
----@param startAngle Number Starting angle of the arc in degrees
----@param endAngle Number Ending angle of the arc in degrees
+---@param centerX number X-coordinate of the arc's center
+---@param centerY number Y-coordinate of the arc's center
+---@param radius number Radius of the arc
+---@param startAngle number Starting angle of the arc in degrees
+---@param endAngle number Ending angle of the arc in degrees
 ---@return Void 
-function DrawingAddArc() end
+function DrawingAddArc(centerX, centerY, radius, startAngle, endAngle) end
 
 ---Adds a rectangle to the active drawing.
----@param centerX Number X-coordinate of the rectangle's center
----@param centerY Number Y-coordinate of the rectangle's center
----@param length Number Length of the rectangle
----@param width Number Width of the rectangle
----@param rotationAngle Number Rotation angle of the rectangle around its center
+---@param centerX number X-coordinate of the rectangle's center
+---@param centerY number Y-coordinate of the rectangle's center
+---@param length number Length of the rectangle
+---@param width number Width of the rectangle
+---@param rotationAngle number Rotation angle of the rectangle around its center
 ---@return Void 
-function DrawingAddRectangle() end
+function DrawingAddRectangle(centerX, centerY, length, width, rotationAngle) end
 
 ---Adds a polygon to the active drawing.
----@param points Table A table containing points of the polygon, each with 'x' and 'y' coordinates
+---@param points table A table containing points of the polygon, each with 'x' and 'y' coordinates
 ---@return Void 
-function DrawingAddPolygon() end
+function DrawingAddPolygon(points) end
 
 ---Adds a path to the active drawing.
----@param vertices Table A table containing path vertices with 'x', 'y', and 'bulge' properties
+---@param vertices table A table containing path vertices with 'x', 'y', and 'bulge' properties
 ---@return Void 
-function DrawingAddPath() end
+function DrawingAddPath(vertices) end
 
 ---Saves the canvas as DXF in the app local folder.
----@param fileName String Name of the file to save as DXF
+---@param fileName string Name of the file to save as DXF
 ---@return Void 
-function CanvasSaveAsDXF() end
+function CanvasSaveAsDXF(fileName) end
 
 ---Prints the canvas in the report.
----@param scale Number Scale factor for printing
+---@param scale number Scale factor for printing
 ---@return Void 
-function PrintCanvas() end
+function PrintCanvas(scale) end
 
 ---Sets the size of the canvas.
 ---@param width Int Width of the canvas
 ---@param height Int Height of the canvas
 ---@return Void 
-function SetCanvasSize() end
+function SetCanvasSize(width, height) end
 
 ---Sets the line weight of a layer.
----@param layerName String Name of the layer
----@param lineWeight Number Line weight to set
+---@param layerName string Name of the layer
+---@param lineWeight number Line weight to set
 ---@return Void 
-function SetLayerLineWeight() end
+function SetLayerLineWeight(layerName, lineWeight) end
 
 ---Sets the color of a layer.
----@param layerName String Name of the layer
----@param color String Color to set (e.g., 'red', '#FF0000')
+---@param layerName string Name of the layer
+---@param color string Color to set (e.g., 'red', '#FF0000')
 ---@return Void 
-function SetLayerColor() end
+function SetLayerColor(layerName, color) end
 
 ---Sets the line style of a layer.
----@param layerName String Name of the layer
+---@param layerName string Name of the layer
 ---@param lineStyle Int Line style to set (integer value)
 ---@return Void 
-function SetLayerLineStyle() end
+function SetLayerLineStyle(layerName, lineStyle) end
 
 ---Enables or disables a layer.
----@param layerName String Name of the layer
----@param enabled Boolean True to enable, false to disable
+---@param layerName string Name of the layer
+---@param enabled boolean True to enable, false to disable
 ---@return Void 
-function SetLayerEnabled() end
+function SetLayerEnabled(layerName, enabled) end
 
 ---Sets the active layer for drawing operations.
----@param layerName String Name of the layer to set as active
+---@param layerName string Name of the layer to set as active
 ---@return Void 
-function SetActiveLayer() end
+function SetActiveLayer(layerName) end
 
 ---Sets the active drawing for modification.
----@param drawingName String Name of the drawing to set as active
+---@param drawingName string Name of the drawing to set as active
 ---@return Void 
-function SetActiveDrawing() end
+function SetActiveDrawing(drawingName) end
 
 ---Adds a vertex to a drawing element.
----@param elementTag String Tag of the drawing element
----@param x Number X-coordinate of the vertex
----@param y Number Y-coordinate of the vertex
----@param bulge Number Bulge factor for the vertex
----@param side Number Side of the vertex
+---@param elementTag string Tag of the drawing element
+---@param x number X-coordinate of the vertex
+---@param y number Y-coordinate of the vertex
+---@param bulge number Bulge factor for the vertex
+---@param side number Side of the vertex
 ---@return Int Index of the added vertex
-function AddVertex() end
+function AddVertex(elementTag, x, y, bulge, side) end
 
 ---Clears all vertices from a drawing element.
----@param elementTag String Tag of the drawing element
+---@param elementTag string Tag of the drawing element
 ---@return Void 
-function ClearVertices() end
+function ClearVertices(elementTag) end
 
 -- Functions from category: Structural
 ---Resets the application's structural file converter.
----@param outputFileName String Output file name (optional)
+---@param? outputFileName string Output file name (optional)
 ---@return Void 
-function StructReset() end
+function StructReset(outputFileName) end
 
 ---Adds a structural link to the application's structural file converter.
----@param elementTag String Element tag
+---@param elementTag string Element tag
 ---@return Void 
-function StructAddLink() end
+function StructAddLink(elementTag) end
 
 ---Adds a structural node to the application's structural file converter.
----@param elementTag String Element tag
+---@param elementTag string Element tag
 ---@return Void 
-function StructAddNode() end
+function StructAddNode(elementTag) end
 
 ---Generates and saves output files.
 ---@return Void 
@@ -2503,187 +2503,187 @@ function StructGenOutputs() end
 function StructSetNumbers() end
 
 ---Checks if an element is a structural link.
----@param elementTag String Element tag
----@return Boolean True if the element is a structural link, false otherwise.
-function IsStructLink() end
+---@param elementTag string Element tag
+---@return boolean True if the element is a structural link, false otherwise.
+function IsStructLink(elementTag) end
 
 ---Checks if an element is a structural node.
----@param elementTag String Element tag
----@return Boolean True if the element is a structural node, false otherwise.
-function IsStructNode() end
+---@param elementTag string Element tag
+---@return boolean True if the element is a structural node, false otherwise.
+function IsStructNode(elementTag) end
 
 ---Sets reaction values for a structural node.
----@param elementTag String Element tag
----@param rx Boolean Reaction in X direction (true or false)
----@param ry Boolean Reaction in Y direction (true or false)
----@param rz Boolean Reaction in Z direction (true or false)
----@param mrx Boolean Moment reaction around X axis (true or false)
----@param mry Boolean Moment reaction around Y axis (true or false)
----@param mrz Boolean Moment reaction around Z axis (true or false)
+---@param elementTag string Element tag
+---@param rx boolean Reaction in X direction (true or false)
+---@param ry boolean Reaction in Y direction (true or false)
+---@param rz boolean Reaction in Z direction (true or false)
+---@param mrx boolean Moment reaction around X axis (true or false)
+---@param mry boolean Moment reaction around Y axis (true or false)
+---@param mrz boolean Moment reaction around Z axis (true or false)
 ---@return Void 
-function SetStrucNodeRestraint() end
+function SetStrucNodeRestraint(elementTag, rx, ry, rz, mrx, mry, mrz) end
 
 ---Adds load information to a structural node.
----@param elementTag String Element tag
+---@param elementTag string Element tag
 ---@param loadCaseNumber Int Load case number
----@param fx Number Load value in X direction
----@param fy Number Load value in Y direction
----@param fz Number Load value in Z direction
----@param mx Number Moment load value around X axis
----@param my Number Moment load value around Y axis
----@param mz Number Moment load value around Z axis
----@param loadName String Load name (optional)
----@param loadIndex Int Load index (optional)
+---@param fx number Load value in X direction
+---@param fy number Load value in Y direction
+---@param fz number Load value in Z direction
+---@param mx number Moment load value around X axis
+---@param my number Moment load value around Y axis
+---@param mz number Moment load value around Z axis
+---@param? loadName string Load name (optional)
+---@param? loadIndex Int Load index (optional)
 ---@return Int The index of the added load.
-function AddStrucNodeLoad() end
+function AddStrucNodeLoad(elementTag, loadCaseNumber, fx, fy, fz, mx, my, mz, loadName, loadIndex) end
 
 ---Adds prescribed displacements values to a structural node.
----@param elementTag String Element tag
+---@param elementTag string Element tag
 ---@param loadCaseNumber Int Load case number
----@param dx Number Displacement value in X direction
----@param dy Number Displacement value in Y direction
----@param dz Number Displacement value in Z direction
----@param rx Number Rotation value around X axis
----@param ry Number Rotation value around Y axis
----@param rz Number Rotation value around Z axis
----@param loadName String Load name (optional)
----@param loadIndex Int Load index (optional)
+---@param dx number Displacement value in X direction
+---@param dy number Displacement value in Y direction
+---@param dz number Displacement value in Z direction
+---@param rx number Rotation value around X axis
+---@param ry number Rotation value around Y axis
+---@param rz number Rotation value around Z axis
+---@param? loadName string Load name (optional)
+---@param? loadIndex Int Load index (optional)
 ---@return Int The index of the added displacement.
-function AddStrucNodeDisplacement() end
+function AddStrucNodeDisplacement(elementTag, loadCaseNumber, dx, dy, dz, rx, ry, rz, loadName, loadIndex) end
 
 ---Sets extra node mass and rotatory inertia values for a structural node.
----@param elementTag String Element tag
----@param mass Number Extra node mass
----@param ix Number Rotatory inertia value around X axis
----@param iy Number Rotatory inertia value around Y axis
----@param iz Number Rotatory inertia value around Z axis
+---@param elementTag string Element tag
+---@param mass number Extra node mass
+---@param ix number Rotatory inertia value around X axis
+---@param iy number Rotatory inertia value around Y axis
+---@param iz number Rotatory inertia value around Z axis
 ---@return Void 
-function SetStrucNodeMassInertia() end
+function SetStrucNodeMassInertia(elementTag, mass, ix, iy, iz) end
 
 ---Sets matrix condensation values for a structural node.
----@param elementTag String Element tag
----@param cx Number Matrix condensation value in X direction
----@param cy Number Matrix condensation value in Y direction
----@param cz Number Matrix condensation value in Z direction
----@param crx Number Matrix condensation value around X axis
----@param cry Number Matrix condensation value around Y axis
----@param crz Number Matrix condensation value around Z axis
+---@param elementTag string Element tag
+---@param cx number Matrix condensation value in X direction
+---@param cy number Matrix condensation value in Y direction
+---@param cz number Matrix condensation value in Z direction
+---@param crx number Matrix condensation value around X axis
+---@param cry number Matrix condensation value around Y axis
+---@param crz number Matrix condensation value around Z axis
 ---@return Void 
-function SetStrucNodeMatrixCondensation() end
+function SetStrucNodeMatrixCondensation(elementTag, cx, cy, cz, crx, cry, crz) end
 
 ---Adds uniform load values to a structural link.
----@param elementTag String Element tag
+---@param elementTag string Element tag
 ---@param loadCaseNumber Int Load case number
----@param fx Number Uniform load value in X direction
----@param fy Number Uniform load value in Y direction
----@param fz Number Uniform load value in Z direction
----@param loadName String Load name (optional)
----@param loadIndex Int Load index (optional)
+---@param fx number Uniform load value in X direction
+---@param fy number Uniform load value in Y direction
+---@param fz number Uniform load value in Z direction
+---@param? loadName string Load name (optional)
+---@param? loadIndex Int Load index (optional)
 ---@return Int Index of created load.
-function AddStrucLinkUniformLoad() end
+function AddStrucLinkUniformLoad(elementTag, loadCaseNumber, fx, fy, fz, loadName, loadIndex) end
 
 ---Adds trapezoid load values to a structural link.
----@param elementTag String Element tag
+---@param elementTag string Element tag
 ---@param loadCaseNumber Int Load case number
----@param fx1 Number Trapezoid load value in X direction at start
----@param fy1 Number Trapezoid load value in Y direction at start
----@param fz1 Number Trapezoid load value in Z direction at start
----@param fx2 Number Trapezoid load value in X direction at end
----@param fy2 Number Trapezoid load value in Y direction at end
----@param fz2 Number Trapezoid load value in Z direction at end
----@param x1 Number Start position of the trapezoid load
----@param x2 Number End position of the trapezoid load
----@param y1 Number Start position of the trapezoid load
----@param y2 Number End position of the trapezoid load
----@param z1 Number Start position of the trapezoid load
----@param z2 Number End position of the trapezoid load
----@param loadName String Load name (optional)
----@param loadIndex Int Load index (optional)
+---@param fx1 number Trapezoid load value in X direction at start
+---@param fy1 number Trapezoid load value in Y direction at start
+---@param fz1 number Trapezoid load value in Z direction at start
+---@param fx2 number Trapezoid load value in X direction at end
+---@param fy2 number Trapezoid load value in Y direction at end
+---@param fz2 number Trapezoid load value in Z direction at end
+---@param x1 number Start position of the trapezoid load
+---@param x2 number End position of the trapezoid load
+---@param y1 number Start position of the trapezoid load
+---@param y2 number End position of the trapezoid load
+---@param z1 number Start position of the trapezoid load
+---@param z2 number End position of the trapezoid load
+---@param? loadName string Load name (optional)
+---@param? loadIndex Int Load index (optional)
 ---@return Int Index of created load.
-function AddStrucLinkTrapezoidLoad() end
+function AddStrucLinkTrapezoidLoad(elementTag, loadCaseNumber, fx1, fy1, fz1, fx2, fy2, fz2, x1, x2, y1, y2, z1, z2, loadName, loadIndex) end
 
 ---Adds a concentrated load values to a structural link.
----@param elementTag String Element tag
+---@param elementTag string Element tag
 ---@param loadCaseNumber Int Load case number
----@param f Number Concentrated load value
----@param x Number Position of the concentrated load
----@param y Number Position of the concentrated load
----@param z Number Position of the concentrated load
----@param loadName String Load name (optional)
----@param loadIndex Int Load index (optional)
+---@param f number Concentrated load value
+---@param x number Position of the concentrated load
+---@param y number Position of the concentrated load
+---@param z number Position of the concentrated load
+---@param? loadName string Load name (optional)
+---@param? loadIndex Int Load index (optional)
 ---@return Int Index of created load.
-function AddStrucLinkConcentratedLoad() end
+function AddStrucLinkConcentratedLoad(elementTag, loadCaseNumber, f, x, y, z, loadName, loadIndex) end
 
 ---Adds a temperature load values to a structural link.
----@param elementTag String Element tag
+---@param elementTag string Element tag
 ---@param loadCaseNumber Int Load case number
----@param t1 Number Temperature value at start
----@param t2 Number Temperature value at end
----@param alpha Number Coefficient of thermal expansion
----@param ey Number Young's modulus in local y-direction
----@param ez Number Young's modulus in local z-direction
----@param ay Number Cross-sectional area in local y-direction
----@param az Number Cross-sectional area in local z-direction
----@param loadName String Load name (optional)
----@param loadIndex Int Load index (optional)
+---@param t1 number Temperature value at start
+---@param t2 number Temperature value at end
+---@param alpha number Coefficient of thermal expansion
+---@param ey number Young's modulus in local y-direction
+---@param ez number Young's modulus in local z-direction
+---@param ay number Cross-sectional area in local y-direction
+---@param az number Cross-sectional area in local z-direction
+---@param? loadName string Load name (optional)
+---@param? loadIndex Int Load index (optional)
 ---@return Int Index of created load.
-function AddStrucLinkTemperatureLoad() end
+function AddStrucLinkTemperatureLoad(elementTag, loadCaseNumber, t1, t2, alpha, ey, ez, ay, az, loadName, loadIndex) end
 
 -- Functions from category: Units
 ---Retrieves the symbol for a specific unit within a quantity.
----@param quantity String The name of the quantity.
----@param unitName String The name of the unit.
----@return String The symbol of the unit.
-function GetUnitSymbol() end
+---@param quantity string The name of the quantity.
+---@param unitName string The name of the unit.
+---@return string The symbol of the unit.
+function GetUnitSymbol(quantity, unitName) end
 
 ---Retrieves the symbol for a unit within the project's unit system.
----@param quantity String The name of the quantity.
----@return String The symbol of the project unit.
-function GetProjectUnitSymbol() end
+---@param quantity string The name of the quantity.
+---@return string The symbol of the project unit.
+function GetProjectUnitSymbol(quantity) end
 
 ---Retrieves the name of a unit within the project's unit system.
----@param quantity String The name of the quantity.
----@return String The name of the project unit.
-function GetProjectUnitName() end
+---@param quantity string The name of the quantity.
+---@return string The name of the project unit.
+function GetProjectUnitName(quantity) end
 
 ---Retrieves the quantity tag associated with a specific unit.
----@param unitName String The name of the unit.
----@param unitSymbol String The symbol of the unit.
----@return String The quantity tag.
-function GetQuantityTag() end
+---@param unitName string The name of the unit.
+---@param unitSymbol string The symbol of the unit.
+---@return string The quantity tag.
+function GetQuantityTag(unitName, unitSymbol) end
 
 ---Retrieves the Modelica unit name for a given quantity and unit symbol.
----@param quantity String The name of the quantity.
----@param unitSymbol String The symbol of the unit.
----@return String The Modelica unit name.
-function GetModelicaUnitName() end
+---@param quantity string The name of the quantity.
+---@param unitSymbol string The symbol of the unit.
+---@return string The Modelica unit name.
+function GetModelicaUnitName(quantity, unitSymbol) end
 
 ---Retrieves the unit symbol for a given material property.
----@param materialProperty String The name of the material property.
----@return String The unit symbol for the material property.
-function GetMaterialUnitSymbol() end
+---@param materialProperty string The name of the material property.
+---@return string The unit symbol for the material property.
+function GetMaterialUnitSymbol(materialProperty) end
 
 ---Lists all available quantities.
 ---@return Void 
 function ListQuantities() end
 
 ---Lists all units for a given quantity.
----@param quantity String The name of the quantity.
+---@param quantity string The name of the quantity.
 ---@return Void 
-function ListUnits() end
+function ListUnits(quantity) end
 
 ---Adds a new unit to the unit system.
----@param quantity String The name of the quantity.
----@param unitName String The name of the unit.
----@param conversionFactor Number The conversion factor to the base unit.
----@param unitSymbol String The symbol of the unit.
+---@param quantity string The name of the quantity.
+---@param unitName string The name of the unit.
+---@param conversionFactor number The conversion factor to the base unit.
+---@param unitSymbol string The symbol of the unit.
 ---@return Void 
-function AddUnit() end
+function AddUnit(quantity, unitName, conversionFactor, unitSymbol) end
 
 ---Converts a value from one unit to another.
----@param value Number The value to convert.
----@param fromQuantity String The quantity of the source unit.
----@param fromUnit String The source unit.
----@param toUnit String The target unit.
----@return Number The converted value.
-function ConvertUnit() end
+---@param value number The value to convert.
+---@param fromQuantity string The quantity of the source unit.
+---@param fromUnit string The source unit.
+---@param toUnit string The target unit.
+---@return number The converted value.
+function ConvertUnit(value, fromQuantity, fromUnit, toUnit) end
