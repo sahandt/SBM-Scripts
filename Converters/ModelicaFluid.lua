@@ -16,7 +16,7 @@ local airtemp = MaterialGetProperty(airtag, 'TEMPERATURE')
 local airpress = MaterialGetProperty(airtag, 'ABS_PRESSURE') 
 
 ModelicaClearAll()
-local now = GetDateTimeNow("yy mm dd hh mm")
+local now = GetDateTimeNow("yy MM dd hh mm")
 CheckDuplicate(true)
 
 function Tag2ModelicaTypeName( Tag)
